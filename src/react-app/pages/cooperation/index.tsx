@@ -7,6 +7,7 @@ import { FormField, Clock24 } from "./components";
 import { useLanguage } from "@/locales/LanguageContext";
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import { genSign } from "@/lib/utils";
 
 // 定义表单数据类型
 interface FormData {
@@ -19,7 +20,9 @@ interface FormData {
   businessDescription: string;
 }
 const SUBMIT_ENDPOINT = {
-  'DEV': 'https://open.feishu.cn/open-apis/bot/v2/hook/1360ecef-f0ca-42b9-be11-07c3212eaa65',
+  'DEV': 'https://open.feishu.cn/open-apis/bot/v2/hook/11b2b7f3-9a09-43d4-8102-973f41a57114',
+  // 'SECRET': 'Vj8sk8AEpLCfCgESXUXTkb',
+  'SECRET': 'CFNFRSG8Lm4mBvraMnJk0g',
   'PROD': 'https://open.feishu.cn/open-apis/bot/v2/hook/1360ecef-f0ca-42b9-be11-07c3212eaa65'
 };
 
@@ -47,7 +50,8 @@ export default function Cooperation() {
         msg_type: "text",
         content: {
           text: JSON.stringify(data, null, 2)
-        }
+        },
+        sign: genSign(Date.now().toString(), 'Vj8sk8AEpLCfCgESXUXTkb')
       };
 
       // 发送请求

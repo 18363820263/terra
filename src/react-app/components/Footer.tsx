@@ -1,4 +1,5 @@
 import { useLanguage } from "@/locales/LanguageContext";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -61,9 +62,9 @@ export default function Footer() {
             </div>
 
             <button className="flex items-center justify-center gap-2 px-6 h-12 rounded-lg bg-blue-600 shadow-[inset_-1px_-2px_2px_0_#1051DE] hover:bg-blue-700 transition-colors">
-              <span className="text-white text-xl font-normal leading-[30px]">
+              <Link className="text-white text-xl font-normal leading-[30px]" to="/cooperation">
                 {t('contact')}
-              </span>
+              </Link>
             </button>
           </div>
         </div>
