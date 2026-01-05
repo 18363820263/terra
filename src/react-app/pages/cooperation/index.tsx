@@ -21,8 +21,8 @@ interface FormData {
 }
 const SUBMIT_ENDPOINT = {
   'DEV': 'https://open.feishu.cn/open-apis/bot/v2/hook/11b2b7f3-9a09-43d4-8102-973f41a57114',
-  // 'SECRET': 'Vj8sk8AEpLCfCgESXUXTkb',
-  'SECRET': 'CFNFRSG8Lm4mBvraMnJk0g',
+  'SECRET': 'Vj8sk8AEpLCfCgESXUXTkb',
+  // 'SECRET': 'CFNFRSG8Lm4mBvraMnJk0g',
   'PROD': 'https://open.feishu.cn/open-apis/bot/v2/hook/1360ecef-f0ca-42b9-be11-07c3212eaa65'
 };
 
@@ -62,11 +62,11 @@ export default function Cooperation() {
         content: {
           text: JSON.stringify(data, null, 2)
         },
-        sign: genSign(Date.now().toString(), 'Vj8sk8AEpLCfCgESXUXTkb')
+        sign: genSign(Date.now().toString(), SUBMIT_ENDPOINT.SECRET)
       };
 
       // 发送请求
-      const response = await fetch(SUBMIT_ENDPOINT.DEV, {
+      const response = await fetch(SUBMIT_ENDPOINT.PROD, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
