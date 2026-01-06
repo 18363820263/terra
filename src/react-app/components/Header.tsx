@@ -13,6 +13,14 @@ export default function Header() {
 
   const isActive = (path: string) => currentPath === path;
 
+  // 语言配置
+  const languages = [
+    { code: 'zh-CN', name: '简体中文' },
+    { code: 'en-US', name: 'English' },
+    { code: 'zh-TW', name: '繁體中文' },
+    { code: 'es-ES', name: 'Español' },
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
       // 获取banner元素
@@ -39,8 +47,8 @@ export default function Header() {
   }, [currentPath]);
 
   // 切换语言
-  const toggleLanguage = () => {
-    setCurrentLanguage(currentLanguage === 'zh-CN' ? 'en-US' : 'zh-CN');
+  const changeLanguage = (language: string) => {
+    setCurrentLanguage(language as any);
     setIsLanguageOpen(false);
   };
 
@@ -92,7 +100,7 @@ export default function Header() {
             <div className="flex items-center gap-1">
               <Globe className="w-4 h-4" />
               <span className="text-sm md:text-base font-normal leading-6">
-                {currentLanguage === 'zh-CN' ? '中文' : 'English'}
+                {languages.find(lang => lang.code === currentLanguage)?.name || '中文'}
               </span>
             </div>
             <ChevronDown className={`w-4 h-4 transition-transform ${isLanguageOpen ? 'rotate-180' : ''}`} />
@@ -101,14 +109,15 @@ export default function Header() {
           {/* Language dropdown */}
           {isLanguageOpen && (
             <div className="absolute top-full right-0 mt-2 bg-black/90 backdrop-blur-sm rounded-lg shadow-lg p-2 z-50">
-              <button
-                className="flex items-center gap-3 px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-colors w-full justify-start"
-                onClick={toggleLanguage}
-              >
-                <span className="text-sm md:text-base text-nowrap font-normal leading-6">
-                  {currentLanguage === 'zh-CN' ? 'English' : '中文'}
-                </span>
-              </button>
+              {languages.map((lang) => (
+                <button
+                  key={lang.code}
+                  className={`flex items-center gap-3 px-4 py-2 text-sm md:text-base text-nowrap font-normal leading-6 transition-colors w-full justify-start rounded-lg ${currentLanguage === lang.code ? 'text-white bg-white/10' : 'text-white/70 hover:text-white hover:bg-white/10'}`}
+                  onClick={() => changeLanguage(lang.code)}
+                >
+                  <span>{lang.name}</span>
+                </button>
+              ))}
             </div>
           )}
         </div>

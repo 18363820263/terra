@@ -1,12 +1,14 @@
 import { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 import { zhCN } from './zh-CN';
 import { enUS } from './en-US';
+import { zhTW } from './zh-TW';
+import { esES } from './es-ES';
 
-export type Language = 'zh-CN' | 'en-US';
+export type Language = 'zh-CN' | 'en-US' | 'zh-TW' | 'es-ES';
 
 export type TranslationKeys = keyof typeof zhCN;
 
-export type Translations = typeof zhCN;
+export type Translations = Partial<typeof zhCN>;
 
 interface LanguageContextType {
   currentLanguage: Language;
@@ -36,6 +38,10 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     switch (language) {
       case 'en-US':
         return enUS;
+      case 'zh-TW':
+        return zhTW;
+      case 'es-ES':
+        return esES;
       case 'zh-CN':
       default:
         return zhCN;
@@ -46,7 +52,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   // 翻译函数
   const t = (key: TranslationKeys): string | any => {
-    return translations[key] || key;
+    return translations[key] || zhCN[key] || key;
   };
 
   // 当语言变化时，保存到localStorage
