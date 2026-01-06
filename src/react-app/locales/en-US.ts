@@ -248,8 +248,11 @@ export const enUS = {
   enterBusinessDescription: 'Please enter',
   
   // Stats
+  dailyTransactionCount: '10,000,000+',
   dailyTransactions: 'Daily Transactions',
+  merchantCount: '10,000+',
   merchants: 'Merchants',
+  serviceTeamCount: '1,000+',
   serviceTeam: 'Service Team',
   statsGlobalCoverage: 'Global Coverage',
   branches: 'Branches',

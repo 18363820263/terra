@@ -248,8 +248,11 @@ export const zhCN = {
   enterBusinessDescription: '请输入',
   
   // Stats
+  dailyTransactionCount: '1000万+',
   dailyTransactions: '日交易笔数',
+  merchantCount: '10万+',
   merchants: '商户数',
+  serviceTeamCount: '1000+',
   serviceTeam: '服务团队',
   statsGlobalCoverage: '全球覆盖',
   branches: '分公司',

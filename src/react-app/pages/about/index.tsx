@@ -79,9 +79,9 @@ export default function About() {
         <section className="w-full bg-gray-50 py-12 md:py-16">
           <div className="w-full max-w-[1200px] mx-auto px-4 md:px-8 lg:px-0">
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
-              <StatItem value="1000万+" label={t('dailyTransactions')} />
-              <StatItem value="10万+" label={t('merchants')} />
-              <StatItem value="1000+" label={t('serviceTeam')} />
+              <StatItem value={t('dailyTransactionCount')} label={t('dailyTransactions')} />
+              <StatItem value={t('merchantCount')} label={t('merchants')} />
+              <StatItem value={t('serviceTeamCount')} label={t('serviceTeam')} />
               <StatItem value="50+" label={t('statsGlobalCoverage')} />
               <StatItem value="4+" label={t('branches')} />
             </div>
