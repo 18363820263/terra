@@ -335,7 +335,7 @@ export default function Index() {
                 title={t('reduceCost')}
                 icon={<IconArrowDown />}
                 description={t('reduceCostDesc')}
-                comparison={[{ label: t('transactionFee'), value: "节省80%" }]}
+                comparison={[{ label: t('transactionFee'), value: t('save80') }]}
               />
               <AdvantageCard
                 title={t('globalExpansion')}
@@ -352,7 +352,7 @@ export default function Index() {
                 title={t('riskManagement')}
                 icon={<IconBolt />}
                 description={t('riskManagementDesc')}
-                comparison={[{ label: t('securityGuarantee'), value: "节省99.99%" }]}
+                comparison={[{ label: t('securityGuarantee'), value: t('save9999') }]}
               />
               <AdvantageCard
                 title={t('improveUserExperience')}
@@ -390,16 +390,16 @@ export default function Index() {
                 <div className="w-1.5 h-20 rounded-full bg-white" />
                 <div className="flex flex-col items-start">
                   <span className="text-white/70 text-2xl font-light leading-9">
-                    {t('famousMerchantStories').split(' ')[0]}
+                    {t('famousMerchantStories_title')}
                   </span>
                   <span className="text-white text-4xl font-medium leading-[54px]">
-                    {t('famousMerchantStories').split(' ')[1]}
+                    {t('famousMerchantStories_description')}
                   </span>
                 </div>
               </div>
             </div>
-            <StoryCard title="故事1" />
-            <StoryCard title="故事2" />
+            <StoryCard title={t('story1')} />
+            <StoryCard title={t('story2')} />
           </div>
         </section>
 

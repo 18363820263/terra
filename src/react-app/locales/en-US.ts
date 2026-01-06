@@ -18,6 +18,10 @@ export const enUS = {
   error: 'An error occurred, please try again',
   success: 'Operation successful',
   invalidEmail: 'Please enter a valid email address',
+  save80: 'Save 80%',
+  save9999: 'Save 99.99%',
+  story1: 'Story 1',
+  story2: 'Story 2',
   
   // Hero Section
   heroTitle: 'Global Leading Cross-border Stablecoin Payment Service Provider',
@@ -108,7 +112,8 @@ export const enUS = {
   
   // Merchant Stories
   merchantStories: '「 Do something, love something, have expectations 」',
-  famousMerchantStories: 'Famous Merchant Stories',
+  famousMerchantStories_title: 'Famous',
+  famousMerchantStories_description: 'Merchant Stories',
   
   // Financial Partners
   financialPartners: '「 Cooperating with financial partners to help digital operations 」',

@@ -18,6 +18,10 @@ export const zhCN = {
   error: '发生错误，请重试',
   success: '操作成功',
   invalidEmail: '请输入有效的邮箱地址',
+  save80: '节省80%',
+  save9999: '节省99.99%',
+  story1: '故事1',
+  story2: '故事2',
   
   // Hero Section
   heroTitle: '全球领先的跨境稳定币支付服务商',
@@ -108,7 +112,8 @@ export const zhCN = {
   
   // Merchant Stories
   merchantStories: '「 有所为，有所爱，有所期待 」',
-  famousMerchantStories: '商家故事',
+  famousMerchantStories_title: '知名',
+  famousMerchantStories_description: '商家故事',
   
   // Financial Partners
   financialPartners: '「 携手金融合作伙伴，共助数字化经营 」',
