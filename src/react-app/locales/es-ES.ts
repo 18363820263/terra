@@ -22,6 +22,8 @@ export const esES = {
   save9999: 'Ahorre 99.99%',
   story1: 'Historia 1',
   story2: 'Historia 2',
+  latestNews: 'Últimas noticias: "Anuncio"',
+  moreNews: 'más',
   
   // Hero Section
   heroTitle: 'Proveedor Global Lider de Servicios de Pago con Stablecoins Transfronterizos',

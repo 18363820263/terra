@@ -22,6 +22,8 @@ export const zhTW = {
   save9999: '節省99.99%',
   story1: '故事1',
   story2: '故事2',
+  latestNews: '最新資訊：「公告」',
+  moreNews: '更多',
   
   // Hero Section
   heroTitle: '全球領先的跨境穩定幣支付服務商',

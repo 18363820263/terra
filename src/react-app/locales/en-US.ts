@@ -22,6 +22,8 @@ export const enUS = {
   save9999: 'Save 99.99%',
   story1: 'Story 1',
   story2: 'Story 2',
+  latestNews: 'Latest News: "Announcement"',
+  moreNews: 'More',
   
   // Hero Section
   heroTitle: 'Global Leading Cross-border Stablecoin Payment Service Provider',

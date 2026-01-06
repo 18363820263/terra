@@ -22,6 +22,8 @@ export const zhCN = {
   save9999: '节省99.99%',
   story1: '故事1',
   story2: '故事2',
+  latestNews: '最新资讯：「公告」',
+  moreNews: '更多',
   
   // Hero Section
   heroTitle: '全球领先的跨境稳定币支付服务商',
