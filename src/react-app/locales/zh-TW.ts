@@ -168,8 +168,8 @@ export const zhTW = {
   
   // About Page
   aboutUs: '關於我們',
-  whatIsTerragogo: 'Terragogo 是什麼？',
-  whatIsTerragogoDesc: 'Terragogo是一家專注於區塊鏈技術和數字資產領域的創新型公司，致力於為全球用戶提供安全、高效、便捷的區塊鏈基礎設施和金融服務。我們的團隊由來自全球各地的技術專家和行業領袖組成，擁有豐富的區塊鏈技術研發和金融服務經驗。',
+  whatIsTerragogo: 'TerraPay 是什麼？',
+  whatIsTerragogoDesc: 'TerraPay ，總部位於香港，是一家以穩定幣支付解決方案定位的金融科技公司。我們專注於為出海跨境電商、貿易、Web3項目、數娛/遊戲出海，自由職業平台等商戶提供基於穩定幣的下一代跨境支付與薪資發放解決方案。我們瞄準的是萬億美元規模的全球跨境B2B支付市場，以及未來所有的鏈上企業金融服務。',
   blockchainNativeLaw: '區塊鏈原生法律',
   blockchainNativeLawDesc: '我們建立了一套完整的區塊鏈原生法律框架，確保我們的服務符合全球各地的法律法規要求。我們與全球多個國家和地區的監管機構保持密切合作，積極參與區塊鏈行業的建設和發展。',
   tradingSaaS: '交易 SaaS',
@@ -237,7 +237,7 @@ export const zhTW = {
   blockchainNetworkSupport: '區塊鏈網絡支持',
   blockchainNetworkSupportDesc: '您可以根據需求選擇主流的區塊鏈網絡來接收穩定幣，目前支持ETH、TRON、 BNB Chain (BSC)、Solana、Polygon 、Arbitrum等，未來會持續增加更多網絡選項。',
   transactionScale: '交易規模',
-  transactionScaleDesc: '截至目前，TerraZip 已為全球企業用戶提供新興市場跨境結算服務。平台年交易規模累計突破10億，目前一直保持穩步提升的趨勢。在未來，我們期待與您同行。',
+  transactionScaleDesc: '截至目前，Terrapay 已為全球企業用戶提供新興市場跨境結算服務。平台年交易規模累計突破10億，目前一直保持穩步提升的趨勢。在未來，我們期待與您同行。',
   costClarity: '成本清晰',
   costClarityDesc: '費用結構簡單透明，無隱藏成本。',
   flexibleSettlement: '靈活結算',

@@ -145,8 +145,8 @@ export const enUS = {
   
   // About Page
   aboutUs: 'About Us',
-  whatIsTerragogo: 'What is Terragogo?',
-  whatIsTerragogoDesc: 'Terragogo is an innovative company focusing on blockchain technology and digital asset fields, dedicated to providing secure, efficient, and convenient blockchain infrastructure and financial services for global users. Our team consists of technical experts and industry leaders from around the world, with rich experience in blockchain technology research and development and financial services.',
+  whatIsTerragogo: 'What is TerraPay?',
+  whatIsTerragogoDesc: 'TerraPay, headquartered in Hong Kong, is a fintech company positioned with stablecoin payment solutions. We focus on providing next-generation cross-border payment and salary payment solutions based on stablecoins for merchants such as overseas cross-border e-commerce, trade, Web3 projects, digital entertainment/game overseas, and freelance platforms. We are targeting the trillion-dollar global cross-border B2B payment market and all future on-chain enterprise financial services.',
   blockchainNativeLaw: 'Blockchain Native Law',
   blockchainNativeLawDesc: 'We have established a complete blockchain native legal framework to ensure that our services comply with laws and regulations around the world. We maintain close cooperation with regulatory agencies in multiple countries and regions, and actively participate in the formulation and standardization of the blockchain industry.',
   tradingSaaS: 'Trading SaaS',
@@ -234,7 +234,7 @@ export const enUS = {
   blockchainNetworkSupport: 'Blockchain Network Support',
   blockchainNetworkSupportDesc: 'You can choose mainstream blockchain networks to receive stablecoins according to your needs. Currently supporting ETH, TRON, BNB Chain (BSC), Solana, Polygon, Arbitrum, etc. More network options will be added in the future.',
   transactionScale: 'Transaction Scale',
-  transactionScaleDesc: 'Up to now, TerraZip has provided cross-border settlement services in emerging markets for global enterprise users. The platforms annual transaction volume has exceeded 1 billion, and it has been maintaining a steady upward trend. In the future, we look forward to accompanying you.',
+  transactionScaleDesc: 'Up to now, Terrapay has provided cross-border settlement services in emerging markets for global enterprise users. The platforms annual transaction volume has exceeded 1 billion, and it has been maintaining a steady upward trend. In the future, we look forward to accompanying you.',
   costClarity: 'Cost Clarity',
   costClarityDesc: 'Simple and transparent cost structure, no hidden costs.',
   flexibleSettlement: 'Flexible Settlement',

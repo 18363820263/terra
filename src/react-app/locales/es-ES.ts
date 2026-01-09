@@ -168,8 +168,8 @@ export const esES = {
   
   // About Page
   aboutUs: 'Sobre nosotros',
-  whatIsTerragogo: '¿Qué es Terragogo?',
-  whatIsTerragogoDesc: 'Terragogo es una empresa innovadora especializada en tecnología blockchain y activos digitales, dedicada a proporcionar infraestructura blockchain y servicios financieros seguros, eficientes y convenientes para usuarios de todo el mundo. Nuestro equipo está compuesto por expertos técnicos y líderes industriales de todo el mundo, con amplia experiencia en desarrollo de tecnología blockchain y servicios financieros.',
+  whatIsTerragogo: '¿Qué es TerraPay?',
+  whatIsTerragogoDesc: 'TerraPay, con sede en Hong Kong, es una empresa fintech posicionada con soluciones de pago con stablecoins. Nos enfocamos en proporcionar soluciones de pago transfronterizo y pago de salarios basadas en stablecoins para comerciantes como comercio electrónico transfronterizo, comercio, proyectos Web3, entretenimiento digital/juegos internacionales y plataformas de trabajo independiente. Estamos apuntando al mercado de pagos B2B transfronterizos global de billones de dólares y a todos los servicios financieros empresariales en cadena del futuro.',
   blockchainNativeLaw: 'Ley nativa de blockchain',
   blockchainNativeLawDesc: 'Hemos establecido un marco legal nativo de blockchain completo para garantizar que nuestros servicios cumplan con los requisitos legales y regulatorios de todo el mundo. Mantenemos una estrecha colaboración con organismos reguladores de múltiples países y regiones, participando activamente en la construcción y desarrollo de la industria blockchain.',
   tradingSaaS: 'Trading SaaS',
@@ -237,7 +237,7 @@ export const esES = {
   blockchainNetworkSupport: 'Soporte para redes blockchain',
   blockchainNetworkSupportDesc: 'Puede elegir redes blockchain principales para recibir stablecoins según sus necesidades, actualmente admite ETH, TRON, BNB Chain (BSC), Solana, Polygon, Arbitrum, etc., y se agregarán más opciones de red en el futuro.',
   transactionScale: 'Escala de transacciones',
-  transactionScaleDesc: 'Hasta la fecha, TerraZip ha proporcionado servicios de liquidación transfronteriza en mercados emergentes para usuarios empresariales globales. La escala acumulada de transacciones anuales de la plataforma ha superado los 1.000 millones, y actualmente mantiene una tendencia de crecimiento constante. En el futuro, esperamos caminar juntos con usted.',
+  transactionScaleDesc: 'Hasta la fecha, Terrapay ha proporcionado servicios de liquidación transfronteriza en mercados emergentes para usuarios empresariales globales. La escala acumulada de transacciones anuales de la plataforma ha superado los 1.000 millones, y actualmente mantiene una tendencia de crecimiento constante. En el futuro, esperamos caminar juntos con usted.',
   costClarity: 'Claridad de costos',
   costClarityDesc: 'Estructura de costos simple y transparente, sin costos ocultos.',
   flexibleSettlement: 'Liquidación flexible',
