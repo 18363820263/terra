@@ -17,8 +17,8 @@ export default function Footer() {
         </div>
         <div className="relative max-w-[1200px] mx-auto py-12 md:py-[72px]">
           <div className="flex flex-col items-center gap-10">
-            <div className="flex flex-col md:flex-row justify-between items-start w-full gap-10 md:gap-4">
-              <div className="flex flex-col items-center gap-4 flex-1">
+            <div className="flex flex-col md:flex-row justify-between items-start w-full gap-10">
+              <div className="flex flex-col items-center gap-4 w-full lg:w-[25%]">
                 <div className="flex flex-col items-center w-full">
                   <div className="flex items-center justify-center opacity-40 drop-shadow-md">
                     <span className="text-white text-center text-4xl md:text-5xl font-semibold leading-[72px] h-[36px] overflow-hidden">
@@ -32,7 +32,7 @@ export default function Footer() {
                 </p>
               </div>
 
-              <div className="flex flex-col items-center gap-4 flex-2">
+              <div className="flex flex-col items-center gap-4 w-full lg:w-[50%]">
                 <div className="flex flex-col items-center w-full">
                   <div className="flex items-center justify-center opacity-40 drop-shadow-md">
                     <span className="text-white text-center text-4xl md:text-5xl font-semibold leading-[72px] h-[36px] overflow-hidden">
@@ -41,12 +41,12 @@ export default function Footer() {
                   </div>
                   <div className="h-px w-full bg-white/20" />
                 </div>
-                <p className="text-white text-base md:text-xl font-normal leading-[30px] text-center text-nowrap">
+                <p className="text-white text-base md:text-xl font-normal leading-[30px] text-center">
                   {t('footerStep2')}
                 </p>
               </div>
 
-              <div className="flex flex-col items-center gap-4 flex-1">
+              <div className="flex flex-col items-center gap-4 w-full lg:w-[25%]">
                 <div className="flex flex-col items-center w-full">
                   <div className="flex items-center justify-center opacity-40 drop-shadow-md">
                     <span className="text-white text-center text-4xl md:text-5xl font-semibold leading-[72px] h-[36px] overflow-hidden">

@@ -51,7 +51,7 @@ export default function About() {
                 <div className="absolute inset-0 bg-blue-50 -z-10" />
                 <img
                   src="https://api.builder.io/api/v1/image/assets/TEMP/e00c23c32eac391f1ed0bdde76eb7a69cf6228e6?width=1424"
-                  alt="TerraZip Building"
+                  alt="Terrapay Building"
                   className="w-full h-full rounded-2xl object-cover relative"
                 />
               </div>

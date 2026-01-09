@@ -30,7 +30,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   // 从localStorage获取语言偏好，默认中文
   const [currentLanguage, setCurrentLanguage] = useState<Language>(() => {
     const savedLanguage = localStorage.getItem('language');
-    return (savedLanguage as Language) || 'zh-CN';
+    return (savedLanguage as Language) || 'en-US';
   });
 
   // 获取当前语言的翻译

@@ -94,7 +94,7 @@ export default function Header() {
         {/* Language switcher - outside nav for proper positioning */}
         <div className="relative ml-10">
           <button
-            className="hidden md:flex items-center gap-3 text-white/70 hover:text-white transition-colors"
+            className=" flex items-center gap-3 text-white/70 hover:text-white transition-colors"
             onClick={() => setIsLanguageOpen(!isLanguageOpen)}
           >
             <div className="flex items-center gap-1">

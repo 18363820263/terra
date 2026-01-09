@@ -360,7 +360,7 @@ export default function Index() {
                 ))}
               </div>
               </div>
-              <div className="arrow-container absolute top-1/2 -translate-y-1/2 flex items-center justify-between left-[-50px] right-[-50px]">
+              <div className="arrow-container absolute top-1/2 -translate-y-1/2 flex items-center justify-between left-1 lg:left-[-50px] right-1 lg:right-[-50px]">
                 {currentSlide !== 0 ? (
                   <span
                     className="cursor-pointer text-black/50 hover:text-[#2563eb]"
