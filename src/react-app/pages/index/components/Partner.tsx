@@ -11,22 +11,53 @@ import LogoCobo from "@/assets/imgs/partner/cobo.svg";
 
 export function Partner() {
   return (
-    <>
-      <div className="flex items-center justify-center gap-6 overflow-hidden pb-4">
-        <PartnerLogo icon={LogoVisa} />
-        <PartnerLogo icon={LogoBlancBlock} />
-        <PartnerLogo icon={LogoHashKey} />
-        <PartnerLogo icon={LogoTrubit} />
-        <PartnerLogo icon={LogoOCBC} />
+    <div className="relative">
+      {/* First row - scroll right */}
+      <div className="flex items-center gap-6 overflow-hidden pb-4 whitespace-nowrap">
+        <div className="animate-scroll-right flex items-center gap-6">
+          <PartnerLogo icon={LogoVisa} />
+          <PartnerLogo icon={LogoBlancBlock} />
+          <PartnerLogo icon={LogoHashKey} />
+          <PartnerLogo icon={LogoTrubit} />
+          <PartnerLogo icon={LogoOCBC} />
+          <PartnerLogo icon={LogoBOC} />
+          <PartnerLogo icon={LogoCobo} />
+          <PartnerLogo icon={LogoMastercard} />
+          {/* Duplicate logos for seamless scrolling */}
+          <PartnerLogo icon={LogoVisa} />
+          <PartnerLogo icon={LogoBlancBlock} />
+          <PartnerLogo icon={LogoHashKey} />
+          <PartnerLogo icon={LogoTrubit} />
+          <PartnerLogo icon={LogoOCBC} />
+          <PartnerLogo icon={LogoBOC} />
+          <PartnerLogo icon={LogoCobo} />
+          <PartnerLogo icon={LogoMastercard} />
+        </div>
       </div>
-      <div className="flex items-center justify-center gap-6 overflow-hidden">
-        <PartnerLogo icon={LogoOCBC} />
-        <PartnerLogo icon={LogoBOC} />
-        <PartnerLogo icon={LogoCobo} />
-        <PartnerLogo icon={LogoMastercard} />
-        <PartnerLogo icon={LogoHexPay} />
-        <PartnerLogo icon={LogoBlancBlock} />
+      {/* Second row - scroll left */}
+      <div className="flex items-center gap-6 overflow-hidden whitespace-nowrap">
+        <div className="animate-scroll-left flex items-center gap-6">
+          <PartnerLogo icon={LogoHashKey} />
+          <PartnerLogo icon={LogoOCBC} />
+          <PartnerLogo icon={LogoBOC} />
+          <PartnerLogo icon={LogoCobo} />
+          <PartnerLogo icon={LogoMastercard} />
+          <PartnerLogo icon={LogoHexPay} />
+          <PartnerLogo icon={LogoBlancBlock} />
+          <PartnerLogo icon={LogoVisa} />
+          {/* Duplicate logos for seamless scrolling */}
+          <PartnerLogo icon={LogoHashKey} />
+          <PartnerLogo icon={LogoOCBC} />
+          <PartnerLogo icon={LogoBOC} />
+          <PartnerLogo icon={LogoCobo} />
+          <PartnerLogo icon={LogoMastercard} />
+          <PartnerLogo icon={LogoHexPay} />
+          <PartnerLogo icon={LogoBlancBlock} />
+          <PartnerLogo icon={LogoVisa} />
+        </div>
       </div>
-    </>
+      
+
+    </div>
   );
 }

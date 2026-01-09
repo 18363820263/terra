@@ -470,7 +470,7 @@ export default function Index() {
         </section>
 
         {/* Financial Partners */}
-        <section className="w-full px-4 flex flex-col items-center gap-10 pb-20">
+        <section className="w-full flex flex-col items-center gap-10 pb-20">
           <div className="w-full max-w-[800px] flex flex-col items-start gap-3">
             <h2 className="w-full text-gray-950 text-4xl font-medium leading-[54px] text-center">
               {t('financialPartners')}
