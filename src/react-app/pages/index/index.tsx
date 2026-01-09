@@ -193,7 +193,7 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Why Choose Terrazip */}
+        {/* Why Choose Terrapay */}
         <section className="w-full flex flex-col items-center gap-10">
           <div className="w-full max-w-[1200px] flex flex-col items-center gap-3">
             <h2 className="text-gray-950 text-4xl font-medium leading-[54px] text-center">
@@ -204,9 +204,9 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="w-full flex flex-col items-center gap-6">
+          <div className="w-full flex flex-col items-center gap-10">
             {/* Tabs */}
-            <div className="flex items-start gap-6 flex-wrap justify-center">
+            <div className="flex items-start gap-20 flex-wrap justify-center">
               {
                 Object.keys(tabContents).map((key) => (
                   <div
@@ -225,15 +225,14 @@ export default function Index() {
               }
             </div>
 
-            {/* Content */}
-
+            {/* Why Choose Content */}
             <div className="w-full bg-gray-50 flex items-center">
-              <div className="w-full max-w-[1200px] m-auto flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
-                <div className="flex-1 flex flex-col items-start gap-6 md:gap-8  p-6 md:p-10 lg:p-14">
-                  <h3 className="text-gray-950 text-xl md:text-2xl font-medium leading-relaxed md:leading-9">
-                    {tabContents[activeTab].title}
+              <div className="w-full max-w-[1200px] m-auto flex flex-col lg:flex-row gap-6 lg:gap-12">
+                <div className="flex-1 min-w-0 flex flex-col items-start gap-6 md:gap-8 h-[440px] p-6 md:p-10 lg:p-14">
+                  <h3 className="text-gray-950 h-[70px] text-xl md:text-2xl font-medium leading-relaxed md:leading-9">
+                    {tabContents[activeTab].description}
                   </h3>
-                  <div className="flex flex-col items-start gap-2.5">
+                  <div className="flex flex-1 flex-col items-start gap-2.5">
                     {tabContents[activeTab].points.map((point, index) => (
                       <div key={index} className="flex items-start gap-2">
                         <div className="w-1.5 h-3 rounded-full bg-blue-600 mt-1.5" />
@@ -250,9 +249,9 @@ export default function Index() {
                     <ChevronRight className="w-4 h-4 text-gray-950" />
                   </button>
                 </div>
-                <div className="flex-1 relative w-full">
-                  <div className=" inset-0 flex items-center justify-center">
-                    <img className="" src={tabContents[activeTab].img} alt="Security" />
+                <div className="relative">
+                  <div className="inset-0 flex items-center justify-center">
+                    <img className="lg:h-[440px]" src={tabContents[activeTab].img} alt="Security" />
                   </div>
                 </div>
               </div>

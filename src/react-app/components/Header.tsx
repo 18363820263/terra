@@ -53,7 +53,7 @@ export default function Header() {
   };
 
   return (
-    <header ref={headerRef} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black' : 'bg-black/10 backdrop-blur'}`}>
+    <header ref={headerRef} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/50' : 'bg-black/10'} backdrop-blur`}>
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-[120px] h-20 flex items-center justify-end gap-2 relative">
         <nav className="flex items-start gap-4 md:gap-6 lg:gap-10">
           <Link
