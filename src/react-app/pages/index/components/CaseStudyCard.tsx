@@ -16,7 +16,7 @@ export default function CaseStudyCard({
   metric2Label: string;
 }) {
   return (
-    <div className="flex min-w-[300px] sm:min-w-[320px] md:min-w-[350px] flex-col items-center gap-6 p-10 rounded-2xl bg-white">
+    <div className="flex min-w-[280px] sm:min-w-[300px] md:min-w-[320px] lg:min-w-[350px] flex-col items-center gap-6 p-6 sm:p-8 lg:p-10 rounded-2xl bg-white">
       <div className="w-16 h-16 flex items-center justify-center">
         <div>{icon}</div>
       </div>

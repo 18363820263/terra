@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Announcement from "@/components/Announcement";
@@ -14,7 +14,85 @@ import { Partner } from "./components/Partner";
 export default function Index() {
   const [activeTab, setActiveTab] = useState("security");
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
   const { t } = useLanguage();
+  
+  // 监听窗口大小变化
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  // 轮播配置
+  const gap = 24; // 卡片间距
+  const cards = [
+    { 
+      icon: <IconMCN />, 
+      title: t('mcnAgency'), 
+      description: t('mcnAgencyDesc'), 
+      metric1: "+200%", 
+      metric1Label: t('entrepreneurEarnings'), 
+      metric2: "+90%", 
+      metric2Label: t('settlementEfficiency') 
+    },
+    { 
+      icon: <IconEco />, 
+      title: t('crossBorderEcommerce'), 
+      description: t('crossBorderEcommerceDesc'), 
+      metric1: "+400%", 
+      metric1Label: t('transactionGrowth'), 
+      metric2: "+40%", 
+      metric2Label: t('paymentSuccessRate') 
+    },
+    { 
+      icon: <IconGame />, 
+      title: t('gameEntertainment'), 
+      description: t('gameEntertainmentDesc'), 
+      metric1: "+200%", 
+      metric1Label: t('rechargeConversionRate'), 
+      metric2: "+90%", 
+      metric2Label: t('userSatisfaction') 
+    },
+    { 
+      icon: <IconStore />, 
+      title: t('offlineStores'), 
+      description: t('offlineStoresDesc'), 
+      metric1: "130%", 
+      metric1Label: t('foreignCustomers'), 
+      metric2: "99.99%", 
+      metric2Label: t('paymentSuccessRate') 
+    }
+  ];
+  
+  // 根据屏幕宽度确定显示的卡片数量
+  const getVisibleCards = () => {
+    if (windowWidth >= 1200) return 3;
+    if (windowWidth >= 768) return 2;
+    return 1;
+  };
+  
+  // 计算滑动距离，确保最后一个卡片的右边不会离开视口
+  const calculateSlideDistance = (index: number) => {
+    const visibleCards = getVisibleCards();
+    let cardWidth = 300; // 基础卡片宽度
+    
+    // 根据屏幕宽度调整卡片宽度
+    if (windowWidth >= 1200) cardWidth = 350;
+    else if (windowWidth >= 768) cardWidth = 320;
+    else if (windowWidth >= 640) cardWidth = 300;
+    else cardWidth = 280;
+    
+    const maxSlideIndex = cards.length - visibleCards;
+    // 如果超过最大可滑动索引，滑动距离固定
+    if (index >= maxSlideIndex) {
+      return maxSlideIndex * (cardWidth + gap);
+    }
+    return index * (cardWidth + gap);
+  };
 
   const tabContents = {
     security: {
@@ -263,50 +341,29 @@ export default function Index() {
             <div className="w-full flex overflow-hidden">
               <div 
                 className="flex gap-6 transition-transform duration-500 ease-out"
-                style={{ transform: `translateX(-${currentSlide * (350 + 24)}px)` }}
+                style={{ 
+                  // 使用calculateSlideDistance函数计算滑动距离，确保最后一个卡片的右边不会离开右侧
+                  transform: `translateX(-${calculateSlideDistance(currentSlide)}px)` 
+                }}
               >
-                <CaseStudyCard
-                  icon={<IconMCN />}
-                  title={t('mcnAgency')}
-                  description={t('mcnAgencyDesc')}
-                  metric1="+200%"
-                  metric1Label={t('entrepreneurEarnings')}
-                  metric2="+90%"
-                  metric2Label={t('settlementEfficiency')}
-                />
-                <CaseStudyCard
-                  icon={<IconEco />}
-                  title={t('crossBorderEcommerce')}
-                  description={t('crossBorderEcommerceDesc')}
-                  metric1="+400%"
-                  metric1Label={t('transactionGrowth')}
-                  metric2="+40%"
-                  metric2Label={t('paymentSuccessRate')}
-                />
-                <CaseStudyCard
-                  icon={<IconGame />}
-                  title={t('gameEntertainment')}
-                  description={t('gameEntertainmentDesc')}
-                  metric1="+200%"
-                  metric1Label={t('rechargeConversionRate')}
-                  metric2="+90%"
-                  metric2Label={t('userSatisfaction')}
-                />
-                <CaseStudyCard
-                  icon={<IconStore />}
-                  title={t('offlineStores')}
-                  description={t('offlineStoresDesc')}
-                  metric1="130%"
-                  metric1Label={t('foreignCustomers')}
-                  metric2="99.99%"
-                  metric2Label={t('paymentSuccessRate')}
-                />
+                {cards.map((card, index) => (
+                  <CaseStudyCard
+                    key={index}
+                    icon={card.icon}
+                    title={card.title}
+                    description={card.description}
+                    metric1={card.metric1}
+                    metric1Label={card.metric1Label}
+                    metric2={card.metric2}
+                    metric2Label={card.metric2Label}
+                  />
+                ))}
               </div>
             </div>
 
             {/* Carousel control */}
             <div className="flex items-center gap-2">
-              {[0, 1, 2, 3].map((index) => (
+              {cards.map((_, index) => (
                 <button
                   key={index}
                   className={`w-4 h-4 rounded-full transition-all duration-300 ${index === currentSlide ? 'w-8 bg-gray-400' : 'bg-gray-200'}`}

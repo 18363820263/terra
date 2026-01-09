@@ -108,14 +108,17 @@ export default function Header() {
 
           {/* Language dropdown */}
           {isLanguageOpen && (
-            <div className="absolute top-full right-0 mt-2 bg-black/90 backdrop-blur-sm rounded-lg shadow-lg p-2 z-50">
+            <div className="absolute top-full right-0 mt-2 bg-white backdrop-blur-sm rounded-lg shadow-lg p-3 z-50">
               {languages.map((lang) => (
-                <button
+                <button 
                   key={lang.code}
-                  className={`flex items-center gap-3 px-4 py-2 text-sm md:text-base text-nowrap font-normal leading-6 transition-colors w-full justify-start rounded-lg ${currentLanguage === lang.code ? 'text-white bg-white/10' : 'text-white/70 hover:text-white hover:bg-white/10'}`}
+                  className={`flex relative border-b border-gray-100 last:border-b-0 items-center gap-3 px-4 py-2 text-sm md:text-base text-nowrap font-normal leading-6 transition-colors w-full justify-start ${currentLanguage === lang.code ? 'text-[#2563EB]' : 'text-black/70 hover:text-[#2563EB]/80 hover:bg-white/10'}`}
                   onClick={() => changeLanguage(lang.code)}
                 >
                   <span>{lang.name}</span>
+                  {currentLanguage === lang.code && (
+                    <span className="active-block absolute top-[50%] translate-y-[-50%] translate-x-[-12px] left-0 w-[3px] h-[12px] bg-[#2563EB]"></span>
+                  )}
                 </button>
               ))}
             </div>
