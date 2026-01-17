@@ -236,7 +236,7 @@ export default function Index() {
               <div className="w-full max-w-[1200px] m-auto flex flex-col lg:flex-row gap-6 lg:gap-12">
                 <div className="flex-1 min-w-0 flex flex-col items-start gap-6 md:gap-8 min-h-[440px] p-6 md:p-10 lg:p-14">
                   <h3 className="text-gray-950 h-[70px] text-xl md:text-2xl font-medium leading-relaxed md:leading-9">
-                    <ClampedContentWithTooltip content={tabContents[activeTab].description} />
+                    <ClampedContentWithTooltip className="line-clamp-2" content={tabContents[activeTab].description} />
                   </h3>
                   <div className="flex flex-1 flex-col items-start gap-2.5">
                     {tabContents[activeTab].points.map((point, index) => (

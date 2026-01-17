@@ -114,5 +114,6 @@
 		"preview": "npm run build && vite preview",
 		"typecheck": "tsc"
 	},
-	"type": "module"
+	"type": "module",
+	"packageManager": "npm@10.8.1"
 }

@@ -8,13 +8,12 @@ interface ClampedContentWithTooltipProps {
 
 export const ClampedContentWithTooltip: React.FC<ClampedContentWithTooltipProps> = ({
   content,
-  className = '',
-  rows = 2
+  className = ''
 }) => {
 
   return (
     <p
-      className={`${className} line-clamp-${rows} overflow-hidden`}
+      className={`${className}`}
       title={content}
     >
       {content}
