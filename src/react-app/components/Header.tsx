@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Globe, ChevronDown } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { useLanguage } from "@/locales/LanguageContext";
+import { IconLogo } from "./IconLogo";
 
 export default function Header() {
   const location = useLocation();
@@ -54,8 +55,12 @@ export default function Header() {
 
   return (
     <header ref={headerRef} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/50' : 'bg-black/10'} backdrop-blur`}>
-      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-[120px] h-20 flex items-center justify-end gap-2 relative">
-        <nav className="flex items-start gap-4 md:gap-6 lg:gap-10">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-[120px] h-20 flex items-center justify-between gap-2 relative">
+        <div className="flex items-center">
+          <IconLogo />
+        </div>
+        <div className="flex items-center gap-2">
+          <nav className="flex items-start gap-4 md:gap-6 lg:gap-10">
           <Link
             to="/"
             className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/") ? "text-white" : "text-white/70 hover:text-white"}`}
@@ -124,8 +129,8 @@ export default function Header() {
             </div>
           )}
         </div>
-
       </div>
+    </div>
     </header>
   );
 }
