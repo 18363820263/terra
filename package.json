@@ -1,5 +1,6 @@
 {
 	"name": "terra-gogo-official",
+  "version": "1.0.0",
 	"description": "Official website for Terra Gogo",
 	"cloudflare": {
 		"label": "Terra Gogo Official",
