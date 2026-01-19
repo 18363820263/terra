@@ -199,7 +199,7 @@ export const zhCN = {
   // Values
   values: '核心价值观',
   innovation: '创新',
-  passion: '热枕',
+  passion: '热忱',
   professionalism: '专业',
   integrity: '诚信',
   enterprise: '进取',

@@ -222,7 +222,7 @@ export const zhTW = {
   // Values
   values: '核心價值觀',
   innovation: '創新',
-  passion: '熱枕',
+  passion: '熱忱',
   professionalism: '專業',
   integrity: '誠信',
   enterprise: '進取',
