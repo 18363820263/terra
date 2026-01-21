@@ -26,7 +26,7 @@ export const zhTW = {
   moreNews: '更多',
   
   // Hero Section
-  heroTitle: '全球領先的跨境穩定幣支付服務商',
+  heroTitle: '全場景跨境穩定幣支付服務商',
   heroSubtitle: '基於USDT、USDC等穩定幣的快速、安全且合規的端到端支付平台，助力商戶數字化經營升級',
   
   // Global Coverage
@@ -73,7 +73,7 @@ export const zhTW = {
   multiSignature: '多重簽名',
   multiSignatureDesc: '多層級資金安全控制機制，防止未經授權的資金轉移',
   coldStorage: '冷錢包存儲',
-  coldStorageDesc: '大部分資金存儲在離線冷錢包中，確保資金安全',
+  coldStorageDesc: '95% 的資金存於冷儲存帳戶，5% 的資金存於熱錢包帳戶，以確保資金安全',
   
   // Product Ecosystem
   productEcosystem: '產品生態',
@@ -229,7 +229,7 @@ export const zhTW = {
   
   // Vision & Mission
   vision: '願景：',
-  visionDesc: '成為全球最受信任、最便捷的穩定幣支付解決方案。',
+  visionDesc: '成為全球受信任、便捷的穩定幣支付解決方案。',
   mission: '使命：',
   missionDesc: '通過區塊鏈技術，打破跨境支付的壁壘，為企業和個人提供比傳統金融系統更快、更便宜、更透明的支付結算服務。',
   

@@ -26,7 +26,7 @@ export const esES = {
   moreNews: 'más',
   
   // Hero Section
-  heroTitle: 'Proveedor Global Lider de Servicios de Pago con Stablecoins Transfronterizos',
+  heroTitle: 'Proveedor de servicios de pago transfronterizos con monedas estables en escenarios completos',
   heroSubtitle: 'Plataforma de pago de extremo a extremo rápida, segura y regulada basada en stablecoins como USDT y USDC, ayudando a los comerciantes a actualizar sus operaciones digitales',
   
   // Global Coverage
@@ -73,7 +73,7 @@ export const esES = {
   multiSignature: 'Firma múltiple',
   multiSignatureDesc: 'Mecanismo de control de seguridad de fondos de múltiples niveles para prevenir transferencias de fondos no autorizadas',
   coldStorage: 'Almacenamiento en billetera fría',
-  coldStorageDesc: 'La mayoría de los fondos se almacenan en billeteras frías sin conexión para garantizar la seguridad de los fondos',
+  coldStorageDesc: 'El 95% de los fondos se almacenan en una cuenta de almacenamiento en frío y el 5% se almacenan en una cuenta de billetera caliente para garantizar la seguridad de los fondos.',
   
   // Product Ecosystem
   productEcosystem: 'Ecosistema de productos',
@@ -229,7 +229,7 @@ export const esES = {
   
   // Vision & Mission
   vision: 'Visión: ',
-  visionDesc: 'Convertirse en la solución de pago con stablecoins más confiable y conveniente del mundo.',
+  visionDesc: 'Convertirnos en una solución de pago de monedas estables confiable y conveniente a nivel mundial.',
   mission: 'Misión: ',
   missionDesc: 'Mediante la tecnología blockchain, romper las barreras del pago transfronterizo, proporcionar a empresas y particulares servicios de pago y liquidación más rápidos, más baratos y más transparentes que los sistemas financieros tradicionales.',
   

@@ -26,7 +26,7 @@ export const enUS = {
   moreNews: 'More',
   
   // Hero Section
-  heroTitle: 'Global Leading Cross-border Stablecoin Payment Service Provider',
+  heroTitle: 'Full-scenario Cross-border Stablecoin Payment Service Provider',
   heroSubtitle: 'A fast, secure and compliant end-to-end payment platform based on stablecoins such as USDT and USDC, helping merchants upgrade their digital operations',
   
   // Global Coverage
@@ -72,7 +72,7 @@ export const enUS = {
   multiSignature: 'Multi-Signature',
   multiSignatureDesc: 'Multi-level private key authorization mechanism to prevent single point of failure and internal risks',
   coldStorage: 'Cold-Hot Storage Separation',
-  coldStorageDesc: '95% of funds are stored in cold storage accounts, 5% in hot wallet accounts to maximize fund security',
+  coldStorageDesc: '95% of funds are stored in cold storage accounts, 5% in hot wallet accounts to ensure fund security',
   
   // Product Ecosystem
   productEcosystem: '「 Product Ecosystem 」',
@@ -206,7 +206,7 @@ export const enUS = {
   
   // Vision & Mission
   vision: 'Vision:',
-  visionDesc: 'To become the world\'s most trusted and convenient stablecoin payment solution.',
+  visionDesc: 'To become the world\'s trusted and convenient stablecoin payment solution.',
   mission: 'Mission:',
   missionDesc: 'Through blockchain technology, break the barriers of cross-border payments, providing faster, cheaper, and more transparent payment settlement services for enterprises and individuals than traditional financial systems.',
   

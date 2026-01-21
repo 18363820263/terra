@@ -26,7 +26,7 @@ export const zhCN = {
   moreNews: '更多',
   
   // Hero Section
-  heroTitle: '全球领先的跨境稳定币支付服务商',
+  heroTitle: '全场景跨境稳定币支付服务商',
   heroSubtitle: '基于USDT、USDC等稳定币的快速、安全且合规的端到端支付平台，助力商户数字化经营升级',
   
   // Global Coverage
@@ -72,7 +72,7 @@ export const zhCN = {
   multiSignature: '多重签名',
   multiSignatureDesc: '多重私钥授权机制，防止单点故障和内部风险',
   coldStorage: '冷热分离',
-  coldStorageDesc: '95% 的资金存于冷存储账户，5% 的资金存于热钱包账户，以最大程度保障资金安全',
+  coldStorageDesc: '95% 的资金存于冷存储账户，5% 的资金存于热钱包账户，以保障资金安全',
   
   // Product Ecosystem
   productEcosystem: '「 产品生态系统 」',
@@ -206,7 +206,7 @@ export const zhCN = {
   
   // Vision & Mission
   vision: '愿景：',
-  visionDesc: '成为全球最受信任、最便捷的稳定币支付解决方案。',
+  visionDesc: '成为全球受信任、便捷的稳定币支付解决方案。',
   mission: '使命：',
   missionDesc: '通过区块链技术，打破跨境支付的壁垒，为企业和个人提供比传统金融系统更快、更便宜、更透明的支付结算服务。',
   
