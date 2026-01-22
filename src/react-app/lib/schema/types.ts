@@ -155,6 +155,24 @@ export interface ImageObject {
   height?: number;
 }
 
+export interface BlogPosting extends Thing {
+  '@type': 'BlogPosting';
+  headline: string;
+  articleBody: string;
+  author: Organization | Person;
+  publisher: Organization;
+  datePublished: string;
+  dateModified?: string;
+  keywords?: string;
+  mainEntityOfPage?: WebPage;
+}
+
+export interface Person {
+  '@type': 'Person';
+  name: string;
+  url?: string;
+}
+
 export type Schema =
   | Organization
   | WebSite
@@ -164,4 +182,5 @@ export type Schema =
   | WebPage
   | Place
   | BreadcrumbList
-  | FAQPage;
+  | FAQPage
+  | BlogPosting;

@@ -27,28 +27,51 @@ export function formatDate(dateString: string, locale: string = 'en-US'): string
 }
 
 /**
- * Parse markdown content (basic implementation)
- * In production, use a library like marked or remark
+ * Parse markdown content to HTML
+ * Converts markdown to proper HTML for Schema.org and display
  */
 export function parseMarkdown(content: string): string {
-  // Basic markdown parsing - replace with proper library in production
-  return content
-    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
-    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+  let html = content
+    // Headers
     .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-    .replace(/\*\*(.*)\*\*/gim, '<strong>$1</strong>')
-    .replace(/\*(.*)\*/gim, '<em>$1</em>')
+    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+    // Bold and italic
+    .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    // Links
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+    // Lists
+    .replace(/^\d+\.\s+(.*)$/gim, '<li>$1</li>')
+    .replace(/^[-*]\s+(.*)$/gim, '<li>$1</li>')
+    // Line breaks and paragraphs
     .replace(/\n\n/g, '</p><p>')
-    .replace(/^(.+)$/gim, '<p>$1</p>')
+    .replace(/\n/g, '<br>');
+
+  // Wrap list items in ul/ol tags
+  html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+
+  // Wrap content in paragraphs if not already wrapped
+  if (!html.startsWith('<h') && !html.startsWith('<p') && !html.startsWith('<ul')) {
+    html = '<p>' + html + '</p>';
+  }
+
+  // Clean up any double-wrapped paragraphs
+  html = html
     .replace(/<p><h/g, '<h')
-    .replace(/<\/h([1-6])><\/p>/g, '</h$1>');
+    .replace(/<\/h([1-6])><\/p>/g, '</h$1>')
+    .replace(/<p><ul>/g, '<ul>')
+    .replace(/<\/ul><\/p>/g, '</ul>');
+
+  return html;
 }
 
 /**
- * Generate article excerpt from content
+ * Generate article excerpt from content (plain text)
  */
 export function generateExcerpt(content: string, maxLength: number = 150): string {
-  const plainText = content.replace(/[#*`]/g, '').trim();
+  const plainText = content.replace(/[#*`\[\]()]/g, '').trim();
   if (plainText.length <= maxLength) return plainText;
   return plainText.substring(0, maxLength).trim() + '...';
 }

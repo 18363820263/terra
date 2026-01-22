@@ -6,7 +6,7 @@
 export * from './types';
 export * from './data/organization';
 
-// Generator exports will be added as they are created
+// Generator exports
 export { generateOrganizationSchema } from './generators/organization';
 export { generateWebSiteSchema } from './generators/website';
 export { generateServiceSchema } from './generators/service';
@@ -14,6 +14,7 @@ export { generateContactPageSchema } from './generators/contactPage';
 export { generateProductSchema } from './generators/product';
 export { generateBreadcrumbSchema } from './generators/breadcrumb';
 export { generateFAQSchema } from './generators/faq';
+export { generateBlogPostingSchema } from './generators/blogPosting';
 
 /**
  * Helper function to create a JSON-LD script tag content
