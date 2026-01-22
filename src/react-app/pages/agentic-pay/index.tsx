@@ -199,8 +199,8 @@ export default function AgenticPay() {
             />
             <RoadmapCard
               quarter="Q4 2026"
-              title={t('globalExpansion')}
-              items={[t('globalExpansionItem1'), t('globalExpansionItem2')]}
+              title={t('roadmapGlobalExpansion')}
+              items={[t('roadmapGlobalExpansionItem1'), t('roadmapGlobalExpansionItem2')]}
             />
           </div>
         </section>
