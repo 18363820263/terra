@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Announcement from "@/components/Announcement";
@@ -12,12 +12,27 @@ import { useLanguage } from "@/locales/LanguageContext";
 import { Partner } from "./components/Partner";
 import { Link } from "react-router-dom";
 import { ClampedContentWithTooltip } from "@/components/ClampedContentWithTooltip";
+import { useSchemaMarkup } from "@/hooks/useSchemaMarkup";
+import { generateOrganizationSchema, generateWebSiteSchema, generateServiceSchema } from "@/lib/schema";
 
 export default function Index() {
   const [activeTab, setActiveTab] = useState("security");
   const [currentSlide, setCurrentSlide] = useState(0);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
-  const { t } = useLanguage();
+  const { t, currentLanguage } = useLanguage();
+
+  // Add Schema markup for SEO
+  const schemas = useMemo(() => [
+    generateOrganizationSchema(currentLanguage),
+    generateWebSiteSchema(currentLanguage),
+    generateServiceSchema({
+      name: 'Cross-border Stablecoin Payment Services',
+      description: 'Fast, secure and compliant end-to-end payment platform based on stablecoins such as USDT and USDC.',
+      serviceType: 'Payment Processing',
+    }, currentLanguage),
+  ], [currentLanguage]);
+
+  useSchemaMarkup(schemas);
 
   // 监听窗口大小变化
   useEffect(() => {

@@ -8,6 +8,9 @@ import { useLanguage } from "@/locales/LanguageContext";
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { genSign } from "@/lib/utils";
+import { useMemo } from "react";
+import { useSchemaMarkup } from "@/hooks/useSchemaMarkup";
+import { generateOrganizationSchema, generateWebSiteSchema, generateContactPageSchema } from "@/lib/schema";
 
 // 定义表单数据类型
 interface FormData {
@@ -27,7 +30,16 @@ const SUBMIT_ENDPOINT = {
 };
 
 export default function Cooperation() {
-  const { t } = useLanguage();
+  const { t, currentLanguage } = useLanguage();
+
+  // Add Schema markup for SEO
+  const schemas = useMemo(() => [
+    generateOrganizationSchema(currentLanguage),
+    generateWebSiteSchema(currentLanguage),
+    generateContactPageSchema(currentLanguage),
+  ], [currentLanguage]);
+
+  useSchemaMarkup(schemas);
 
   // 初始化表单
   const form = useForm<FormData>({

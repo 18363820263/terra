@@ -4,9 +4,20 @@ import FloatingActions from "@/components/FloatingActions";
 import { Lightbulb, Sun, Gem, Heart, Star, MapPin } from "lucide-react";
 import { AboutCover, AboutFuture, AboutMap, Banner2 } from "@/assets/imgs";
 import { useLanguage } from "@/locales/LanguageContext";
+import { useMemo } from "react";
+import { useSchemaMarkup } from "@/hooks/useSchemaMarkup";
+import { generateOrganizationSchema, generateWebSiteSchema } from "@/lib/schema";
 
 export default function About() {
-  const { t } = useLanguage();
+  const { t, currentLanguage } = useLanguage();
+
+  // Add Schema markup for SEO
+  const schemas = useMemo(() => [
+    generateOrganizationSchema(currentLanguage),
+    generateWebSiteSchema(currentLanguage),
+  ], [currentLanguage]);
+
+  useSchemaMarkup(schemas);
 
   return (
     <div className="min-h-screen bg-white">

@@ -73,6 +73,28 @@ export default function Header() {
             )}
           </Link>
           <Link
+            to="/agentic-pay"
+            className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/agentic-pay") ? "text-white" : "text-white/70 hover:text-white"}`}
+          >
+            {t('agenticPay')}
+            {isActive("/agentic-pay") && (
+              <div className="absolute bottom-[-28px] w-full flex justify-center">
+                <div className=" w-6 h-1 bg-white" />
+              </div>
+            )}
+          </Link>
+          <Link
+            to="/blogs"
+            className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/blogs") ? "text-white" : "text-white/70 hover:text-white"}`}
+          >
+            {t('blogs')}
+            {isActive("/blogs") && (
+              <div className="absolute bottom-[-28px] w-full flex justify-center">
+                <div className=" w-6 h-1 bg-white" />
+              </div>
+            )}
+          </Link>
+          <Link
             to="/cooperation"
             className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/cooperation") ? "text-white" : "text-white/70 hover:text-white"}`}
           >

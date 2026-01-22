@@ -1,0 +1,141 @@
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import FloatingActions from "@/components/FloatingActions";
+import { Calendar, Clock, Tag, ArrowRight } from "lucide-react";
+import { useLanguage } from "@/locales/LanguageContext";
+import { Link } from "react-router-dom";
+import { BLOG_ARTICLES, formatDate, sortArticlesByDate } from "@/lib/blog";
+import { useMemo } from "react";
+import { useSchemaMarkup } from "@/hooks/useSchemaMarkup";
+import { generateOrganizationSchema, generateWebSiteSchema } from "@/lib/schema";
+
+export default function Blogs() {
+  const { t, currentLanguage } = useLanguage();
+
+  const articles = useMemo(() => {
+    return sortArticlesByDate(BLOG_ARTICLES);
+  }, []);
+
+  // Add Schema markup for SEO
+  const schemas = useMemo(() => [
+    generateOrganizationSchema(currentLanguage),
+    generateWebSiteSchema(currentLanguage),
+  ], [currentLanguage]);
+
+  useSchemaMarkup(schemas);
+
+  return (
+    <div className="min-h-screen bg-white">
+      <Header />
+      <FloatingActions />
+
+      <main className="flex flex-col items-center">
+        {/* Hero Section */}
+        <section className="relative w-full bg-gradient-to-br from-gray-900 to-gray-800 py-20 md:py-24">
+          <div className="relative w-full max-w-[1200px] mx-auto px-4 md:px-8 lg:px-0 flex flex-col items-center gap-6 text-center">
+            <h1 className="text-white text-4xl md:text-5xl font-bold leading-tight">
+              {t('blogTitle')}
+            </h1>
+            <p className="text-white/90 text-lg md:text-xl max-w-[700px] leading-relaxed">
+              {t('blogSubtitle')}
+            </p>
+          </div>
+        </section>
+
+        {/* Articles Grid */}
+        <section className="w-full max-w-[1200px] mx-auto px-4 md:px-8 lg:px-0 py-16 md:py-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {articles.map((article) => (
+              <ArticleCard key={article.id} article={article} />
+            ))}
+          </div>
+
+          {articles.length === 0 && (
+            <div className="text-center py-16">
+              <p className="text-gray-500 text-lg">{t('noArticlesYet')}</p>
+            </div>
+          )}
+        </section>
+
+        {/* CTA Section */}
+        <section className="w-full bg-gray-50 py-16 md:py-20">
+          <div className="w-full max-w-[1200px] mx-auto px-4 md:px-8 lg:px-0 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              {t('blogCTATitle')}
+            </h2>
+            <p className="text-gray-600 text-lg mb-8 max-w-[600px] mx-auto">
+              {t('blogCTADesc')}
+            </p>
+            <Link
+              to="/cooperation"
+              className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+            >
+              {t('contact')}
+            </Link>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
+
+// Article Card Component
+function ArticleCard({ article }: { article: typeof BLOG_ARTICLES[0] }) {
+  const { currentLanguage } = useLanguage();
+
+  return (
+    <article className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow group">
+      {article.coverImage && (
+        <div className="w-full h-48 bg-gray-100 overflow-hidden">
+          <img
+            src={article.coverImage}
+            alt={article.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+      )}
+      <div className="p-6">
+        <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+          <div className="flex items-center gap-1">
+            <Calendar className="w-4 h-4" />
+            <span>{formatDate(article.publishedAt, currentLanguage)}</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <Clock className="w-4 h-4" />
+            <span>{article.readingTime} min</span>
+          </div>
+        </div>
+
+        <h3 className="text-xl font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
+          {article.title}
+        </h3>
+
+        <p className="text-gray-600 mb-4 line-clamp-3">{article.description}</p>
+
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2 flex-wrap">
+            {article.tags.slice(0, 2).map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded"
+              >
+                <Tag className="w-3 h-3" />
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <Link
+            to={`/blogs/${article.slug}`}
+            className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium text-sm"
+          >
+            Read More
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </div>
+    </article>
+  );
+}
