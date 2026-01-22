@@ -324,7 +324,6 @@ export const esES = {
   getStarted: 'Comenzar',
 
   // Blog Page
-  blogs: 'Blog',
   blogTitle: 'Perspectivas y Actualizaciones',
   blogSubtitle: 'Mantente informado con las últimas tendencias en pagos con stablecoins, tecnología blockchain y la economía de agentes IA.',
   noArticlesYet: 'Aún no hay artículos disponibles. ¡Vuelve pronto!',

@@ -324,7 +324,6 @@ export const zhTW = {
   getStarted: '開始使用',
 
   // Blog Page
-  blogs: '博客',
   blogTitle: '洞察與更新',
   blogSubtitle: '了解穩定幣支付、區塊鏈技術和 AI Agent 經濟的最新趨勢。',
   noArticlesYet: '暫無文章。敬請期待！',

@@ -329,7 +329,6 @@ export const zhCN = {
   getStarted: '开始使用',
 
   // Blog Page
-  blogs: '博客',
   blogTitle: '洞察与更新',
   blogSubtitle: '了解稳定币支付、区块链技术和 AI Agent 经济的最新趋势。',
   noArticlesYet: '暂无文章。敬请期待！',

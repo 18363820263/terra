@@ -329,7 +329,6 @@ export const enUS = {
   getStarted: 'Get Started',
 
   // Blog Page
-  blogs: 'Blog',
   blogTitle: 'Insights & Updates',
   blogSubtitle: 'Stay informed with the latest trends in stablecoin payments, blockchain technology, and the AI agent economy.',
   noArticlesYet: 'No articles available yet. Check back soon!',
