@@ -1,6 +1,6 @@
 import type { Plugin } from 'vite';
 import { getSchemaForRoute } from './src/worker/schema';
-import { writeFileSync, mkdirSync, readFileSync } from 'fs';
+import { writeFileSync, mkdirSync, readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 
 /**
@@ -22,6 +22,13 @@ export function multiPageSchemaPlugin(): Plugin {
       // After the build is complete, generate route-specific HTML files
       const distDir = join(process.cwd(), 'dist/client');
       const indexHtmlPath = join(distDir, 'index.html');
+
+      // Check if the file exists before trying to read it
+      // This prevents errors when the SSR bundle completes before the client bundle
+      if (!existsSync(indexHtmlPath)) {
+        console.log('⏭️  Skipping Schema injection - index.html not yet built');
+        return;
+      }
 
       // Read the built index.html
       const indexHtml = readFileSync(indexHtmlPath, 'utf-8');
