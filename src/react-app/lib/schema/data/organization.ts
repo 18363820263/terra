@@ -4,8 +4,8 @@
  */
 
 export const ORGANIZATION_DATA = {
-  name: 'TerraPay',
-  legalName: 'TerryPay',
+  name: 'TerraziPay',
+  legalName: 'TerraziPay',
   url: 'https://terrazipay.com',
   logo: 'https://terrazipay.com/logo.png',
 

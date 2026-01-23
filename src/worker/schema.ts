@@ -5,8 +5,8 @@
  */
 
 const ORGANIZATION_DATA = {
-  name: 'TerraPay',
-  legalName: 'TerryPay',
+  name: 'TerraziPay',
+  legalName: 'TerraziPay',
   url: 'https://terrazipay.com',
   logo: 'https://terrazipay.com/logo.png',
   email: {
@@ -32,7 +32,7 @@ export function generateOrganizationSchema(language: string) {
       '@type': 'ImageObject',
       url: ORGANIZATION_DATA.logo,
     },
-    description: '<p>TerraPay is a leading <strong>cross-border stablecoin payment service provider</strong>, offering fast, secure, and compliant end-to-end payment solutions based on <strong>USDT</strong> and <strong>USDC</strong> stablecoins.</p>',
+    description: '<p>TerraziPay is a leading <strong>cross-border stablecoin payment service provider</strong>, offering fast, secure, and compliant end-to-end payment solutions based on <strong>USDT</strong> and <strong>USDC</strong> stablecoins.</p>',
     email: ORGANIZATION_DATA.email.business,
     inLanguage: language,
     contactPoint: [
@@ -154,8 +154,8 @@ export function generateContactPageSchema(language: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
-    name: 'Contact Us - TerraPay',
-    description: `<p>Get in touch with TerraPay for <strong>business cooperation</strong>, <strong>technical support</strong>, or partnership opportunities.</p>
+    name: 'Contact Us - TerraziPay',
+    description: `<p>Get in touch with TerraziPay for <strong>business cooperation</strong>, <strong>technical support</strong>, or partnership opportunities.</p>
 
 <h3>Response Time</h3>
 <ul>
@@ -195,11 +195,11 @@ export function generateAboutPageSchema(language: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
-    name: 'About TerraPay',
-    description: `<p>TerraPay, headquartered in <strong>Hong Kong</strong>, is a fintech company positioned with <strong>stablecoin payment solutions</strong>. We focus on providing next-generation cross-border payment and salary payment solutions based on stablecoins for merchants worldwide.</p>
+    name: 'About TerraziPay',
+    description: `<p>TerraziPay, headquartered in <strong>Hong Kong</strong>, is a fintech company positioned with <strong>stablecoin payment solutions</strong>. We focus on providing next-generation cross-border payment and salary payment solutions based on stablecoins for merchants worldwide.</p>
 
-<h3>What is TerraPay?</h3>
-<p>We are targeting the trillion-dollar global cross-border B2B payment market and all future on-chain enterprise financial services. TerraPay provides enterprise-grade stablecoin payment infrastructure to help businesses leverage blockchain technology.</p>
+<h3>What is TerraziPay?</h3>
+<p>We are targeting the trillion-dollar global cross-border B2B payment market and all future on-chain enterprise financial services. TerraziPay provides enterprise-grade stablecoin payment infrastructure to help businesses leverage blockchain technology.</p>
 
 <h3>Blockchain Network Support</h3>
 <p>You can choose mainstream blockchain networks to receive stablecoins according to your needs. Currently supporting:</p>
@@ -213,7 +213,7 @@ export function generateAboutPageSchema(language: string) {
 </ul>
 
 <h3>Transaction Scale</h3>
-<p>TerraPay has provided cross-border settlement services in emerging markets for global enterprise users. The platform's annual transaction volume has <strong>exceeded 1 billion</strong>, and it has been maintaining a steady upward trend.</p>
+<p>TerraziPay has provided cross-border settlement services in emerging markets for global enterprise users. The platform's annual transaction volume has <strong>exceeded 1 billion</strong>, and it has been maintaining a steady upward trend.</p>
 
 <h3>Core Values</h3>
 <ul>
@@ -244,8 +244,8 @@ export function generateBlogPageSchema(language: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Blog',
-    name: 'TerraPay Blog - Insights & Updates',
-    description: '<p>Stay informed with the latest trends in <strong>stablecoin payments</strong>, <strong>blockchain technology</strong>, and the <strong>AI agent economy</strong>. Expert insights and industry updates from TerraPay.</p>',
+    name: 'TerraziPay Blog - Insights & Updates',
+    description: '<p>Stay informed with the latest trends in <strong>stablecoin payments</strong>, <strong>blockchain technology</strong>, and the <strong>AI agent economy</strong>. Expert insights and industry updates from TerraziPay.</p>',
     url: `${ORGANIZATION_DATA.url}/blogs`,
     inLanguage: language,
     publisher: generateOrganizationSchema(language),

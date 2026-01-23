@@ -8,6 +8,7 @@ import { BLOG_ARTICLES, formatDate, sortArticlesByDate } from "@/lib/blog";
 import { useMemo } from "react";
 import { useSchemaMarkup } from "@/hooks/useSchemaMarkup";
 import { generateOrganizationSchema, generateWebSiteSchema } from "@/lib/schema";
+import { Banner2 } from "@/assets/imgs";
 
 export default function Blogs() {
   const { t, currentLanguage } = useLanguage();
@@ -30,15 +31,22 @@ export default function Blogs() {
       <FloatingActions />
 
       <main className="flex flex-col items-center">
-        {/* Hero Section */}
-        <section className="relative w-full bg-gradient-to-br from-gray-900 to-gray-800 py-20 md:py-24">
-          <div className="relative w-full max-w-[1200px] mx-auto px-4 md:px-8 lg:px-0 flex flex-col items-center gap-6 text-center">
-            <h1 className="text-white text-4xl md:text-5xl font-bold leading-tight">
-              {t('blogTitle')}
-            </h1>
-            <p className="text-white/90 text-lg md:text-xl max-w-[700px] leading-relaxed">
-              {t('blogSubtitle')}
-            </p>
+        {/* Hero Banner */}
+        <section className="relative w-full h-[320px]">
+          <img
+            src={Banner2}
+            alt="Blog background"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40 flex items-center justify-center px-4 md:px-8 lg:px-[120px]">
+            <div className="flex flex-col items-center gap-6 text-center max-w-[700px]">
+              <h1 className="text-white text-4xl md:text-5xl font-bold leading-tight">
+                {t('blogTitle')}
+              </h1>
+              <p className="text-white/90 text-lg md:text-xl leading-relaxed">
+                {t('blogSubtitle')}
+              </p>
+            </div>
           </div>
         </section>
 
