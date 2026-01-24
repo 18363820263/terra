@@ -214,7 +214,7 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Why Choose Terrapay */}
+        {/* Why Choose TerraziPay */}
         <section className="w-full flex flex-col items-center gap-10">
           <div className="w-full max-w-[1200px] flex flex-col items-center gap-3">
             <h2 className="text-gray-950 text-4xl font-medium leading-[54px] text-center">

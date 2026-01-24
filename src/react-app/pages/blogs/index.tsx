@@ -96,13 +96,13 @@ function ArticleCard({ article }: { article: typeof BLOG_ARTICLES[0] }) {
   return (
     <article className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow group">
       {article.coverImage && (
-        <div className="w-full h-48 bg-gray-100 overflow-hidden">
+        <Link to={`/blogs/${article.slug}`} className="block w-full h-48 bg-gray-100 overflow-hidden">
           <img
             src={article.coverImage}
             alt={article.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
-        </div>
+        </Link>
       )}
       <div className="p-6">
         <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
@@ -116,9 +116,11 @@ function ArticleCard({ article }: { article: typeof BLOG_ARTICLES[0] }) {
           </div>
         </div>
 
-        <h3 className="text-xl font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
-          {article.title}
-        </h3>
+        <Link to={`/blogs/${article.slug}`}>
+          <h3 className="text-xl font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors cursor-pointer">
+            {article.title}
+          </h3>
+        </Link>
 
         <p className="text-gray-600 mb-4 line-clamp-3">{article.description}</p>
 

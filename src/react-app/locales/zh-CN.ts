@@ -38,8 +38,8 @@ export const zhCN = {
   paymentMethods: '支付方式',
   uptime: '系统运行时间',
   
-  // Why Choose Terrapay
-  whyChoose: '「 为什么选择Terrapay？」',
+  // Why Choose Terrazipay
+  whyChoose: '「 为什么选择Terrazipay？」',
   whyChooseSubtitle: '基于区块链的稳定币支付解决方案为全球商家提供安全、快速且成本低廉的支付服务。',
   security: '安全与合规性',
   securityTitle: '复合银行级安全标准，遵循全球金融法规，保障资金安全',
@@ -147,8 +147,8 @@ export const zhCN = {
   
   // About Page
   aboutUs: '关于我们',
-  whatIsTerragogo: 'TerraPay 是什么？',
-  whatIsTerragogoDesc: 'TerraPay ，总部位于香港，是一家以稳定币支付解决方案定位的金融科技公司。我们专注于为出海跨境电商、贸易、Web3项目、数娱/游戏出海，自由职业平台等商户提供基于稳定币的下一代跨境支付与薪资发放解决方案。我们瞄准的是万亿美元规模的全球跨境B2B支付市场，以及未来所有的链上企业金融服务。',
+  whatIsTerragogo: 'TerraziPay 是什么？',
+  whatIsTerragogoDesc: 'TerraziPay ，总部位于香港，是一家以稳定币支付解决方案定位的金融科技公司。我们专注于为出海跨境电商、贸易、Web3项目、数娱/游戏出海，自由职业平台等商户提供基于稳定币的下一代跨境支付与薪资发放解决方案。我们瞄准的是万亿美元规模的全球跨境B2B支付市场，以及未来所有的链上企业金融服务。',
   blockchainNativeLaw: '区块链原生法律',
   blockchainNativeLawDesc: '我们建立了一套完整的区块链原生法律框架，确保我们的服务符合全球各地的法律法规要求。我们与全球多个国家和地区的监管机构保持密切合作，积极参与区块链行业的建设和发展。',
   tradingSaaS: '交易 SaaS',
@@ -236,7 +236,7 @@ export const zhCN = {
   blockchainNetworkSupport: '区块链网络支持',
   blockchainNetworkSupportDesc: '您可以根据需求选择主流的区块链网络来接收稳定币，目前支持ETH、TRON、 BNB Chain (BSC)、Solana、Polygon 、Arbitrum等，未来会持续增加更多网络选项。',
   transactionScale: '交易规模',
-  transactionScaleDesc: '截至目前，Terrapay 已为全球企业用户提供新兴市场跨境结算服务。平台年交易规模累计突破10亿，目前一直保持稳步提升的趋势。在未来，我们期待与您同行。',
+  transactionScaleDesc: '截至目前，Terrazipay 已为全球企业用户提供新兴市场跨境结算服务。平台年交易规模累计突破10亿，目前一直保持稳步提升的趋势。在未来，我们期待与您同行。',
   costClarity: '成本清晰',
   costClarityDesc: '费用结构简单透明，无隐藏成本。',
   flexibleSettlement: '灵活结算',
@@ -333,6 +333,9 @@ export const zhCN = {
   blogSubtitle: '了解稳定币支付、区块链技术和 AI Agent 经济的最新趋势。',
   noArticlesYet: '暂无文章。敬请期待！',
   blogCTATitle: '准备好转型您的支付方式了吗？',
-  blogCTADesc: '联系我们的团队，了解 TerraPay 如何帮助您的业务。',
-  readMore: '阅读更多'
+  blogCTADesc: '联系我们的团队，了解 TerraziPay 如何帮助您的业务。',
+  readMore: '阅读更多',
+  backToBlogs: '返回博客',
+  interestedInAgenticPay: '对 Agentic Pay 感兴趣？',
+  joinWaitlistDescription: '加入我们的候补名单，成为首批访问 TerraziPay 的用户。'
 }

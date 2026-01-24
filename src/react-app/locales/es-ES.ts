@@ -38,8 +38,8 @@ export const esES = {
   paymentMethods: 'Métodos de pago',
   uptime: 'Tiempo de funcionamiento del sistema',
   
-  // Why Choose Terrapay
-  whyChoose: '「 ¿Por qué elegir Terrapay? 」',
+  // Why Choose Terrazipay
+  whyChoose: '「 ¿Por qué elegir Terrazipay? 」',
   whyChooseSubtitle: 'Soluciones de pago con stablecoins basadas en blockchain que ofrecen servicios de pago seguros, rápidos y de bajo costo para comerciantes de todo el mundo.',
   security: 'Seguridad y cumplimiento',
   securityTitle: 'Cumple con estándares de seguridad bancarios compuestos y sigue regulaciones financieras globales para garantizar la seguridad de los fondos',
@@ -170,8 +170,8 @@ export const esES = {
   
   // About Page
   aboutUs: 'Sobre nosotros',
-  whatIsTerragogo: '¿Qué es TerraPay?',
-  whatIsTerragogoDesc: 'TerraPay, con sede en Hong Kong, es una empresa fintech posicionada con soluciones de pago con stablecoins. Nos enfocamos en proporcionar soluciones de pago transfronterizo y pago de salarios basadas en stablecoins para comerciantes como comercio electrónico transfronterizo, comercio, proyectos Web3, entretenimiento digital/juegos internacionales y plataformas de trabajo independiente. Estamos apuntando al mercado de pagos B2B transfronterizos global de billones de dólares y a todos los servicios financieros empresariales en cadena del futuro.',
+  whatIsTerragogo: '¿Qué es TerraziPay?',
+  whatIsTerragogoDesc: 'TerraziPay, con sede en Hong Kong, es una empresa fintech posicionada con soluciones de pago con stablecoins. Nos enfocamos en proporcionar soluciones de pago transfronterizo y pago de salarios basadas en stablecoins para comerciantes como comercio electrónico transfronterizo, comercio, proyectos Web3, entretenimiento digital/juegos internacionales y plataformas de trabajo independiente. Estamos apuntando al mercado de pagos B2B transfronterizos global de billones de dólares y a todos los servicios financieros empresariales en cadena del futuro.',
   blockchainNativeLaw: 'Ley nativa de blockchain',
   blockchainNativeLawDesc: 'Hemos establecido un marco legal nativo de blockchain completo para garantizar que nuestros servicios cumplan con los requisitos legales y regulatorios de todo el mundo. Mantenemos una estrecha colaboración con organismos reguladores de múltiples países y regiones, participando activamente en la construcción y desarrollo de la industria blockchain.',
   tradingSaaS: 'Trading SaaS',
@@ -239,7 +239,7 @@ export const esES = {
   blockchainNetworkSupport: 'Soporte para redes blockchain',
   blockchainNetworkSupportDesc: 'Puede elegir redes blockchain principales para recibir stablecoins según sus necesidades, actualmente admite ETH, TRON, BNB Chain (BSC), Solana, Polygon, Arbitrum, etc., y se agregarán más opciones de red en el futuro.',
   transactionScale: 'Escala de transacciones',
-  transactionScaleDesc: 'Hasta la fecha, Terrapay ha proporcionado servicios de liquidación transfronteriza en mercados emergentes para usuarios empresariales globales. La escala acumulada de transacciones anuales de la plataforma ha superado los 1.000 millones, y actualmente mantiene una tendencia de crecimiento constante. En el futuro, esperamos caminar juntos con usted.',
+  transactionScaleDesc: 'Hasta la fecha, Terrazipay ha proporcionado servicios de liquidación transfronteriza en mercados emergentes para usuarios empresariales globales. La escala acumulada de transacciones anuales de la plataforma ha superado los 1.000 millones, y actualmente mantiene una tendencia de crecimiento constante. En el futuro, esperamos caminar juntos con usted.',
   costClarity: 'Claridad de costos',
   costClarityDesc: 'Estructura de costos simple y transparente, sin costos ocultos.',
   flexibleSettlement: 'Liquidación flexible',
@@ -328,6 +328,9 @@ export const esES = {
   blogSubtitle: 'Mantente informado con las últimas tendencias en pagos con stablecoins, tecnología blockchain y la economía de agentes IA.',
   noArticlesYet: 'Aún no hay artículos disponibles. ¡Vuelve pronto!',
   blogCTATitle: '¿Listo para Transformar tus Pagos?',
-  blogCTADesc: 'Ponte en contacto con nuestro equipo para saber cómo TerraPay puede ayudar a tu negocio.',
-  readMore: 'Leer Más'
+  blogCTADesc: 'Ponte en contacto con nuestro equipo para saber cómo TerraziPay puede ayudar a tu negocio.',
+  readMore: 'Leer Más',
+  backToBlogs: 'Volver al Blog',
+  interestedInAgenticPay: '¿Interesado en Agentic Pay?',
+  joinWaitlistDescription: 'Únete a nuestra lista de espera para estar entre los primeros en acceder a TerraziPay cuando lancemos.'
 };

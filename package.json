@@ -107,8 +107,7 @@
 	"scripts": {
 		"build": "tsc -b && vite build",
 		"cf-typegen": "wrangler types",
-		"check": "tsc && vite build && wrangler deploy --dry-run",
-		"deploy": "wrangler deploy",
+		"check": "tsc && vite build",
 		"dev": "vite",
 		"format.fix": "prettier --write .",
 		"lint": "eslint .",

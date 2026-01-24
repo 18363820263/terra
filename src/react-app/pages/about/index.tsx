@@ -62,7 +62,7 @@ export default function About() {
                 <div className="absolute inset-0 bg-blue-50 -z-10" />
                 <img
                   src={AboutCover}
-                  alt="Terrapay Building"
+                  alt="TerraziPay Building"
                   className="w-full h-full rounded-2xl object-cover relative"
                 />
               </div>

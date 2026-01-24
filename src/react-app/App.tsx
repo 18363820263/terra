@@ -10,6 +10,7 @@ import Cooperation from "./pages/cooperation";
 import About from "./pages/about";
 import AgenticPay from "./pages/agentic-pay";
 import Blogs from "./pages/blogs";
+import BlogArticle from "./pages/blogs/article";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "./locales/LanguageContext";
 
@@ -26,6 +27,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/agentic-pay" element={<AgenticPay />} />
             <Route path="/blogs" element={<Blogs />} />
+            <Route path="/blogs/:slug" element={<BlogArticle />} />
             <Route path="/cooperation" element={<Cooperation />} />
             <Route path="/about" element={<About />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

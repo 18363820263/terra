@@ -38,8 +38,8 @@ export const enUS = {
   paymentMethods: 'Payment Methods',
   uptime: 'System Uptime',
   
-  // Why Choose Terrapay
-  whyChoose: '「 Why Choose Terrapay? 」',
+  // Why Choose TerraziPay
+  whyChoose: '「 Why Choose TerraziPay? 」',
   whyChooseSubtitle: 'Blockchain-based stablecoin payment solutions provide secure, fast and cost-effective payment services for merchants worldwide.',
   security: 'Security & Compliance',
   securityTitle: 'Composite bank-level security standards, compliant with global financial regulations, ensuring fund security',
@@ -147,8 +147,8 @@ export const enUS = {
   
   // About Page
   aboutUs: 'About Us',
-  whatIsTerragogo: 'What is TerraPay?',
-  whatIsTerragogoDesc: 'TerraPay, headquartered in Hong Kong, is a fintech company positioned with stablecoin payment solutions. We focus on providing next-generation cross-border payment and salary payment solutions based on stablecoins for merchants such as overseas cross-border e-commerce, trade, Web3 projects, digital entertainment/game overseas, and freelance platforms. We are targeting the trillion-dollar global cross-border B2B payment market and all future on-chain enterprise financial services.',
+  whatIsTerragogo: 'What is TerraziPay?',
+  whatIsTerragogoDesc: 'TerraziPay, headquartered in Hong Kong, is a fintech company positioned with stablecoin payment solutions. We focus on providing next-generation cross-border payment and salary payment solutions based on stablecoins for merchants such as overseas cross-border e-commerce, trade, Web3 projects, digital entertainment/game overseas, and freelance platforms. We are targeting the trillion-dollar global cross-border B2B payment market and all future on-chain enterprise financial services.',
   blockchainNativeLaw: 'Blockchain Native Law',
   blockchainNativeLawDesc: 'We have established a complete blockchain native legal framework to ensure that our services comply with laws and regulations around the world. We maintain close cooperation with regulatory agencies in multiple countries and regions, and actively participate in the formulation and standardization of the blockchain industry.',
   tradingSaaS: 'Trading SaaS',
@@ -236,7 +236,7 @@ export const enUS = {
   blockchainNetworkSupport: 'Blockchain Network Support',
   blockchainNetworkSupportDesc: 'You can choose mainstream blockchain networks to receive stablecoins according to your needs. Currently supporting ETH, TRON, BNB Chain (BSC), Solana, Polygon, Arbitrum, etc. More network options will be added in the future.',
   transactionScale: 'Transaction Scale',
-  transactionScaleDesc: 'Up to now, Terrapay has provided cross-border settlement services in emerging markets for global enterprise users. The platforms annual transaction volume has exceeded 1 billion, and it has been maintaining a steady upward trend. In the future, we look forward to accompanying you.',
+  transactionScaleDesc: 'Up to now, TerraziPay has provided cross-border settlement services in emerging markets for global enterprise users. The platforms annual transaction volume has exceeded 1 billion, and it has been maintaining a steady upward trend. In the future, we look forward to accompanying you.',
   costClarity: 'Cost Clarity',
   costClarityDesc: 'Simple and transparent cost structure, no hidden costs.',
   flexibleSettlement: 'Flexible Settlement',
@@ -333,6 +333,9 @@ export const enUS = {
   blogSubtitle: 'Stay informed with the latest trends in stablecoin payments, blockchain technology, and the AI agent economy.',
   noArticlesYet: 'No articles available yet. Check back soon!',
   blogCTATitle: 'Ready to Transform Your Payments?',
-  blogCTADesc: 'Get in touch with our team to learn how TerraPay can help your business.',
-  readMore: 'Read More'
+  blogCTADesc: 'Get in touch with our team to learn how TerraziPay can help your business.',
+  readMore: 'Read More',
+  backToBlogs: 'Back to Blog',
+  interestedInAgenticPay: 'Interested in Agentic Pay?',
+  joinWaitlistDescription: 'Join our waitlist to be among the first to access TerraziPay when we launch.'
 };

@@ -3,7 +3,7 @@
  * Creates Schema.org BlogPosting/Article markup for blog articles
  */
 
-import type { Language } from '../types';
+import type { Language, BlogPosting } from '../types';
 import { ORGANIZATION_DATA } from '../data/organization';
 import { generateOrganizationSchema } from './organization';
 import { parseMarkdown } from '@/lib/blog/utils';
@@ -23,7 +23,7 @@ interface BlogPostingOptions {
 export function generateBlogPostingSchema(
   options: BlogPostingOptions,
   language: Language
-) {
+): BlogPosting {
   // Convert markdown content to HTML for Schema
   const articleBody = parseMarkdown(options.content);
 
