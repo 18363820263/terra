@@ -367,6 +367,24 @@ app.all("*", async (c) => {
   const assets = (c.env as { ASSETS?: { fetch: (req: Request) => Promise<Response> } }).ASSETS;
   if (!assets) return c.notFound();
 
+  // Helper: inject canonical URL into HTML <head>
+  const injectCanonical = (html: string, canonicalPath: string): string => {
+    const canonicalUrl = `${SITE_URL}${canonicalPath === "/" ? "" : canonicalPath}`;
+    const canonicalTag = `<link rel="canonical" href="${canonicalUrl}" />`;
+    
+    // Check if canonical already exists
+    if (html.includes('rel="canonical"')) {
+      // Replace existing canonical
+      return html.replace(/<link rel="canonical"[^>]*\/>/, canonicalTag);
+    }
+    
+    // Insert after <meta charset> or at the start of <head>
+    if (html.includes('<meta charset')) {
+      return html.replace(/(<meta charset[^>]*>)/, `$1\n\t\t${canonicalTag}`);
+    }
+    return html.replace(/<head>/, `<head>\n\t\t${canonicalTag}`);
+  };
+
   // Helper: create response with no-cache headers
   const createNoCacheResponse = (html: string, route: string, method?: string) => {
     return new Response(html, {
@@ -424,6 +442,9 @@ app.all("*", async (c) => {
         `<!-- Schema.org structured data (route: ${pathname}) -->\n    ${schemaScripts}\n    `
       );
       
+      // Inject canonical URL
+      html = injectCanonical(html, pathname);
+      
       return createNoCacheResponse(html, pathname, "worker-generated");
     }
   }
@@ -432,6 +453,13 @@ app.all("*", async (c) => {
   const assetRes = await assets.fetch(c.req.raw);
   
   if (assetRes.ok) {
+    // For HTML responses (root page), inject canonical
+    const contentType = assetRes.headers.get("Content-Type") || "";
+    if (contentType.includes("text/html")) {
+      let html = await assetRes.text();
+      html = injectCanonical(html, pathname);
+      return createNoCacheResponse(html, pathname, "assets-with-canonical");
+    }
     return assetRes;
   }
   
@@ -441,8 +469,10 @@ app.all("*", async (c) => {
     const rootRequest = new Request(new URL("/index.html", url.origin).toString());
     const rootRes = await assets.fetch(rootRequest);
     if (rootRes.ok) {
-      const html = await rootRes.text();
-      return createNoCacheResponse(html, "/ (spa-fallback)", "spa-fallback");
+      let html = await rootRes.text();
+      // For SPA fallback, use the requested path as canonical (client-side routing will handle it)
+      html = injectCanonical(html, pathname);
+      return createNoCacheResponse(html, pathname + " (spa-fallback)", "spa-fallback");
     }
   }
 
