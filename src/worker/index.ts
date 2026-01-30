@@ -16,18 +16,7 @@ app.all("*", async (c) => {
   const assets = (c.env as { ASSETS?: { fetch: (req: Request) => Promise<Response> } }).ASSETS;
   if (!assets) return c.notFound();
 
-  // Force bypass Cloudflare cache for route-specific HTML pages using Cache API
   if (c.req.method === "GET" && pathname !== "/" && ROUTES_WITH_HTML.includes(pathname)) {
-    // Create a new request with cache bypass header
-    const bypassRequest = new Request(c.req.url, {
-      method: c.req.method,
-      headers: new Headers(c.req.headers),
-    });
-    bypassRequest.headers.set("Cache-Control", "no-store");
-    
-    // Use Cache API to bypass edge cache
-    const cache = caches.default;
-    await cache.delete(bypassRequest);
     const routeMarker = `(route: ${pathname})`;
     const pathsToTry = [pathname + "/index.html", pathname + "/"];
     const env = c.env as Env & { WORKER_PUBLIC_ORIGIN?: string };
