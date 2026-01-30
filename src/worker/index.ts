@@ -16,7 +16,7 @@ app.all("*", async (c) => {
   if (!assets) return c.notFound();
 
   // Helper: create response with no-cache headers
-  const createNoCacheResponse = (html: string, route: string) => {
+  const createNoCacheResponse = (html: string, route: string, debug?: string) => {
     return new Response(html, {
       status: 200,
       headers: {
@@ -27,33 +27,49 @@ app.all("*", async (c) => {
         "Expires": "0",
         "X-Served-Route": route,
         "X-Worker-Executed": "true",
+        ...(debug ? { "X-Debug": debug } : {}),
       },
     });
   };
 
   // For known routes: serve their pre-rendered index.html directly
   if (c.req.method === "GET" && pathname !== "/" && ROUTES_WITH_HTML.includes(pathname)) {
-    // Directly fetch the route-specific index.html
-    const assetPath = pathname + "/index.html";
-    const assetUrl = new URL(assetPath, url.origin);
-    const assetRequest = new Request(assetUrl.toString(), { method: "GET" });
-    const res = await assets.fetch(assetRequest);
+    const routeMarker = `(route: ${pathname})`;
+    const debugInfo: string[] = [];
     
-    if (res.ok) {
-      const html = await res.text();
-      // Verify this is the correct route's HTML (has route marker)
-      const routeMarker = `(route: ${pathname})`;
-      if (html.includes(routeMarker)) {
-        return createNoCacheResponse(html, pathname);
+    // Try multiple URL formats to find the route-specific index.html
+    const pathsToTry = [
+      pathname + "/index.html",           // /about/index.html
+      pathname + "/",                      // /about/
+      pathname,                            // /about
+    ];
+    
+    for (const tryPath of pathsToTry) {
+      // Method 1: Use path-only URL (relative to origin)
+      const assetUrl = new URL(tryPath, c.req.url).toString();
+      const assetRequest = new Request(assetUrl);
+      const res = await assets.fetch(assetRequest);
+      const status = res.status;
+      
+      debugInfo.push(`${tryPath}:${status}`);
+      
+      if (res.ok) {
+        const html = await res.text();
+        const hasMarker = html.includes(routeMarker);
+        debugInfo.push(`hasMarker:${hasMarker}`);
+        
+        if (hasMarker) {
+          return createNoCacheResponse(html, pathname, debugInfo.join('|'));
+        }
       }
     }
     
-    // Fallback: if route-specific HTML not found, serve root index.html (SPA mode)
+    // Fallback: serve root index.html (SPA mode)
     const rootRequest = new Request(new URL("/index.html", url.origin).toString(), { method: "GET" });
     const rootRes = await assets.fetch(rootRequest);
     if (rootRes.ok) {
       const html = await rootRes.text();
-      return createNoCacheResponse(html, pathname + " (fallback)");
+      return createNoCacheResponse(html, pathname + " (fallback)", debugInfo.join('|'));
     }
   }
 
