@@ -292,8 +292,73 @@ const STATIC_HTML_BY_ROUTE: Record<string, string> = {
 
 const app = new Hono<{ Bindings: Env }>();
 
+/** Site configuration for SEO */
+const SITE_URL = "https://terrazipay.com";
+const ALL_ROUTES = [
+  { path: "/", priority: "1.0", changefreq: "weekly" },
+  { path: "/about", priority: "0.8", changefreq: "monthly" },
+  { path: "/cooperation", priority: "0.9", changefreq: "monthly" },
+  { path: "/agentic-pay", priority: "0.9", changefreq: "weekly" },
+  { path: "/blogs", priority: "0.8", changefreq: "daily" },
+];
+
 // API routes
 app.get("/api/", (c) => c.json({ name: "Cloudflare" }));
+
+// Sitemap.xml - Dynamic sitemap for SEO
+app.get("/sitemap.xml", () => {
+  const lastmod = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
+  
+  const urls = ALL_ROUTES.map(route => `  <url>
+    <loc>${SITE_URL}${route.path}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${route.changefreq}</changefreq>
+    <priority>${route.priority}</priority>
+  </url>`).join('\n');
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
+</urlset>`;
+
+  return new Response(sitemap, {
+    status: 200,
+    headers: {
+      "Content-Type": "application/xml; charset=utf-8",
+      "Cache-Control": "public, max-age=3600", // Cache for 1 hour
+    },
+  });
+});
+
+// Robots.txt - Guide search engine crawlers
+app.get("/robots.txt", () => {
+  const robotsTxt = `User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: ${SITE_URL}/sitemap.xml
+`;
+
+  return new Response(robotsTxt, {
+    status: 200,
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Cache-Control": "public, max-age=86400", // Cache for 24 hours
+    },
+  });
+});
 
 // Main handler: Worker controls all routing
 app.all("*", async (c) => {
