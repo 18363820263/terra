@@ -17,7 +17,8 @@ app.all("*", async (c) => {
   if (!assets) return c.notFound();
 
   if (c.req.method === "GET" && pathname !== "/" && ROUTES_WITH_HTML.includes(pathname)) {
-    // Fetch pre-rendered index.html; base URL on incoming request so ASSETS binding resolves path (see CF docs)
+    // SSR injects "(route: /about)" etc. in each HTML; only return if body matches (ASSETS may return root index.html as SPA fallback)
+    const routeMarker = `(route: ${pathname})`;
     const pathsToTry = [pathname + "/index.html", pathname + "/"];
     for (const p of pathsToTry) {
       const assetUrl = new URL(p, c.req.url);
@@ -25,6 +26,7 @@ app.all("*", async (c) => {
       const res = await assets.fetch(assetRequest);
       if (res.ok) {
         const html = await res.text();
+        if (!html.includes(routeMarker)) continue;
         const headers = new Headers(res.headers);
         headers.set("Cache-Control", "no-store, no-cache, must-revalidate");
         headers.set("Content-Type", "text/html; charset=utf-8");
