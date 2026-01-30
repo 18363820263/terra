@@ -17,21 +17,27 @@ app.all("*", async (c) => {
   if (!assets) return c.notFound();
 
   if (c.req.method === "GET" && pathname !== "/" && ROUTES_WITH_HTML.includes(pathname)) {
-    // SSR injects "(route: /about)" etc. in each HTML; only return if body matches (ASSETS may return root index.html as SPA fallback)
     const routeMarker = `(route: ${pathname})`;
     const pathsToTry = [pathname + "/index.html", pathname + "/"];
-    for (const p of pathsToTry) {
-      const assetUrl = new URL(p, c.req.url);
-      const assetRequest = new Request(assetUrl, { method: "GET", headers: { Accept: "text/html" } });
-      const res = await assets.fetch(assetRequest);
-      if (res.ok) {
-        const html = await res.text();
-        if (!html.includes(routeMarker)) continue;
-        const headers = new Headers(res.headers);
-        headers.set("Cache-Control", "no-store, no-cache, must-revalidate");
-        headers.set("Content-Type", "text/html; charset=utf-8");
-        headers.set("X-Served-Route", pathname);
-        return new Response(html, { status: 200, headers });
+    const env = c.env as Env & { WORKER_PUBLIC_ORIGIN?: string };
+    const originsToTry =
+      env.WORKER_PUBLIC_ORIGIN && url.origin !== env.WORKER_PUBLIC_ORIGIN
+        ? [url.origin, env.WORKER_PUBLIC_ORIGIN]
+        : [url.origin];
+    for (const base of originsToTry) {
+      for (const p of pathsToTry) {
+        const assetUrl = new URL(p, base);
+        const assetRequest = new Request(assetUrl.toString(), { method: "GET", headers: { Accept: "text/html" } });
+        const res = await assets.fetch(assetRequest);
+        if (res.ok) {
+          const html = await res.text();
+          if (!html.includes(routeMarker)) continue;
+          const headers = new Headers(res.headers);
+          headers.set("Cache-Control", "no-store, no-cache, must-revalidate");
+          headers.set("Content-Type", "text/html; charset=utf-8");
+          headers.set("X-Served-Route", pathname);
+          return new Response(html, { status: 200, headers });
+        }
       }
     }
   }

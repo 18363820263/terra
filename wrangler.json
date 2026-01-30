@@ -2,6 +2,9 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "terra",
 	"main": "./src/worker/index.ts",
+	"vars": {
+		"WORKER_PUBLIC_ORIGIN": "https://terra.zhuqingwei68.workers.dev"
+	},
 	"compatibility_date": "2025-10-08",
 	"compatibility_flags": ["nodejs_compat"],
 	"observability": {
