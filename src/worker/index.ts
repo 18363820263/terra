@@ -16,7 +16,15 @@ app.all("*", async (c) => {
   const assets = (c.env as { ASSETS?: { fetch: (req: Request) => Promise<Response> } }).ASSETS;
   if (!assets) return c.notFound();
 
+  // For route-specific HTML pages: aggressively bypass cache
   if (c.req.method === "GET" && pathname !== "/" && ROUTES_WITH_HTML.includes(pathname)) {
+    // Use Cache API to delete any cached version of this request
+    const cache = caches.default;
+    try {
+      await cache.delete(c.req.raw);
+    } catch (e) {
+      // Ignore cache delete errors
+    }
     const routeMarker = `(route: ${pathname})`;
     const pathsToTry = [pathname + "/index.html", pathname + "/"];
     const env = c.env as Env & { WORKER_PUBLIC_ORIGIN?: string };
@@ -33,12 +41,20 @@ app.all("*", async (c) => {
           const html = await res.text();
           if (!html.includes(routeMarker)) continue;
           const headers = new Headers(res.headers);
-          headers.set("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0");
+          // Aggressive cache bypass headers
+          headers.set("Cache-Control", "private, no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0, s-maxage=0");
           headers.set("Pragma", "no-cache");
           headers.set("Expires", "0");
           headers.set("Content-Type", "text/html; charset=utf-8");
+          // Cloudflare-specific headers to prevent caching
+          headers.set("CF-Cache-Status", "BYPASS");
+          headers.set("CDN-Cache-Control", "no-store");
+          // Add timestamp to make each response unique (changes cache key)
+          headers.set("X-Response-Time", Date.now().toString());
           headers.set("X-Served-Route", pathname);
           headers.set("X-Worker-Executed", "true");
+          // Vary header to ensure different cache keys for different requests
+          headers.set("Vary", "Accept, Accept-Encoding, User-Agent");
           return new Response(html, { status: 200, headers });
         }
       }
