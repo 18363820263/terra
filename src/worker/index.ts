@@ -26,8 +26,9 @@ app.all("*", async (c) => {
       if (res.ok) {
         const html = await res.text();
         const headers = new Headers(res.headers);
-        headers.set("Cache-Control", "public, max-age=0, must-revalidate");
+        headers.set("Cache-Control", "no-store, no-cache, must-revalidate");
         headers.set("Content-Type", "text/html; charset=utf-8");
+        headers.set("X-Served-Route", pathname);
         return new Response(html, { status: 200, headers });
       }
     }
