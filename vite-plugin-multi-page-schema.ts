@@ -165,6 +165,14 @@ export function multiPageSchemaPlugin(): Plugin {
         return;
       }
 
+      // On Cloudflare Pages / CI, skip SSR and use static HTML to avoid timeout and env issues
+      const skipSSR = process.env.CF_PAGES === '1' || process.env.CI === 'true' || process.env.SKIP_SSR === '1';
+      if (skipSSR) {
+        console.log('⏭️  Skipping SSR (CF_PAGES/CI/SKIP_SSR), using static HTML for SEO...');
+        injectStaticHTML(distDir, indexHtmlPath);
+        return;
+      }
+
       // Try SSR first, fallback to static HTML if it fails
       const ssrScriptPath = join(process.cwd(), 'scripts/ssr-render.ts');
       const tsxCliPath = join(process.cwd(), 'node_modules/tsx/dist/cli.mjs');
