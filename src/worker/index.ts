@@ -33,9 +33,12 @@ app.all("*", async (c) => {
           const html = await res.text();
           if (!html.includes(routeMarker)) continue;
           const headers = new Headers(res.headers);
-          headers.set("Cache-Control", "no-store, no-cache, must-revalidate");
+          headers.set("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0");
+          headers.set("Pragma", "no-cache");
+          headers.set("Expires", "0");
           headers.set("Content-Type", "text/html; charset=utf-8");
           headers.set("X-Served-Route", pathname);
+          headers.set("X-Worker-Executed", "true");
           return new Response(html, { status: 200, headers });
         }
       }
