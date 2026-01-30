@@ -17,23 +17,18 @@ app.all("*", async (c) => {
   if (!assets) return c.notFound();
 
   if (c.req.method === "GET" && pathname !== "/" && ROUTES_WITH_HTML.includes(pathname)) {
-    // Fetch pre-rendered index.html; use same origin as request so ASSETS binding resolves path
+    // Fetch pre-rendered index.html; base URL on incoming request so ASSETS binding resolves path (see CF docs)
     const pathsToTry = [pathname + "/index.html", pathname + "/"];
     for (const p of pathsToTry) {
-      const assetUrl = new URL(p, url.origin);
-      const assetRequest = new Request(assetUrl.toString(), {
-        method: "GET",
-        headers: new Headers({ Accept: "text/html" }),
-      });
+      const assetUrl = new URL(p, c.req.url);
+      const assetRequest = new Request(assetUrl, { method: "GET", headers: { Accept: "text/html" } });
       const res = await assets.fetch(assetRequest);
       if (res.ok) {
-        const out = new Response(res.body, {
-          status: res.status,
-          statusText: res.statusText,
-          headers: new Headers(res.headers),
-        });
-        out.headers.set("Cache-Control", "public, max-age=0, must-revalidate");
-        return out;
+        const html = await res.text();
+        const headers = new Headers(res.headers);
+        headers.set("Cache-Control", "public, max-age=0, must-revalidate");
+        headers.set("Content-Type", "text/html; charset=utf-8");
+        return new Response(html, { status: 200, headers });
       }
     }
   }
