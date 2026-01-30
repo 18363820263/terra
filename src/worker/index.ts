@@ -17,11 +17,22 @@ app.all("*", async (c) => {
   if (!assets) return c.notFound();
 
   if (c.req.method === "GET" && pathname !== "/" && ROUTES_WITH_HTML.includes(pathname)) {
-    // Request the pre-rendered index.html for this route (e.g. /about -> /about/index.html)
-    const assetPath = pathname + "/index.html";
-    const assetUrl = new URL(assetPath, c.req.url);
-    const res = await assets.fetch(new Request(assetUrl, { method: "GET" }));
-    if (res.ok) return res;
+    // Request the pre-rendered index.html; use request origin so ASSETS binding resolves path correctly
+    const origin = url.origin;
+    const pathsToTry = [pathname + "/index.html", pathname + "/"];
+    for (const p of pathsToTry) {
+      const assetRequest = new Request(origin + p, { method: "GET" });
+      const res = await assets.fetch(assetRequest);
+      if (res.ok) {
+        const out = new Response(res.body, {
+          status: res.status,
+          statusText: res.statusText,
+          headers: new Headers(res.headers),
+        });
+        out.headers.set("Cache-Control", "public, max-age=0, must-revalidate");
+        return out;
+      }
+    }
   }
 
   // Static files and / → serve from assets (SPA fallback for 404)

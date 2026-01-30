@@ -30,6 +30,8 @@ pnpm deploy           # Deploy to Cloudflare Workers
 npx wrangler tail     # Monitor deployed worker logs
 ```
 
+**SEO / route-specific HTML:** Each route (`/`, `/about`, `/cooperation`, `/agentic-pay`, `/blogs`) has its own pre-rendered HTML in `dist/client`. The Worker serves route-specific `index.html` so "View Source" shows the correct page. If non-homepage routes still show homepage source after deploy, clear the Cloudflare build cache in the dashboard and redeploy so assets (including subdirectory `index.html` files) are re-uploaded.
+
 ### Cloudflare Workers
 ```bash
 pnpm cf-typegen       # Generate TypeScript types for Cloudflare bindings

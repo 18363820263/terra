@@ -158,8 +158,15 @@ async function main() {
     if (failCount > 0) {
       console.warn(`⚠️  Some routes failed SSR rendering. Failed routes will use static HTML fallback.`);
     }
+
+    // Ensure route-specific index.html files exist for Worker/Pages (SEO + "View Source")
+    const subRoutes = ['/about', '/cooperation', '/agentic-pay', '/blogs'];
+    const missing = subRoutes.filter((r) => !existsSync(join(distDir, r.slice(1), 'index.html')));
+    if (missing.length > 0) {
+      console.error(`❌ Missing route HTML for deploy: ${missing.join(', ')}`);
+      process.exit(1);
+    }
     
-    // Exit with success code even if some routes failed (fallback will handle it)
     console.log('✅ SSR rendering completed');
     process.exit(0);
   } catch (error) {
