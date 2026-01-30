@@ -76,6 +76,9 @@ const routes = [
 /** Routes that have their own index.html (excluding root) */
 const ROUTES_WITH_HTML = routes.filter((r) => r !== '/');
 
+/** Only run SSR once per build (closeBundle can be called multiple times by Vite) */
+let ssrRunPromise: Promise<void> | null = null;
+
 /**
  * Inject static HTML into HTML files (fallback when SSR fails)
  */
@@ -165,78 +168,76 @@ export function multiPageSchemaPlugin(): Plugin {
         return;
       }
 
-      // On Cloudflare Pages / CI, skip SSR and use static HTML to avoid timeout and env issues
-      const skipSSR = process.env.CF_PAGES === '1' || process.env.CI === 'true' || process.env.SKIP_SSR === '1';
+      // On CI/Cloudflare, optionally skip SSR (set SKIP_SSR=1 to force static fallback)
+      const skipSSR = process.env.SKIP_SSR === '1';
       if (skipSSR) {
-        console.log('⏭️  Skipping SSR (CF_PAGES/CI/SKIP_SSR), using static HTML for SEO...');
+        console.log('⏭️  Skipping SSR (SKIP_SSR=1), using static HTML for SEO...');
         injectStaticHTML(distDir, indexHtmlPath);
         return;
       }
 
-      // Try SSR first, fallback to static HTML if it fails
-      const ssrScriptPath = join(process.cwd(), 'scripts/ssr-render.ts');
-      const tsxCliPath = join(process.cwd(), 'node_modules/tsx/dist/cli.mjs');
-      // Run node + tsx directly (no shell) so exit code is correctly propagated on Windows
-      const useDirectNode = existsSync(tsxCliPath);
-      const spawnCommand = useDirectNode ? process.execPath : (process.platform === 'win32' ? 'pnpm' : 'npx');
-      const spawnArgs = useDirectNode
-        ? [tsxCliPath, '-r', 'tsconfig-paths/register', ssrScriptPath]
-        : process.platform === 'win32'
-          ? ['exec', 'tsx', '-r', 'tsconfig-paths/register', ssrScriptPath]
-          : ['tsx', '-r', 'tsconfig-paths/register', ssrScriptPath];
+      // Run SSR only once per build (closeBundle can be called multiple times)
+      if (!ssrRunPromise) {
+        ssrRunPromise = (async () => {
+          const ssrScriptPath = join(process.cwd(), 'scripts/ssr-render.ts');
+          const tsxCliPath = join(process.cwd(), 'node_modules/tsx/dist/cli.mjs');
+          const useDirectNode = existsSync(tsxCliPath);
+          const spawnCommand = useDirectNode ? process.execPath : (process.platform === 'win32' ? 'pnpm' : 'npx');
+          const spawnArgs = useDirectNode
+            ? [tsxCliPath, '-r', 'tsconfig-paths/register', ssrScriptPath]
+            : process.platform === 'win32'
+              ? ['exec', 'tsx', '-r', 'tsconfig-paths/register', ssrScriptPath]
+              : ['tsx', '-r', 'tsconfig-paths/register', ssrScriptPath];
 
-      // Add timeout to prevent hanging (increased for SSR bundle building if needed)
-      const SSR_TIMEOUT = 120000; // 120 seconds (2 minutes) - SSR bundle may already exist
-      const ssrSuccess = await new Promise<boolean>((resolve) => {
-        const timeout = setTimeout(() => {
-          console.error(`⏱️  SSR script timeout after ${SSR_TIMEOUT / 1000}s, using fallback`);
-          resolve(false);
-        }, SSR_TIMEOUT);
+          const SSR_TIMEOUT = 180000; // 3 minutes for CI (single run now)
+          const ssrSuccess = await new Promise<boolean>((resolve) => {
+            const timeout = setTimeout(() => {
+              console.error(`⏱️  SSR script timeout after ${SSR_TIMEOUT / 1000}s, using fallback`);
+              resolve(false);
+            }, SSR_TIMEOUT);
 
-        let output = '';
-        const child = spawn(spawnCommand, spawnArgs, {
-          stdio: ['inherit', 'pipe', 'pipe'], // Capture stdout and stderr
-          cwd: process.cwd(),
-          shell: false, // Never use shell - ensures correct exit code on Windows and avoids DEP0190
-        });
+            let output = '';
+            const child = spawn(spawnCommand, spawnArgs, {
+              stdio: ['inherit', 'pipe', 'pipe'],
+              cwd: process.cwd(),
+              shell: false,
+            });
 
-        // Collect output for debugging
-        child.stdout?.on('data', (data) => {
-          const text = data.toString();
-          output += text;
-          process.stdout.write(text); // Still show output
-        });
+            child.stdout?.on('data', (data) => {
+              const text = data.toString();
+              output += text;
+              process.stdout.write(text);
+            });
+            child.stderr?.on('data', (data) => {
+              const text = data.toString();
+              output += text;
+              process.stderr.write(text);
+            });
+            child.on('close', (code) => {
+              clearTimeout(timeout);
+              if (code !== 0) {
+                console.error(`\n⚠️  SSR script exited with code ${code}`);
+                console.error('Last 500 chars of output:', output.slice(-500));
+              }
+              resolve(code === 0);
+            });
+            child.on('error', (err) => {
+              clearTimeout(timeout);
+              console.error('SSR script spawn error:', err);
+              resolve(false);
+            });
+          });
 
-        child.stderr?.on('data', (data) => {
-          const text = data.toString();
-          output += text;
-          process.stderr.write(text); // Still show errors
-        });
-
-        child.on('close', (code) => {
-          clearTimeout(timeout);
-          if (code !== 0) {
-            console.error(`\n⚠️  SSR script exited with code ${code}`);
-            console.error('Last 500 chars of output:', output.slice(-500));
+          if (!ssrSuccess) {
+            console.log('⚠️  SSR failed, using static HTML fallback');
+            console.log('📝 Injecting static HTML with all h tags and content for SEO...');
+            injectStaticHTML(distDir, indexHtmlPath);
+          } else {
+            console.log('✅ SSR completed successfully - HTML files contain full React-rendered content');
           }
-          resolve(code === 0);
-        });
-
-        child.on('error', (err) => {
-          clearTimeout(timeout);
-          console.error('SSR script spawn error:', err);
-          resolve(false);
-        });
-      });
-
-      // If SSR failed, use static HTML fallback
-      if (!ssrSuccess) {
-        console.log('⚠️  SSR failed, using static HTML fallback');
-        console.log('📝 Injecting static HTML with all h tags and content for SEO...');
-        injectStaticHTML(distDir, indexHtmlPath);
-      } else {
-        console.log('✅ SSR completed successfully - HTML files contain full React-rendered content');
+        })();
       }
+      await ssrRunPromise;
     },
   };
 }

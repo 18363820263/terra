@@ -32,28 +32,31 @@ async function main() {
   const ssrDistDir = join(process.cwd(), 'dist/ssr');
   const ssrEntryPath = join(ssrDistDir, 'entry-server.js');
   
+  const rootDir = process.cwd();
+  const ssrEntryInput = join(rootDir, 'src/react-app/entry-server.tsx');
+
   // Only build SSR bundle if it doesn't exist
   if (!existsSync(ssrEntryPath)) {
     console.log('📦 SSR bundle not found, building...');
     mkdirSync(ssrDistDir, { recursive: true });
 
     await build({
+      root: rootDir,
       build: {
         ssr: true,
         outDir: ssrDistDir,
+        emptyOutDir: true,
         rollupOptions: {
-          input: join(process.cwd(), 'src/react-app/entry-server.tsx'),
+          input: ssrEntryInput,
         },
       },
       plugins: [react()],
       resolve: {
         alias: {
-          '@': join(process.cwd(), 'src/react-app'),
+          '@': join(rootDir, 'src/react-app'),
         },
       },
       ssr: {
-        // Bundle these dependencies to avoid Node.js module resolution issues
-        // Important: Include react-hook-form to ensure it's bundled correctly for SSR
         noExternal: [
           'react',
           'react-dom',
@@ -63,12 +66,10 @@ async function main() {
           'sonner',
           '@hookform/resolvers',
         ],
-        // Optimize dependencies for SSR
         optimizeDeps: {
           include: ['react', 'react-dom', 'react-router-dom'],
         },
       },
-      // Ensure proper handling of image imports in SSR
       assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.svg', '**/*.gif', '**/*.webp'],
     });
 
