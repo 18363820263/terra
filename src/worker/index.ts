@@ -56,11 +56,20 @@ app.all("*", async (c) => {
       // Get route-specific static content
       const staticContent = STATIC_HTML_BY_ROUTE[pathname];
       if (staticContent) {
-        // Inject static HTML into #root
-        html = html.replace(
-          '<div id="root"></div>',
-          `<div id="root">${staticContent}</div>`
-        );
+        // Replace entire #root content (root index.html already has SSR content inside)
+        // Find <div id="root"> and </body>, replace everything between them
+        const rootStart = html.indexOf('<div id="root">');
+        const bodyEnd = html.indexOf('</body>');
+        if (rootStart !== -1 && bodyEnd !== -1) {
+          // Find the closing </div> that's right before </body> (with optional whitespace)
+          const beforeBody = html.substring(0, bodyEnd);
+          const lastDivClose = beforeBody.lastIndexOf('</div>');
+          if (lastDivClose > rootStart) {
+            html = html.substring(0, rootStart) + 
+                   `<div id="root">${staticContent}</div>` + 
+                   html.substring(lastDivClose + 6); // 6 = length of '</div>'
+          }
+        }
       }
       
       // Generate route-specific Schema.org data
@@ -69,9 +78,9 @@ app.all("*", async (c) => {
         .map((schema) => `<script type="application/ld+json">\n${JSON.stringify(schema, null, 2)}\n</script>`)
         .join('\n    ');
       
-      // Replace schema placeholder with route-specific schemas
+      // Replace schema section (matches "(route: /)" or any route marker)
       html = html.replace(
-        /<!-- Schema\.org structured data[^>]*-->[\s\S]*?(?=<script type="module")/,
+        /<!-- Schema\.org structured data \(route: [^)]*\) -->[\s\S]*?(?=<script type="module")/,
         `<!-- Schema.org structured data (route: ${pathname}) -->\n    ${schemaScripts}\n    `
       );
       
