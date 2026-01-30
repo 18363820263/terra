@@ -17,11 +17,14 @@ app.all("*", async (c) => {
   if (!assets) return c.notFound();
 
   if (c.req.method === "GET" && pathname !== "/" && ROUTES_WITH_HTML.includes(pathname)) {
-    // Request the pre-rendered index.html; use request origin so ASSETS binding resolves path correctly
-    const origin = url.origin;
+    // Fetch pre-rendered index.html; use same origin as request so ASSETS binding resolves path
     const pathsToTry = [pathname + "/index.html", pathname + "/"];
     for (const p of pathsToTry) {
-      const assetRequest = new Request(origin + p, { method: "GET" });
+      const assetUrl = new URL(p, url.origin);
+      const assetRequest = new Request(assetUrl.toString(), {
+        method: "GET",
+        headers: new Headers({ Accept: "text/html" }),
+      });
       const res = await assets.fetch(assetRequest);
       if (res.ok) {
         const out = new Response(res.body, {

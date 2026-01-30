@@ -139,8 +139,12 @@ async function main() {
           outputPath = join(routeDir, 'index.html');
         }
 
-        // Write the modified HTML
-        writeFileSync(outputPath, finalHtml, 'utf-8');
+        // For non-root routes: inject build timestamp so wrangler sees changed content and uploads (fixes "No updated asset files")
+        const htmlToWrite =
+          route === '/'
+            ? finalHtml
+            : finalHtml.replace('</html>', `\n<!-- build:${new Date().toISOString()} -->\n</html>`);
+        writeFileSync(outputPath, htmlToWrite, 'utf-8');
         console.log(`✓ Generated ${outputPath} with route-specific Schema and SSR HTML`);
         successCount++;
       } catch (error) {
