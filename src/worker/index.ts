@@ -11,13 +11,16 @@ app.get("/api/", (c) => c.json({ name: "Cloudflare" }));
 // Serve route-specific index.html for these paths (avoid SPA fallback returning root index.html)
 app.all("*", async (c) => {
   const url = new URL(c.req.url);
-  const pathname = url.pathname;
+  // Normalize: strip trailing slash so "/about/" matches ROUTES_WITH_HTML
+  const pathname = url.pathname.replace(/\/$/, "") || "/";
   const assets = (c.env as { ASSETS?: { fetch: (req: Request) => Promise<Response> } }).ASSETS;
   if (!assets) return c.notFound();
 
-  if (c.req.method === "GET" && ROUTES_WITH_HTML.includes(pathname)) {
-    const assetUrl = new URL(pathname + "/index.html", c.req.url);
-    const res = await assets.fetch(new Request(assetUrl));
+  if (c.req.method === "GET" && pathname !== "/" && ROUTES_WITH_HTML.includes(pathname)) {
+    // Request the pre-rendered index.html for this route (e.g. /about -> /about/index.html)
+    const assetPath = pathname + "/index.html";
+    const assetUrl = new URL(assetPath, c.req.url);
+    const res = await assets.fetch(new Request(assetUrl, { method: "GET" }));
     if (res.ok) return res;
   }
 
