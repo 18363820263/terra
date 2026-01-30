@@ -74,12 +74,12 @@ export default function Blogs() {
             <p className="text-gray-600 text-lg mb-8 max-w-[600px] mx-auto">
               {t('blogCTADesc')}
             </p>
-            <Link
-              to="/cooperation"
+            <a
+              href="/cooperation"
               className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
             >
               {t('contact')}
-            </Link>
+            </a>
           </div>
         </section>
       </main>

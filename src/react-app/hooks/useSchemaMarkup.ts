@@ -4,9 +4,15 @@ import type { Schema } from '@/lib/schema/types';
 /**
  * Custom hook to inject Schema.org structured data into the document head
  * Automatically cleans up when component unmounts or schemas change
+ * Safe for SSR - only runs in browser environment
  */
 export function useSchemaMarkup(schemas: Schema | Schema[]) {
   useEffect(() => {
+    // Skip in SSR environment (document doesn't exist)
+    if (typeof document === 'undefined') {
+      return;
+    }
+
     const schemaArray = Array.isArray(schemas) ? schemas : [schemas];
     const scriptTags: HTMLScriptElement[] = [];
 

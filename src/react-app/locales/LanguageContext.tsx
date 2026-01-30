@@ -28,9 +28,13 @@ export const useLanguage = () => {
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   // 从localStorage获取语言偏好，默认中文
+  // 在 SSR 环境中，localStorage 不存在，使用默认值
   const [currentLanguage, setCurrentLanguage] = useState<Language>(() => {
-    const savedLanguage = localStorage.getItem('language');
-    return (savedLanguage as Language) || 'en-US';
+    if (typeof window !== 'undefined') {
+      const savedLanguage = localStorage.getItem('language');
+      return (savedLanguage as Language) || 'en-US';
+    }
+    return 'en-US'; // SSR 默认使用英文
   });
 
   // 获取当前语言的翻译
@@ -55,9 +59,11 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     return translations[key] || zhCN[key] || key;
   };
 
-  // 当语言变化时，保存到localStorage
+  // 当语言变化时，保存到localStorage（仅在浏览器环境中）
   useEffect(() => {
-    localStorage.setItem('language', currentLanguage);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('language', currentLanguage);
+    }
   }, [currentLanguage]);
 
   return (

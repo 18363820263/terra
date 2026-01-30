@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
 import { Bot, Zap, Shield, Globe, TrendingUp, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/locales/LanguageContext";
-import { Link } from "react-router-dom";
 import { useMemo } from "react";
 import { useSchemaMarkup } from "@/hooks/useSchemaMarkup";
 import { generateOrganizationSchema, generateWebSiteSchema, generateProductSchema } from "@/lib/schema";
@@ -52,18 +51,18 @@ export default function AgenticPay() {
                 {t('agenticPaySubtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-4">
-                <Link
-                  to="/cooperation"
+                <a
+                  href="/cooperation"
                   className="px-8 py-3 bg-white text-blue-600 rounded-lg font-medium hover:bg-gray-100 transition-colors"
                 >
                   {t('joinWaitlist')}
-                </Link>
-                <Link
-                  to="/about"
+                </a>
+                <a
+                  href="/about"
                   className="px-8 py-3 bg-white/10 backdrop-blur-sm text-white rounded-lg font-medium border border-white/20 hover:bg-white/20 transition-colors"
                 >
                   {t('learnMore')}
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -221,12 +220,12 @@ export default function AgenticPay() {
             <p className="text-white/90 text-lg mb-8 max-w-[600px] mx-auto">
               {t('agenticPayCTADesc')}
             </p>
-            <Link
-              to="/cooperation"
+            <a
+              href="/cooperation"
               className="inline-block px-8 py-3 bg-white text-blue-600 rounded-lg font-medium hover:bg-gray-100 transition-colors"
             >
               {t('getStarted')}
-            </Link>
+            </a>
           </div>
         </section>
       </main>

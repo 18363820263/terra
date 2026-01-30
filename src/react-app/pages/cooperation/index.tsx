@@ -8,7 +8,7 @@ import { useLanguage } from "@/locales/LanguageContext";
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { genSign } from "@/lib/utils";
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { useSchemaMarkup } from "@/hooks/useSchemaMarkup";
 import { generateOrganizationSchema, generateWebSiteSchema, generateContactPageSchema } from "@/lib/schema";
 
@@ -41,7 +41,8 @@ export default function Cooperation() {
 
   useSchemaMarkup(schemas);
 
-  // 初始化表单
+  // 初始化表单 - 使用默认值，在 SSR 时应该能正常工作
+  // 如果 SSR 时仍有问题，表单字段会在客户端 hydration 时正常工作
   const form = useForm<FormData>({
     defaultValues: {
       name: '',
@@ -51,7 +52,9 @@ export default function Cooperation() {
       phone: '',
       estimatedMonthlySales: '',
       businessDescription: ''
-    }
+    },
+    // 在 SSR 时禁用实时验证
+    mode: typeof window === 'undefined' ? 'onSubmit' : 'onChange',
   });
 
   // 表单验证规则

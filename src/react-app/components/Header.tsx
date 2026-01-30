@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Globe, ChevronDown } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { useLanguage } from "@/locales/LanguageContext";
@@ -23,6 +23,11 @@ export default function Header() {
   ];
 
   useEffect(() => {
+    // Skip in SSR environment
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
+      return;
+    }
+
     const handleScroll = () => {
       // 获取banner元素
       const banner = document.querySelector<HTMLElement>('section.relative.w-full');
@@ -42,8 +47,11 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [currentPath]); // 当路径变化时重新初始化
 
-  // 当路径变化时，滚动到页面顶部
+  // 当路径变化时，滚动到页面顶部（仅在浏览器环境中）
   useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [currentPath]);
 
@@ -56,13 +64,13 @@ export default function Header() {
   return (
     <header ref={headerRef} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/50' : 'bg-black/10'} backdrop-blur`}>
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-[120px] h-20 flex items-center justify-between gap-2 relative">
-        <div className="flex items-center">
+        <a href="/" className="flex items-center">
           <IconLogo />
-        </div>
+        </a>
         <div className="flex items-center gap-2">
           <nav className="hidden sm:flex items-start gap-4 md:gap-6 lg:gap-10">
-          <Link
-            to="/"
+          <a
+            href="/"
             className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/") ? "text-white" : "text-white/70 hover:text-white"}`}
           >
             <span>{t('home')}</span>
@@ -71,9 +79,9 @@ export default function Header() {
                 <div className=" w-6 h-1 bg-white" />
               </div>
             )}
-          </Link>
-          <Link
-            to="/agentic-pay"
+          </a>
+          <a
+            href="/agentic-pay"
             className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/agentic-pay") ? "text-white" : "text-white/70 hover:text-white"}`}
           >
             {t('agenticPay')}
@@ -82,9 +90,9 @@ export default function Header() {
                 <div className=" w-6 h-1 bg-white" />
               </div>
             )}
-          </Link>
-          <Link
-            to="/blogs"
+          </a>
+          <a
+            href="/blogs"
             className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/blogs") ? "text-white" : "text-white/70 hover:text-white"}`}
           >
             {t('blogs')}
@@ -93,9 +101,9 @@ export default function Header() {
                 <div className=" w-6 h-1 bg-white" />
               </div>
             )}
-          </Link>
-          <Link
-            to="/cooperation"
+          </a>
+          <a
+            href="/cooperation"
             className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/cooperation") ? "text-white" : "text-white/70 hover:text-white"}`}
           >
             {t('cooperation')}
@@ -104,9 +112,9 @@ export default function Header() {
                 <div className=" w-6 h-1 bg-white" />
               </div>
             )}
-          </Link>
-          <Link
-            to="/about"
+          </a>
+          <a
+            href="/about"
             className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/about") ? "text-white" : "text-white/70 hover:text-white"}`}
           >
             {t('about')}
@@ -115,7 +123,7 @@ export default function Header() {
                 <div className=" w-6 h-1 bg-white" />
               </div>
             )}
-          </Link>
+          </a>
         </nav>
 
         {/* Language switcher - outside nav for proper positioning */}

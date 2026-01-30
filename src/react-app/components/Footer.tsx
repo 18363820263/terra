@@ -1,6 +1,5 @@
 import { FooterBg } from "@/assets/imgs";
 import { useLanguage } from "@/locales/LanguageContext";
-import { Link } from "react-router-dom";
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -61,11 +60,12 @@ export default function Footer() {
               </div>
             </div>
 
-            <button className="flex items-center justify-center gap-2 px-6 h-12 rounded-lg bg-blue-600 shadow-[inset_-1px_-2px_2px_0_#1051DE] hover:bg-blue-700 transition-colors">
-              <Link className="text-white text-xl font-normal leading-[30px]" to="/cooperation">
-                {t('contact')}
-              </Link>
-            </button>
+            <a
+              href="/cooperation"
+              className="flex items-center justify-center gap-2 px-6 h-12 rounded-lg bg-blue-600 shadow-[inset_-1px_-2px_2px_0_#1051DE] hover:bg-blue-700 transition-colors text-white text-xl font-normal leading-[30px]"
+            >
+              {t('contact')}
+            </a>
           </div>
         </div>
       </div>

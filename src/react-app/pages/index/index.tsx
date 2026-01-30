@@ -10,7 +10,6 @@ import { SecurityIcon, SpeedIcon, GlobeIcon, ProductCard, CaseStudyCard, Advanta
 import { EncryptionIcon, IconArrowDown, IconArrowLeftFill, IconArrowRight, IconArrowRightFill, IconArrowUp, IconBolt, IconEarth, IconEco, IconEye, IconGame, IconMCN, IconStore, IconWallet, MonitorIcon, SeparationIcon, SignatureIcon } from "./components/Icons";
 import { useLanguage } from "@/locales/LanguageContext";
 import { Partner } from "./components/Partner";
-import { Link } from "react-router-dom";
 import { ClampedContentWithTooltip } from "@/components/ClampedContentWithTooltip";
 import { useSchemaMarkup } from "@/hooks/useSchemaMarkup";
 import { generateOrganizationSchema, generateWebSiteSchema, generateServiceSchema } from "@/lib/schema";
@@ -34,8 +33,12 @@ export default function Index() {
 
   useSchemaMarkup(schemas);
 
-  // 监听窗口大小变化
+  // 监听窗口大小变化（仅在浏览器环境中）
   useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
@@ -159,16 +162,15 @@ export default function Index() {
                   {t('heroSubtitle')}
                 </p>
               </div>
-              <button
-                className=" rounded-full bg-blue-600 hover:bg-blue-700 transition-colors"
+              <a
+                href="/cooperation"
+                className="rounded-full bg-blue-600 hover:bg-blue-700 transition-colors text-white flex items-center justify-center gap-2 md:gap-3 px-8 md:px-16 h-12 md:h-14"
               >
-                <Link className="text-white flex items-center justify-center gap-2 md:gap-3  px-8 md:px-16 h-12 md:h-14" to="/cooperation">
-                  <span className="text-white text-base md:text-xl font-medium leading-[30px]">
-                    {t('more')}
-                  </span>
-                  <IconArrowRight className="w-5 h-5 md:w-6 md:h-6 text-white" />
-                </Link>
-              </button>
+                <span className="text-white text-base md:text-xl font-medium leading-[30px]">
+                  {t('more')}
+                </span>
+                <IconArrowRight className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              </a>
             </div>
           </div>
         </section>
