@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Announcement from "@/components/Announcement";
 import FloatingActions from "@/components/FloatingActions";
-import { Banner1, IndexCalc, IndexGlobal, IndexSaler, IndexSecurity, IndexSpeed } from "@/assets/imgs";
+import { Banner1, IndexCalc, IndexGlobal, IndexSaler, IndexSecurity, IndexSpeed, FooterBg } from "@/assets/imgs";
 import { SecurityCard } from "@/components/SecurityCard";
 import { SecurityIcon, SpeedIcon, GlobeIcon, ProductCard, CaseStudyCard, AdvantageCard, StoryCard, PartnerLogo } from "./components";
 import { EncryptionIcon, IconArrowDown, IconArrowLeftFill, IconArrowRight, IconArrowRightFill, IconArrowUp, IconBolt, IconEarth, IconEco, IconEye, IconGame, IconMCN, IconStore, IconWallet, MonitorIcon, SeparationIcon, SignatureIcon } from "./components/Icons";
@@ -182,7 +182,7 @@ export default function Index() {
           </h2>
           <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 border-t border-b border-gray-200 py-8 md:py-12">
             <div className="flex flex-col items-center justify-center gap-2">
-              <span className="text-gray-950 text-3xl md:text-4xl font-medium leading-tight md:leading-[54px]">
+              <span className="text-blue-600 text-3xl md:text-4xl font-medium leading-tight md:leading-[54px]">
                 50+
               </span>
               <span className="text-gray-400 text-sm md:text-base font-light leading-6 text-center">
@@ -190,7 +190,7 @@ export default function Index() {
               </span>
             </div>
             <div className="flex flex-col items-center justify-center gap-2">
-              <span className="text-gray-950 text-3xl md:text-4xl font-medium leading-tight md:leading-[54px]">
+              <span className="text-blue-600 text-3xl md:text-4xl font-medium leading-tight md:leading-[54px]">
                 30+
               </span>
               <span className="text-gray-400 text-sm md:text-base font-light leading-6 text-center">
@@ -198,7 +198,7 @@ export default function Index() {
               </span>
             </div>
             <div className="flex flex-col items-center justify-center gap-2">
-              <span className="text-gray-950 text-3xl md:text-4xl font-medium leading-tight md:leading-[54px]">
+              <span className="text-blue-600 text-3xl md:text-4xl font-medium leading-tight md:leading-[54px]">
                 20+
               </span>
               <span className="text-gray-400 text-sm md:text-base font-light leading-6 text-center">
@@ -206,7 +206,7 @@ export default function Index() {
               </span>
             </div>
             <div className="flex flex-col items-center justify-center gap-2">
-              <span className="text-gray-950 text-3xl md:text-4xl font-medium leading-tight md:leading-[54px]">
+              <span className="text-blue-600 text-3xl md:text-4xl font-medium leading-tight md:leading-[54px]">
                 99.9%
               </span>
               <span className="text-gray-400 text-sm md:text-base font-light leading-6 text-center">
@@ -282,6 +282,67 @@ export default function Index() {
           </div>
         </section>
 
+        {/* Stablecoin Advantages */}
+        <section className="w-full max-w-[1200px] px-4 flex flex-col items-center gap-10">
+          <div className="w-full max-w-[640px] flex flex-col items-start gap-3">
+            <h2 className="w-full text-gray-950 text-4xl font-medium leading-[54px] text-center">
+              {t('stablecoinAdvantages')}
+            </h2>
+            <p className="w-full text-gray-400 text-base font-light leading-6 text-center">
+              {t('stablecoinAdvantagesSubtitle')}
+            </p>
+          </div>
+
+          <div className="w-full flex flex-col items-start gap-6">
+            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
+              <AdvantageCard
+                title={t('improveCashFlow')}
+                icon={<IconWallet />}
+                description={t('improveCashFlowDesc')}
+                comparison={[
+                  { label: t('traditionalPayment'), value: t('threeToFiveDays') },
+                  { label: t('stablecoinPayment'), value: t('instantSettlement') },
+                ]}
+              />
+              <AdvantageCard
+                title={t('reduceCost')}
+                icon={<IconArrowDown />}
+                description={t('reduceCostDesc')}
+                comparison={[{ label: t('transactionFee'), value: t('save80') }]}
+              />
+              <AdvantageCard
+                title={t('globalExpansion')}
+                icon={<IconEarth />}
+                description={t('globalExpansionDesc')}
+                comparison={[
+                  { label: t('country'), value: "50+" },
+                  { label: t('currency'), value: "20+" },
+                ]}
+              />
+            </div>
+            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
+              <AdvantageCard
+                title={t('riskManagement')}
+                icon={<IconBolt />}
+                description={t('riskManagementDesc')}
+                comparison={[{ label: t('securityGuarantee'), value: t('save9999') }]}
+              />
+              <AdvantageCard
+                title={t('improveUserExperience')}
+                icon={<IconArrowUp />}
+                description={t('improveUserExperienceDesc')}
+                comparison={[{ label: t('paymentSuccessRate'), value: "+50%" }]}
+              />
+              <AdvantageCard
+                title={t('dataInsights')}
+                icon={<IconEye />}
+                description={t('dataInsightsDesc')}
+                comparison={[{ label: t('realTimeDashboard'), value: "" }]}
+              />
+            </div>
+          </div>
+        </section>
+
         {/* Security System */}
         <section className="w-full max-w-[1200px] px-4 flex flex-col items-center gap-10">
           <div className="w-full flex flex-col items-start gap-3">
@@ -314,6 +375,68 @@ export default function Index() {
               title={t('coldStorage')}
               description={t('coldStorageDesc')}
             />
+          </div>
+        </section>
+
+        {/* Contact Now CTA */}
+        <section className="w-full bg-gray-950 relative overflow-hidden">
+          <div
+            className="absolute inset-0 opacity-20 bg-no-repeat bg-right-top bg-cover"
+            style={{ backgroundImage: `url(${FooterBg})` }}
+          />
+          <div className="relative max-w-[1200px] mx-auto py-12 md:py-[72px] px-4">
+            <div className="flex flex-col items-center gap-10">
+              <div className="flex flex-col md:flex-row justify-between items-start w-full gap-10">
+                <div className="flex flex-col items-center gap-4 w-full lg:w-[25%]">
+                  <div className="flex flex-col items-center w-full">
+                    <div className="flex items-center justify-center opacity-40 drop-shadow-md">
+                      <span className="text-white text-center text-4xl md:text-5xl font-semibold leading-[72px] h-[36px] overflow-hidden">
+                        1
+                      </span>
+                    </div>
+                    <div className="h-px w-full bg-white/20" />
+                  </div>
+                  <p className="text-white text-base md:text-xl font-normal leading-[30px] text-center">
+                    {t('footerStep1')}
+                  </p>
+                </div>
+
+                <div className="flex flex-col items-center gap-4 w-full lg:w-[50%]">
+                  <div className="flex flex-col items-center w-full">
+                    <div className="flex items-center justify-center opacity-40 drop-shadow-md">
+                      <span className="text-white text-center text-4xl md:text-5xl font-semibold leading-[72px] h-[36px] overflow-hidden">
+                        2
+                      </span>
+                    </div>
+                    <div className="h-px w-full bg-white/20" />
+                  </div>
+                  <p className="text-white text-base md:text-xl font-normal leading-[30px] text-center">
+                    {t('footerStep2')}
+                  </p>
+                </div>
+
+                <div className="flex flex-col items-center gap-4 w-full lg:w-[25%]">
+                  <div className="flex flex-col items-center w-full">
+                    <div className="flex items-center justify-center opacity-40 drop-shadow-md">
+                      <span className="text-white text-center text-4xl md:text-5xl font-semibold leading-[72px] h-[36px] overflow-hidden">
+                        3
+                      </span>
+                    </div>
+                    <div className="h-px w-full bg-white/20" />
+                  </div>
+                  <p className="text-white text-base md:text-xl font-normal leading-[30px] text-center">
+                    {t('footerStep3')}
+                  </p>
+                </div>
+              </div>
+
+              <a
+                href="/cooperation"
+                className="flex items-center justify-center gap-2 px-6 h-12 rounded-lg bg-blue-600 shadow-[inset_-1px_-2px_2px_0_#1051DE] hover:bg-blue-700 transition-colors text-white text-xl font-normal leading-[30px]"
+              >
+                {t('contact')}
+              </a>
+            </div>
           </div>
         </section>
 
@@ -409,67 +532,6 @@ export default function Index() {
                   aria-label={`Go to slide ${index + 1}`}
                 />
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Stablecoin Advantages */}
-        <section className="w-full max-w-[1200px] px-4 flex flex-col items-center gap-10">
-          <div className="w-full max-w-[640px] flex flex-col items-start gap-3">
-            <h2 className="w-full text-gray-950 text-4xl font-medium leading-[54px] text-center">
-              {t('stablecoinAdvantages')}
-            </h2>
-            <p className="w-full text-gray-400 text-base font-light leading-6 text-center">
-              {t('stablecoinAdvantagesSubtitle')}
-            </p>
-          </div>
-
-          <div className="w-full flex flex-col items-start gap-6">
-            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
-              <AdvantageCard
-                title={t('improveCashFlow')}
-                icon={<IconWallet />}
-                description={t('improveCashFlowDesc')}
-                comparison={[
-                  { label: t('traditionalPayment'), value: t('threeToFiveDays') },
-                  { label: t('stablecoinPayment'), value: t('instantSettlement') },
-                ]}
-              />
-              <AdvantageCard
-                title={t('reduceCost')}
-                icon={<IconArrowDown />}
-                description={t('reduceCostDesc')}
-                comparison={[{ label: t('transactionFee'), value: t('save80') }]}
-              />
-              <AdvantageCard
-                title={t('globalExpansion')}
-                icon={<IconEarth />}
-                description={t('globalExpansionDesc')}
-                comparison={[
-                  { label: t('country'), value: "50+" },
-                  { label: t('currency'), value: "20+" },
-                ]}
-              />
-            </div>
-            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
-              <AdvantageCard
-                title={t('riskManagement')}
-                icon={<IconBolt />}
-                description={t('riskManagementDesc')}
-                comparison={[{ label: t('securityGuarantee'), value: t('save9999') }]}
-              />
-              <AdvantageCard
-                title={t('improveUserExperience')}
-                icon={<IconArrowUp />}
-                description={t('improveUserExperienceDesc')}
-                comparison={[{ label: t('paymentSuccessRate'), value: "+50%" }]}
-              />
-              <AdvantageCard
-                title={t('dataInsights')}
-                icon={<IconEye />}
-                description={t('dataInsightsDesc')}
-                comparison={[{ label: t('realTimeDashboard'), value: "" }]}
-              />
             </div>
           </div>
         </section>
