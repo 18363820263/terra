@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
+import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Bot, Zap, Shield, Globe, TrendingUp, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/locales/LanguageContext";
 import { useMemo } from "react";
@@ -31,6 +32,18 @@ export default function AgenticPay() {
       <FloatingActions />
 
       <main className="flex flex-col items-center">
+        {/* Breadcrumb Navigation */}
+        <section className="w-full max-w-[1200px] mx-auto px-4 md:px-8 lg:px-0 pt-32 pb-4">
+          <BreadcrumbNav
+            items={[
+              {
+                label: t('agenticPay'),
+                path: '/agentic-pay',
+              },
+            ]}
+          />
+        </section>
+
         {/* Hero Banner */}
         <section className="relative w-full h-[500px] md:h-[640px]">
           <img

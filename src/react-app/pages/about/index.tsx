@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
+import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Lightbulb, Sun, Gem, Heart, Star, MapPin } from "lucide-react";
 import { AboutCover, AboutFuture, AboutMap, Banner2 } from "@/assets/imgs";
 import { useLanguage } from "@/locales/LanguageContext";
@@ -25,6 +26,18 @@ export default function About() {
       <FloatingActions />
 
       <main className="flex flex-col items-center">
+        {/* Breadcrumb Navigation */}
+        <section className="w-full max-w-[1200px] mx-auto px-4 md:px-8 lg:px-0 pt-32 pb-4">
+          <BreadcrumbNav
+            items={[
+              {
+                label: t('about'),
+                path: '/about',
+              },
+            ]}
+          />
+        </section>
+
         {/* Hero Banner */}
         <section className="relative w-full h-[320px] overflow-hidden">
           <img

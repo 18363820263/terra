@@ -3,6 +3,7 @@ import { Calendar, Clock, Tag, ArrowLeft } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingActions from '@/components/FloatingActions';
+import { BreadcrumbNav } from '@/components/BreadcrumbNav';
 import { useLanguage } from '@/locales/LanguageContext';
 import { getArticleBySlug, formatDate } from '@/lib/blog';
 import { useMemo } from 'react';
@@ -124,8 +125,24 @@ export default function BlogArticle() {
       <FloatingActions />
 
       <main className="flex flex-col items-center">
+        {/* Breadcrumb Navigation */}
+        <div className="w-full max-w-[800px] mx-auto px-4 md:px-8 pt-32 pb-4">
+          <BreadcrumbNav
+            items={[
+              {
+                label: t('blogs'),
+                path: '/blogs',
+              },
+              {
+                label: article.title,
+                path: `/blogs/${article.slug}`,
+              },
+            ]}
+          />
+        </div>
+
         {/* Article Header */}
-        <div className="w-full max-w-[800px] mx-auto px-4 md:px-8 pt-32 pb-8">
+        <div className="w-full max-w-[800px] mx-auto px-4 md:px-8 pb-8">
           <Link
             to="/blogs"
             className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 mb-8 transition-colors"

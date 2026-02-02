@@ -2,6 +2,7 @@ import { ChevronRight, Mail, Clock, Zap } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
+import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Banner2 } from "@/assets/imgs";
 import { FormField, Clock24 } from "./components";
 import { useLanguage } from "@/locales/LanguageContext";
@@ -124,6 +125,18 @@ export default function Cooperation() {
       <FloatingActions />
 
       <main className="flex flex-col items-center">
+        {/* Breadcrumb Navigation */}
+        <section className="w-full max-w-[1200px] mx-auto px-4 md:px-8 lg:px-0 pt-32 pb-4">
+          <BreadcrumbNav
+            items={[
+              {
+                label: t('cooperation'),
+                path: '/cooperation',
+              },
+            ]}
+          />
+        </section>
+
         {/* Hero Banner */}
         <section className="relative w-full h-[320px]">
           <img
