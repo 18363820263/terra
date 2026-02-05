@@ -69,98 +69,109 @@ export default function Header() {
         </a>
         <div className="flex items-center gap-2">
           <nav className="hidden sm:flex items-start gap-4 md:gap-6 lg:gap-10">
-          <a
-            href="/"
-            className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/") ? "text-white" : "text-white/70 hover:text-white"}`}
-          >
-            <span>{t('home')}</span>
-            {isActive("/") && (
-              <div className="absolute bottom-[-28px] w-full flex justify-center">
-                <div className=" w-6 h-1 bg-white" />
-              </div>
-            )}
-          </a>
-          <a
-            href="/agentic-pay"
-            className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/agentic-pay") ? "text-white" : "text-white/70 hover:text-white"}`}
-          >
-            {t('agenticPay')}
-            {isActive("/agentic-pay") && (
-              <div className="absolute bottom-[-28px] w-full flex justify-center">
-                <div className=" w-6 h-1 bg-white" />
-              </div>
-            )}
-          </a>
-          <a
-            href="/blogs"
-            className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/blogs") ? "text-white" : "text-white/70 hover:text-white"}`}
-          >
-            {t('blogs')}
-            {isActive("/blogs") && (
-              <div className="absolute bottom-[-28px] w-full flex justify-center">
-                <div className=" w-6 h-1 bg-white" />
-              </div>
-            )}
-          </a>
-          <a
-            href="/cooperation"
-            className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/cooperation") ? "text-white" : "text-white/70 hover:text-white"}`}
-          >
-            {t('cooperation')}
-            {isActive("/cooperation") && (
-              <div className="absolute bottom-[-28px] w-full flex justify-center">
-                <div className=" w-6 h-1 bg-white" />
-              </div>
-            )}
-          </a>
-          <a
-            href="/about"
-            className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/about") ? "text-white" : "text-white/70 hover:text-white"}`}
-          >
-            {t('about')}
-            {isActive("/about") && (
-              <div className="absolute bottom-[-28px] w-full flex justify-center">
-                <div className=" w-6 h-1 bg-white" />
-              </div>
-            )}
-          </a>
-        </nav>
+            <a
+              href="/"
+              className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/") ? "text-white" : "text-white/70 hover:text-white"}`}
+            >
+              <span>{t('home')}</span>
+              {isActive("/") && (
+                <div className="absolute bottom-[-28px] w-full flex justify-center">
+                  <div className=" w-6 h-1 bg-white" />
+                </div>
+              )}
+            </a>
+            <a
+              href="/agentic-pay"
+              className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/agentic-pay") ? "text-white" : "text-white/70 hover:text-white"}`}
+            >
+              {t('agenticPay')}
+              {isActive("/agentic-pay") && (
+                <div className="absolute bottom-[-28px] w-full flex justify-center">
+                  <div className=" w-6 h-1 bg-white" />
+                </div>
+              )}
+            </a>
+            <a
+              href="/blogs"
+              className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/blogs") ? "text-white" : "text-white/70 hover:text-white"}`}
+            >
+              {t('blogs')}
+              {isActive("/blogs") && (
+                <div className="absolute bottom-[-28px] w-full flex justify-center">
+                  <div className=" w-6 h-1 bg-white" />
+                </div>
+              )}
+            </a>
+            <a
+              href="/cases"
+              className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/cases") ? "text-white" : "text-white/70 hover:text-white"}`}
+            >
+              {t('cases')}
+              {isActive("/cases") && (
+                <div className="absolute bottom-[-28px] w-full flex justify-center">
+                  <div className=" w-6 h-1 bg-white" />
+                </div>
+              )}
+            </a>
+            <a
+              href="/cooperation"
+              className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/cooperation") ? "text-white" : "text-white/70 hover:text-white"}`}
+            >
+              {t('cooperation')}
+              {isActive("/cooperation") && (
+                <div className="absolute bottom-[-28px] w-full flex justify-center">
+                  <div className=" w-6 h-1 bg-white" />
+                </div>
+              )}
+            </a>
+            <a
+              href="/about"
+              className={`text-sm relative md:text-base font-normal leading-6 transition-colors ${isActive("/about") ? "text-white" : "text-white/70 hover:text-white"}`}
+            >
+              {t('about')}
+              {isActive("/about") && (
+                <div className="absolute bottom-[-28px] w-full flex justify-center">
+                  <div className=" w-6 h-1 bg-white" />
+                </div>
+              )}
+            </a>
+          </nav>
 
-        {/* Language switcher - outside nav for proper positioning */}
-        <div className="relative ml-10">
-          <button
-            className=" flex items-center gap-3 text-white/70 hover:text-white transition-colors"
-            onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-          >
-            <div className="flex items-center gap-1">
-              <Globe className="w-4 h-4" />
-              <span className="text-sm md:text-base font-normal leading-6">
-                {languages.find(lang => lang.code === currentLanguage)?.name || '中文'}
-              </span>
-            </div>
-            <ChevronDown className={`w-4 h-4 transition-transform ${isLanguageOpen ? 'rotate-180' : ''}`} />
-          </button>
+          {/* Language switcher - outside nav for proper positioning */}
+          <div className="relative ml-10">
+            <button
+              className=" flex items-center gap-3 text-white/70 hover:text-white transition-colors"
+              onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+            >
+              <div className="flex items-center gap-1">
+                <Globe className="w-4 h-4" />
+                <span className="text-sm md:text-base font-normal leading-6">
+                  {languages.find(lang => lang.code === currentLanguage)?.name || '中文'}
+                </span>
+              </div>
+              <ChevronDown className={`w-4 h-4 transition-transform ${isLanguageOpen ? 'rotate-180' : ''}`} />
+            </button>
 
-          {/* Language dropdown */}
-          {isLanguageOpen && (
-            <div className="absolute top-full right-0 mt-2 bg-white backdrop-blur-sm rounded-lg shadow-lg p-3 z-50">
-              {languages.map((lang) => (
-                <button 
-                  key={lang.code}
-                  className={`flex relative border-b border-gray-100 last:border-b-0 items-center gap-3 px-4 py-2 text-sm md:text-base text-nowrap font-normal leading-6 transition-colors w-full justify-start ${currentLanguage === lang.code ? 'text-[#2563EB]' : 'text-black/70 hover:text-[#2563EB]/80 hover:bg-white/10'}`}
-                  onClick={() => changeLanguage(lang.code)}
-                >
-                  <span>{lang.name}</span>
-                  {currentLanguage === lang.code && (
-                    <span className="active-block absolute top-[50%] translate-y-[-50%] translate-x-[-12px] left-0 w-[3px] h-[12px] bg-[#2563EB]"></span>
-                  )}
-                </button>
-              ))}
-            </div>
-          )}
+            {/* Language dropdown */}
+            {isLanguageOpen && (
+              <div className="absolute top-full right-0 mt-2 bg-white backdrop-blur-sm rounded-lg shadow-lg p-3 z-50">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    className={`flex relative border-b border-gray-100 last:border-b-0 items-center gap-3 px-4 py-2 text-sm md:text-base text-nowrap font-normal leading-6 transition-colors w-full justify-start ${currentLanguage === lang.code ? 'text-[#2563EB]' : 'text-black/70 hover:text-[#2563EB]/80 hover:bg-white/10'}`}
+                    onClick={() => changeLanguage(lang.code)}
+                  >
+                    <span>{lang.name}</span>
+                    {currentLanguage === lang.code && (
+                      <span className="active-block absolute top-[50%] translate-y-[-50%] translate-x-[-12px] left-0 w-[3px] h-[12px] bg-[#2563EB]"></span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
     </header>
   );
 }

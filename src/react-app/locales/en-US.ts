@@ -5,6 +5,7 @@ export const enUS = {
   about: 'About Us',
   agenticPay: 'Agentic Pay',
   blogs: 'Blog',
+  cases: 'Cases',
   language: 'English',
   more: 'Learn More',
   contact: 'Contact Now',
@@ -27,18 +28,18 @@ export const enUS = {
   story2: 'Story 2',
   latestNews: 'Latest News: "Announcement"',
   moreNews: 'More',
-  
+
   // Hero Section
   heroTitle: 'Full-scenario Cross-border Stablecoin Payment Service Provider',
   heroSubtitle: 'A fast, secure and compliant end-to-end payment platform based on stablecoins such as USDT and USDC, helping merchants upgrade their digital operations',
-  
+
   // Global Coverage
   globalCoverage: '「 Global Business Coverage 」',
   regions: 'Service Coverage Regions',
   currencies: 'Supported Currencies',
   paymentMethods: 'Payment Methods',
   uptime: 'System Uptime',
-  
+
   // Why Choose TerraziPay
   whyChoose: '「 Why Choose TerraziPay? 」',
   whyChooseSubtitle: 'Blockchain-based stablecoin payment solutions provide secure, fast and cost-effective payment services for merchants worldwide.',
@@ -64,7 +65,7 @@ export const enUS = {
     'Real-time exchange rate conversion for multiple currencies',
     'Localized payment experience'
   ],
-  
+
   // Security System
   securitySystem: '「 Comprehensive Security System 」',
   securitySystemSubtitle: 'Based on multi-layered, comprehensive security measures to ensure the security and reliability of every transaction.',
@@ -76,7 +77,7 @@ export const enUS = {
   multiSignatureDesc: 'Multi-level private key authorization mechanism to prevent single point of failure and internal risks',
   coldStorage: 'Cold-Hot Storage Separation',
   coldStorageDesc: '95% of funds are stored in cold storage accounts, 5% in hot wallet accounts to ensure fund security',
-  
+
   // Product Ecosystem
   productEcosystem: '「 Product Ecosystem 」',
   productEcosystemSubtitle: 'One-stop digital payment solutions',
@@ -86,7 +87,7 @@ export const enUS = {
   aiAgentPayment: 'AI Agent Payment',
   aiAgentPaymentSubtitle: 'Agent-as-a-Service Platform',
   aiAgentPaymentDesc: 'Provide plug-and-play payment modules. Developers only need to call the API to give their Agent payment capabilities',
-  
+
   // Success Stories
   successStories: 'Industry Success Stories',
   successStoriesSubtitle: 'Learn how various industries have achieved business breakthroughs through stablecoin payments',
@@ -98,7 +99,7 @@ export const enUS = {
   gameEntertainmentDesc: 'Stablecoin payments allow our global users to quickly complete recharge operations without worrying about exchange rate fluctuations, which has greatly improved user experience and retention',
   offlineStores: 'Offline Stores',
   offlineStoresDesc: 'QR code stablecoin payment method allows foreign tourists to easily complete payments without currency exchange',
-  
+
   // Stablecoin Advantages
   stablecoinAdvantages: '「 Stablecoin Advantages 」',
   stablecoinAdvantagesSubtitle: 'Why more and more merchants choose stablecoin payments',
@@ -114,15 +115,15 @@ export const enUS = {
   improveUserExperienceDesc: 'Simplify payment process, improve payment success rate, enhance user satisfaction',
   dataInsights: 'Data Insights',
   dataInsightsDesc: 'Through detailed analysis of transaction data to help optimize business decisions and improve user experience',
-  
+
   // Merchant Stories
   merchantStories: '「 Do something, love something, have expectations 」',
   famousMerchantStories_title: 'Famous',
   famousMerchantStories_description: 'Merchant Stories',
-  
+
   // Financial Partners
   financialPartners: '「 Cooperating with financial partners to help digital operations 」',
-  
+
   // Cooperation Page
   getYourSolution: 'Get Your Solution',
   responseTime: 'Response within 2 hours',
@@ -147,7 +148,7 @@ export const enUS = {
   formHint: 'Please fill in your real situation, we will contact you as soon as possible after receiving your application',
   submitSuccessMessage: 'You have successfully submitted your information. We will contact you within 3-5 business days. Please check your email or phone.',
   ok: 'OK',
-  
+
   // About Page
   aboutUs: 'About Us',
   whatIsTerragogo: 'What is TerraziPay?',
@@ -156,14 +157,14 @@ export const enUS = {
   blockchainNativeLawDesc: 'We have established a complete blockchain native legal framework to ensure that our services comply with laws and regulations around the world. We maintain close cooperation with regulatory agencies in multiple countries and regions, and actively participate in the formulation and standardization of the blockchain industry.',
   tradingSaaS: 'Trading SaaS',
   tradingSaaSDesc: 'We provide one-stop trading SaaS solutions to help enterprises quickly build and deploy their own blockchain trading platforms. Our solutions cover core functions such as trading engine, wallet management, risk control, compliance management, supporting multiple blockchain networks and digital assets.',
-  
+
   // Stats Section
   highQualityTrading: 'High Quality Trading',
   community: 'Community',
   activeUsers: 'Active Users',
   countries: 'Countries Coverage',
   continents: 'Continents',
-  
+
   // Core Advantages
   coreAdvantages: '「 Core Advantages 」',
   complianceSecurity: 'Compliance & Security',
@@ -178,14 +179,14 @@ export const enUS = {
   leadingTechnologyDesc: 'With an experienced technical team, continuous innovation, leading industry development.',
   outstandingReputation: 'Outstanding Reputation',
   outstandingReputationDesc: 'Established cooperative relationships with many well-known enterprises worldwide, with good industry reputation and high user trust.',
-  
+
   // Mission Section
   ourMission: 'Our Mission',
   innovativeTechnology: 'Innovative Technology',
   innovativeTechnologyDesc: 'Continuously explore the boundaries of blockchain technology, promote industry innovation and development.',
   highQualityService: 'High Quality Service',
   highQualityServiceDesc: 'User-centered, providing professional, efficient and thoughtful service experience.',
-  
+
   // Global Layout
   globalLayout: '「 Global Layout 」',
   hongKongHeadquarters: 'Hong Kong Headquarters',
@@ -196,11 +197,11 @@ export const enUS = {
   malaysiaAddress: 'Petronas Twin Towers, Kuala Lumpur, Malaysia',
   mexicoOffice: 'Mexico Branch',
   mexicoAddress: 'Torre Reforma, 156 Paseo de la Reforma, Mexico City, Mexico',
-  
+
   // CTA Section
   buildOneStopSolution: 'Build a One-stop Digital Trading Solution',
   ctaSubtitle: 'Provide secure, efficient and convenient blockchain trading services for domestic and foreign customers, helping enterprises achieve digital transformation.',
-  
+
   // Values
   values: 'Core Values',
   innovation: 'Innovation',
@@ -208,13 +209,13 @@ export const enUS = {
   professionalism: 'Professionalism',
   integrity: 'Integrity',
   enterprise: 'Enterprise',
-  
+
   // Vision & Mission
   vision: 'Vision:',
   visionDesc: 'To become the world\'s trusted and convenient stablecoin payment solution.',
   mission: 'Mission:',
   missionDesc: 'Through blockchain technology, break the barriers of cross-border payments, providing faster, cheaper, and more transparent payment settlement services for enterprises and individuals than traditional financial systems.',
-  
+
   // Case Study Metrics
   entrepreneurEarnings: 'Entrepreneur Earnings',
   settlementEfficiency: 'Settlement Efficiency',
@@ -223,7 +224,7 @@ export const enUS = {
   rechargeConversionRate: 'Recharge Conversion Rate',
   userSatisfaction: 'User Satisfaction',
   foreignCustomers: 'Foreign Customers',
-  
+
   // Advantage Card Comparison
   traditionalPayment: 'Traditional Payment',
   stablecoinPayment: 'Stablecoin Payment',
@@ -234,7 +235,7 @@ export const enUS = {
   currency: 'Currencies',
   securityGuarantee: 'Security Guarantee',
   realTimeDashboard: 'Real-time Dashboard',
-  
+
   // About Page
   blockchainNetworkSupport: 'Blockchain Network Support',
   blockchainNetworkSupportDesc: 'You can choose mainstream blockchain networks to receive stablecoins according to your needs. Currently supporting ETH, TRON, BNB Chain (BSC), Solana, Polygon, Arbitrum, etc. More network options will be added in the future.',
@@ -244,7 +245,7 @@ export const enUS = {
   costClarityDesc: 'Simple and transparent cost structure, no hidden costs.',
   flexibleSettlement: 'Flexible Settlement',
   flexibleSettlementDesc: 'Supports D0 settlement (7*24 hours withdrawal at any time) and multi-chain selection.',
-  
+
   // Form Placeholders
   enterName: 'Please enter name',
   enterEmail: 'Please enter email address',
@@ -253,7 +254,7 @@ export const enUS = {
   enterPhone: 'Please enter phone number',
   enterMonthlySales: 'Please enter',
   enterBusinessDescription: 'Please enter',
-  
+
   // Stats
   dailyTransactionCount: '10,000,000+',
   dailyTransactions: 'Daily Transactions',
@@ -263,12 +264,12 @@ export const enUS = {
   serviceTeam: 'Service Team',
   statsGlobalCoverage: 'Global Coverage',
   branches: 'Branches',
-  
+
   // NotFound Page
   notFoundTitle: '404',
   notFoundSubtitle: 'Oops! Page not found',
   returnToHome: 'Return to Home',
-  
+
   // Footer Sections
   footerStep1: 'Experience the new generation of stablecoin payment solutions',
   footerStep2: 'Provide safe, stable, convenient and fast payment services for merchants',
@@ -344,6 +345,102 @@ export const enUS = {
   interestedInAgenticPay: 'Interested in Agentic Pay?',
   joinWaitlistDescription: 'Join our waitlist to be among the first to access TerraziPay when we launch.',
 
+  // Cases Page
+  casesTitle: 'Success Stories',
+  casesSubtitle: 'Explore how businesses across industries achieve breakthrough innovations with TerraziPay stablecoin payment solutions',
+  viewAllCases: 'View All Cases',
+  caseStudy: 'Case Study',
+
+  // Case Study - E-commerce Platform
+  ecommerceCaseTitle: 'Cross-border E-commerce Platform',
+  ecommerceCaseIndustry: 'E-commerce',
+  ecommerceCaseChallenge: 'Challenge',
+  ecommerceCaseChallengeDesc: 'Traditional cross-border payment settlement takes 5-7 days, with fees as high as 3-5% severely impacting profit margins, and payment success rate only 65%.',
+  ecommerceCaseSolution: 'Solution',
+  ecommerceCaseSolutionDesc: 'Integrated TerraziPay stablecoin payment system, supporting USDT/USDC real-time settlement, reducing fees to 0.5% and improving payment success rate to 98%.',
+  ecommerceCaseResults: 'Results',
+  ecommerceCaseMetric1: 'Order Growth',
+  ecommerceCaseMetric1Value: '+156%',
+  ecommerceCaseMetric2: 'Settlement Speed',
+  ecommerceCaseMetric2Value: 'T+0',
+  ecommerceCaseMetric3: 'Cost Savings',
+  ecommerceCaseMetric3Value: '87%',
+  ecommerceCaseQuote: '"TerraziPay helped us break free from traditional cross-border payment limitations. Now we can complete global collections in minutes."',
+  ecommerceCaseAuthor: 'Zhang Ming',
+  ecommerceCaseAuthorTitle: 'CEO, GlobalShop E-commerce Platform',
+
+  // Case Study - Gaming Company
+  gamingCaseTitle: 'Online Gaming Platform',
+  gamingCaseIndustry: 'Gaming & Entertainment',
+  gamingCaseChallenge: 'Challenge',
+  gamingCaseChallengeDesc: 'Global player recharges require handling multiple currencies and payment methods, with traditional payment channels having high fees and exchange rate volatility affecting user experience.',
+  gamingCaseSolution: 'Solution',
+  gamingCaseSolutionDesc: 'Deployed stablecoin recharge system allowing players to directly recharge with USDT, avoiding exchange rate losses and achieving 7*24 instant settlement.',
+  gamingCaseResults: 'Results',
+  gamingCaseMetric1: 'Recharge Conversion',
+  gamingCaseMetric1Value: '+89%',
+  gamingCaseMetric2: 'User Retention',
+  gamingCaseMetric2Value: '+45%',
+  gamingCaseMetric3: 'Avg Recharge Amount',
+  gamingCaseMetric3Value: '+62%',
+  gamingCaseQuote: '"Stablecoin payments allow our global users to enjoy a consistent recharge experience, significantly improving user satisfaction."',
+  gamingCaseAuthor: 'Sarah Chen',
+  gamingCaseAuthorTitle: 'COO, Epic Games Studio',
+
+  // Case Study - Freelance Platform
+  freelanceCaseTitle: 'Freelance Platform',
+  freelanceCaseIndustry: 'Human Resources',
+  freelanceCaseChallenge: 'Challenge',
+  freelanceCaseChallengeDesc: 'Paying salaries to freelancers in 50+ countries, traditional bank transfers are expensive and slow, often taking 7-14 days.',
+  freelanceCaseSolution: 'Solution',
+  freelanceCaseSolutionDesc: 'Adopted TerraziPay batch salary distribution system, automatically distributing stablecoin salaries through smart contracts, achieving second-level settlement.',
+  freelanceCaseResults: 'Results',
+  freelanceCaseMetric1: 'Payout Speed',
+  freelanceCaseMetric1Value: '< 1 minute',
+  freelanceCaseMetric2: 'Fee Savings',
+  freelanceCaseMetric2Value: '92%',
+  freelanceCaseMetric3: 'Platform Satisfaction',
+  freelanceCaseMetric3Value: '4.9/5.0',
+  freelanceCaseQuote: '"Now we can complete global salary distribution on the same day, and freelancer satisfaction has reached an all-time high."',
+  freelanceCaseAuthor: 'Michael Rodriguez',
+  freelanceCaseAuthorTitle: 'Founder, GlobalTalent Hub',
+
+  // Case Study - MCN Agency
+  mcnCaseTitle: 'MCN Content Creator Agency',
+  mcnCaseIndustry: 'New Media',
+  mcnCaseChallengeDesc: 'Managing 2000+ global creators, processing large amounts of micro-settlements monthly, traditional methods are time-consuming and costly.',
+  mcnCaseSolutionDesc: 'Using TerraziPay API to implement automated settlement system, calculating and distributing stablecoin earnings to creators in real-time based on performance.',
+  mcnCaseMetric1: 'Settlement Efficiency',
+  mcnCaseMetric1Value: '+300%',
+  mcnCaseMetric2: 'Creator Earnings',
+  mcnCaseMetric2Value: '+28%',
+  mcnCaseMetric3: 'Operating Costs',
+  mcnCaseMetric3Value: '-75%',
+
+  // Case Study - SaaS Company
+  saasCaseTitle: 'SaaS Software Provider',
+  saasCaseIndustry: 'Enterprise Services',
+  saasCaseChallengeDesc: 'Global subscribers use different payment methods, with payment failures causing customer churn rate of 15%.',
+  saasCaseSolutionDesc: 'Integrated TerraziPay as backup payment channel, allowing users to subscribe with stablecoins, reducing payment failure rate.',
+  saasCaseMetric1: 'Payment Success Rate',
+  saasCaseMetric1Value: '99.2%',
+  saasCaseMetric2: 'Customer Churn',
+  saasCaseMetric2Value: '-68%',
+  saasCaseMetric3: 'MRR Growth',
+  saasCaseMetric3Value: '+42%',
+
+  // Case Study - Luxury Retail
+  luxuryCaseTitle: 'Luxury Retail Chain',
+  luxuryCaseIndustry: 'Retail',
+  luxuryCaseChallengeDesc: 'High-value transactions require fast confirmation, traditional credit cards have chargeback risks, with losses up to 2% of annual revenue.',
+  luxuryCaseSolutionDesc: 'Deployed TerraziPay POS system in stores, accepting stablecoin payments with irreversible transactions and instant confirmation.',
+  luxuryCaseMetric1: 'Chargeback Losses',
+  luxuryCaseMetric1Value: '-100%',
+  luxuryCaseMetric2: 'Foreign Customers',
+  luxuryCaseMetric2Value: '+215%',
+  luxuryCaseMetric3: 'Avg Transaction',
+  luxuryCaseMetric3Value: '+38%',
+
   // TDK (Title, Description, Keywords) for SEO
   tdk: {
     home: {
@@ -370,6 +467,11 @@ export const enUS = {
       title: 'Agentic Pay - The Payment Layer for the AI Agent Economy | TerraziPay',
       description: 'Agentic Pay provides payment infrastructure specifically designed for AI agents and autonomous systems. Supporting instant stablecoin settlement, atomic ledgers, and full-chain traceability, providing a trusted transaction foundation for global AI agents.',
       keywords: 'Agentic Pay, AI agent payment, AI agent economy, stablecoin payment, blockchain payment, machine-to-machine payment, autonomous system payment, AI payment infrastructure'
+    },
+    cases: {
+      title: 'Success Stories - TerraziPay | Stablecoin Payment Solution Case Studies',
+      description: 'Explore how businesses across industries achieve breakthroughs with TerraziPay stablecoin payment solutions. Real cases and data from e-commerce, gaming, SaaS, MCN and more.',
+      keywords: 'TerraziPay cases, stablecoin payment cases, cross-border payment cases, blockchain payment cases, customer success stories, USDT payment cases, e-commerce payment, gaming payment'
     }
   }
 };

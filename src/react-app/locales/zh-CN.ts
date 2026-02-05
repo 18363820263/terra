@@ -5,6 +5,7 @@ export const zhCN = {
   about: '关于我们',
   agenticPay: 'Agentic Pay',
   blogs: '博客',
+  cases: '案例',
   language: '中文',
   more: '了解更多',
   contact: '立即合作',
@@ -27,18 +28,18 @@ export const zhCN = {
   story2: '故事2',
   latestNews: '最新资讯：「公告」',
   moreNews: '更多',
-  
+
   // Hero Section
   heroTitle: '全场景跨境稳定币支付服务商',
   heroSubtitle: '基于USDT、USDC等稳定币的快速、安全且合规的端到端支付平台，助力商户数字化经营升级',
-  
+
   // Global Coverage
   globalCoverage: '「 全球业务覆盖 」',
   regions: '服务覆盖区域',
   currencies: '支持的货币',
   paymentMethods: '支付方式',
   uptime: '系统运行时间',
-  
+
   // Why Choose Terrazipay
   whyChoose: '「 为什么选择Terrazipay？」',
   whyChooseSubtitle: '基于区块链的稳定币支付解决方案为全球商家提供安全、快速且成本低廉的支付服务。',
@@ -64,7 +65,7 @@ export const zhCN = {
     '多种货币实时汇率转换',
     '本地化的支付体验'
   ],
-  
+
   // Security System
   securitySystem: '「 综合安全系统 」',
   securitySystemSubtitle: '基于多层、全面的安全防护措施，确保每一笔交易的安全性和可靠性。',
@@ -76,7 +77,7 @@ export const zhCN = {
   multiSignatureDesc: '多重私钥授权机制，防止单点故障和内部风险',
   coldStorage: '冷热分离',
   coldStorageDesc: '95% 的资金存于冷存储账户，5% 的资金存于热钱包账户，以保障资金安全',
-  
+
   // Product Ecosystem
   productEcosystem: '「 产品生态系统 」',
   productEcosystemSubtitle: '一站式数字支付解决方案',
@@ -86,7 +87,7 @@ export const zhCN = {
   aiAgentPayment: 'AI Agent支付',
   aiAgentPaymentSubtitle: 'Agent-as-a-Service平台',
   aiAgentPaymentDesc: '提供即插即用的支付模块。开发者只需调用API，即可为其Agent赋予支付能力',
-  
+
   // Success Stories
   successStories: '行业成功案例',
   successStoriesSubtitle: '了解各个行业如何通过稳定币支付实现业务突破的情况',
@@ -98,7 +99,7 @@ export const zhCN = {
   gameEntertainmentDesc: '稳定币支付使我们的全球用户能够迅速完成充值操作，而无需担心汇率波动的问题，这极大地提升了用户体验和用户留存率',
   offlineStores: 'Offline Stores',
   offlineStoresDesc: '二维码稳定币支付方式使外国游客能够轻松完成支付，无需进行货币兑换',
-  
+
   // Stablecoin Advantages
   stablecoinAdvantages: '「 稳定币优势 」',
   stablecoinAdvantagesSubtitle: '为什么越来越多的商户选择稳定币支付',
@@ -114,15 +115,15 @@ export const zhCN = {
   improveUserExperienceDesc: '简化支付流程，提高支付成功率，提升用户满意度',
   dataInsights: '数据洞察',
   dataInsightsDesc: '通过详细分析交易数据，以助力优化商业决策和提升用户体验',
-  
+
   // Merchant Stories
   merchantStories: '「 有所为，有所爱，有所期待 」',
   famousMerchantStories_title: '知名',
   famousMerchantStories_description: '商家故事',
-  
+
   // Financial Partners
   financialPartners: '「 携手金融合作伙伴，共助数字化经营 」',
-  
+
   // Cooperation Page
   getYourSolution: '获取您的解决方案',
   responseTime: '2小时内响应',
@@ -147,7 +148,7 @@ export const zhCN = {
   formHint: '请填写您的真实情况，我们收到您的申请后，会第一时间与您联系',
   submitSuccessMessage: '您已成功提交信息，我们会在3-5个工作日内尽快与您取得联系，请留意您的邮箱或手机。',
   ok: 'OK',
-  
+
   // About Page
   aboutUs: '关于我们',
   whatIsTerragogo: 'TerraziPay 是什么？',
@@ -156,14 +157,14 @@ export const zhCN = {
   blockchainNativeLawDesc: '我们建立了一套完整的区块链原生法律框架，确保我们的服务符合全球各地的法律法规要求。我们与全球多个国家和地区的监管机构保持密切合作，积极参与区块链行业的建设和发展。',
   tradingSaaS: '交易 SaaS',
   tradingSaaSDesc: '我们提供一站式交易 SaaS 解决方案，帮助企业快速构建和部署自己的区块链交易平台。我们的解决方案涵盖交易引擎、钱包管理、风控、合规管理等核心功能，支持多种区块链网络和数字资产。',
-  
+
   // Stats Section
   highQualityTrading: '高质量交易',
   community: '社区',
   activeUsers: '活跃用户',
   countries: '覆盖国家',
   continents: '大洲',
-  
+
   // Core Advantages
   coreAdvantages: '「 核心优势 」',
   complianceSecurity: '合规安全',
@@ -178,14 +179,14 @@ export const zhCN = {
   leadingTechnologyDesc: '拥有经验丰富的技术团队，持续创新，引领行业发展。',
   outstandingReputation: '卓越声誉',
   outstandingReputationDesc: '与全球众多知名企业建立合作关系，拥有良好的行业声誉和较高的用户信任度。',
-  
+
   // Mission Section
   ourMission: '我们的使命',
   innovativeTechnology: '创新科技',
   innovativeTechnologyDesc: '持续探索区块链技术边界，推动行业创新发展。',
   highQualityService: '优质服务',
   highQualityServiceDesc: '以用户为中心，提供专业、高效、贴心的服务体验。',
-  
+
   // Global Layout
   globalLayout: '「 全球布局 」',
   hongKongHeadquarters: '香港总部',
@@ -196,11 +197,11 @@ export const zhCN = {
   malaysiaAddress: '马来西亚吉隆坡双子塔',
   mexicoOffice: '墨西哥分公司',
   mexicoAddress: '墨西哥城改革大道156号改革塔',
-  
+
   // CTA Section
   buildOneStopSolution: '构建一站式数字交易解决方案',
   ctaSubtitle: '为国内外客户提供安全、高效、便捷的区块链交易服务，助力企业实现数字化转型。',
-  
+
   // Values
   values: '核心价值观',
   innovation: '创新',
@@ -208,13 +209,13 @@ export const zhCN = {
   professionalism: '专业',
   integrity: '诚信',
   enterprise: '进取',
-  
+
   // Vision & Mission
   vision: '愿景：',
   visionDesc: '成为全球受信任、便捷的稳定币支付解决方案。',
   mission: '使命：',
   missionDesc: '通过区块链技术，打破跨境支付的壁垒，为企业和个人提供比传统金融系统更快、更便宜、更透明的支付结算服务。',
-  
+
   // Case Study Metrics
   entrepreneurEarnings: '创业者收益',
   settlementEfficiency: '结算效率',
@@ -223,7 +224,7 @@ export const zhCN = {
   rechargeConversionRate: '充值转换率',
   userSatisfaction: '用户满意度',
   foreignCustomers: '外国客户',
-  
+
   // Advantage Card Comparison
   traditionalPayment: '传统支付方式',
   stablecoinPayment: '稳定币支付',
@@ -234,7 +235,7 @@ export const zhCN = {
   currency: '币种',
   securityGuarantee: '安全保障',
   realTimeDashboard: '实时数据仪表盘',
-  
+
   // About Page
   blockchainNetworkSupport: '区块链网络支持',
   blockchainNetworkSupportDesc: '您可以根据需求选择主流的区块链网络来接收稳定币，目前支持ETH、TRON、 BNB Chain (BSC)、Solana、Polygon 、Arbitrum等，未来会持续增加更多网络选项。',
@@ -244,7 +245,7 @@ export const zhCN = {
   costClarityDesc: '费用结构简单透明，无隐藏成本。',
   flexibleSettlement: '灵活结算',
   flexibleSettlementDesc: '支持D0结算（7*24小时随时提款）和多链选择。',
-  
+
   // Form Placeholders
   enterName: '请输入姓名',
   enterEmail: '请输入邮箱地址',
@@ -253,7 +254,7 @@ export const zhCN = {
   enterPhone: '请输入联系电话',
   enterMonthlySales: '请输入',
   enterBusinessDescription: '请输入',
-  
+
   // Stats
   dailyTransactionCount: '1000万+',
   dailyTransactions: '日交易笔数',
@@ -263,12 +264,12 @@ export const zhCN = {
   serviceTeam: '服务团队',
   statsGlobalCoverage: '全球覆盖',
   branches: '分公司',
-  
+
   // NotFound Page
   notFoundTitle: '404',
   notFoundSubtitle: 'Oops! Page not found',
   returnToHome: 'Return to Home',
-  
+
   // Footer Sections
   footerStep1: '体验新一代稳定币支付解决方案',
   footerStep2: '为旗下商户提供安全、稳定、方便、快捷的收付款服务',
@@ -344,6 +345,102 @@ export const zhCN = {
   interestedInAgenticPay: '对 Agentic Pay 感兴趣？',
   joinWaitlistDescription: '加入我们的候补名单，成为首批访问 TerraziPay 的用户。',
 
+  // Cases Page
+  casesTitle: '成功案例',
+  casesSubtitle: '探索各行业如何通过 TerraziPay 稳定币支付解决方案实现业务突破与创新',
+  viewAllCases: '查看全部案例',
+  caseStudy: '案例研究',
+
+  // Case Study - E-commerce Platform
+  ecommerceCaseTitle: '跨境电商平台',
+  ecommerceCaseIndustry: '电子商务',
+  ecommerceCaseChallenge: '挑战',
+  ecommerceCaseChallengeDesc: '传统跨境支付结算周期长达5-7天，高达3-5%的手续费严重影响利润率，且支付成功率仅为65%。',
+  ecommerceCaseSolution: '解决方案',
+  ecommerceCaseSolutionDesc: '接入 TerraziPay 稳定币支付系统，支持 USDT/USDC 实时结算，手续费降至0.5%，支付成功率提升至98%。',
+  ecommerceCaseResults: '成果',
+  ecommerceCaseMetric1: '订单量增长',
+  ecommerceCaseMetric1Value: '+156%',
+  ecommerceCaseMetric2: '结算速度',
+  ecommerceCaseMetric2Value: 'T+0',
+  ecommerceCaseMetric3: '成本节省',
+  ecommerceCaseMetric3Value: '87%',
+  ecommerceCaseQuote: '"TerraziPay 帮助我们打破了传统跨境支付的限制，现在我们可以在几分钟内完成全球收款。"',
+  ecommerceCaseAuthor: '张明',
+  ecommerceCaseAuthorTitle: 'CEO, 全球购电商平台',
+
+  // Case Study - Gaming Company
+  gamingCaseTitle: '在线游戏平台',
+  gamingCaseIndustry: '游戏娱乐',
+  gamingCaseChallenge: '挑战',
+  gamingCaseChallengeDesc: '全球玩家充值需要应对多种货币和支付方式，传统支付渠道手续费高且汇率波动大，影响用户体验。',
+  gamingCaseSolution: '解决方案',
+  gamingCaseSolutionDesc: '部署稳定币充值系统，玩家可使用 USDT 直接充值，避免汇率损失，实现7*24小时即时到账。',
+  gamingCaseResults: '成果',
+  gamingCaseMetric1: '充值转化率',
+  gamingCaseMetric1Value: '+89%',
+  gamingCaseMetric2: '用户留存率',
+  gamingCaseMetric2Value: '+45%',
+  gamingCaseMetric3: '平均充值金额',
+  gamingCaseMetric3Value: '+62%',
+  gamingCaseQuote: '"稳定币支付让我们的全球用户享受到一致的充值体验，用户满意度大幅提升。"',
+  gamingCaseAuthor: 'Sarah Chen',
+  gamingCaseAuthorTitle: 'COO, Epic Games Studio',
+
+  // Case Study - Freelance Platform
+  freelanceCaseTitle: '自由职业者平台',
+  freelanceCaseIndustry: '人力资源',
+  freelanceCaseChallenge: '挑战',
+  freelanceCaseChallengeDesc: '向全球50+国家的自由职业者发放薪资，传统银行转账费用高昂且到账缓慢，常需7-14天。',
+  freelanceCaseSolution: '解决方案',
+  freelanceCaseSolutionDesc: '采用 TerraziPay 批量薪资发放系统，通过智能合约自动分发稳定币薪资，实现秒级到账。',
+  freelanceCaseResults: '成果',
+  freelanceCaseMetric1: '薪资发放速度',
+  freelanceCaseMetric1Value: '< 1分钟',
+  freelanceCaseMetric2: '手续费节省',
+  freelanceCaseMetric2Value: '92%',
+  freelanceCaseMetric3: '平台满意度',
+  freelanceCaseMetric3Value: '4.9/5.0',
+  freelanceCaseQuote: '"现在我们可以在同一天完成全球薪资发放，自由职业者的满意度创历史新高。"',
+  freelanceCaseAuthor: 'Michael Rodriguez',
+  freelanceCaseAuthorTitle: 'Founder, GlobalTalent Hub',
+
+  // Case Study - MCN Agency
+  mcnCaseTitle: 'MCN 内容创作机构',
+  mcnCaseIndustry: '新媒体',
+  mcnCaseChallengeDesc: '管理2000+全球创作者，每月需处理大量小额分成结算，传统方式耗时且成本高昂。',
+  mcnCaseSolutionDesc: '使用 TerraziPay API 实现自动化结算系统，根据创作者表现实时计算并发放稳定币收益。',
+  mcnCaseMetric1: '结算效率',
+  mcnCaseMetric1Value: '+300%',
+  mcnCaseMetric2: '创作者收益',
+  mcnCaseMetric2Value: '+28%',
+  mcnCaseMetric3: '运营成本',
+  mcnCaseMetric3Value: '-75%',
+
+  // Case Study - SaaS Company
+  saasCaseTitle: 'SaaS 软件服务商',
+  saasCaseIndustry: '企业服务',
+  saasCaseChallengeDesc: '全球订阅用户使用不同支付方式，支付失败导致的客户流失率达15%。',
+  saasCaseSolutionDesc: '集成 TerraziPay 作为备用支付通道，用户可选择稳定币订阅，降低支付失败率。',
+  saasCaseMetric1: '支付成功率',
+  saasCaseMetric1Value: '99.2%',
+  saasCaseMetric2: '客户流失率',
+  saasCaseMetric2Value: '-68%',
+  saasCaseMetric3: 'MRR 增长',
+  saasCaseMetric3Value: '+42%',
+
+  // Case Study - Luxury Retail
+  luxuryCaseTitle: '奢侈品零售连锁',
+  luxuryCaseIndustry: '零售',
+  luxuryCaseChallengeDesc: '高价值商品交易需要快速确认，传统信用卡存在拒付风险，损失高达年营收的2%。',
+  luxuryCaseSolutionDesc: '在门店部署 TerraziPay POS 系统，接受稳定币支付，交易不可逆且即时确认。',
+  luxuryCaseMetric1: '拒付损失',
+  luxuryCaseMetric1Value: '-100%',
+  luxuryCaseMetric2: '外国客户',
+  luxuryCaseMetric2Value: '+215%',
+  luxuryCaseMetric3: '客单价',
+  luxuryCaseMetric3Value: '+38%',
+
   // TDK (Title, Description, Keywords) for SEO
   tdk: {
     home: {
@@ -370,6 +467,11 @@ export const zhCN = {
       title: 'Agentic Pay - AI Agent经济的支付层 | TerraziPay',
       description: 'Agentic Pay 是专为 AI Agent 和自主系统设计的支付基础设施。支持即时稳定币结算、原子账本和全链可追溯性，为全球 AI Agent 提供可信的交易基础。',
       keywords: 'Agentic Pay, AI Agent支付, AI Agent经济, 稳定币支付, 区块链支付, 机器对机器支付, 自主系统支付, AI支付基础设施'
+    },
+    cases: {
+      title: '成功案例 - TerraziPay | 稳定币支付解决方案客户案例',
+      description: '探索各行业如何通过 TerraziPay 稳定币支付解决方案实现业务突破。包括电商、游戏、SaaS、MCN等多个领域的真实案例与数据。',
+      keywords: 'TerraziPay案例, 稳定币支付案例, 跨境支付案例, 区块链支付案例, 客户成功故事, USDT支付案例, 电商支付, 游戏支付'
     }
   }
 }

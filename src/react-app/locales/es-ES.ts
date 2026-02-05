@@ -5,6 +5,7 @@ export const esES = {
   about: 'Sobre Nosotros',
   agenticPay: 'Agentic Pay',
   blogs: 'Blog',
+  cases: 'Casos',
   language: 'Español',
   more: 'Saber más',
   contact: 'Cooperar ahora',
@@ -27,18 +28,18 @@ export const esES = {
   story2: 'Historia 2',
   latestNews: 'Últimas noticias: "Anuncio"',
   moreNews: 'más',
-  
+
   // Hero Section
   heroTitle: 'Proveedor de servicios de pago transfronterizos con monedas estables en escenarios completos',
   heroSubtitle: 'Plataforma de pago de extremo a extremo rápida, segura y regulada basada en stablecoins como USDT y USDC, ayudando a los comerciantes a actualizar sus operaciones digitales',
-  
+
   // Global Coverage
   globalCoverage: '「 Cobertura Global de Negocios 」',
   regions: 'Regiones de cobertura',
   currencies: 'Monedas compatibles',
   paymentMethods: 'Métodos de pago',
   uptime: 'Tiempo de funcionamiento del sistema',
-  
+
   // Why Choose Terrazipay
   whyChoose: '「 ¿Por qué elegir Terrazipay? 」',
   whyChooseSubtitle: 'Soluciones de pago con stablecoins basadas en blockchain que ofrecen servicios de pago seguros, rápidos y de bajo costo para comerciantes de todo el mundo.',
@@ -65,7 +66,7 @@ export const esES = {
     'Integración de múltiples canales de pago',
     'Servicio al cliente localizado'
   ],
-  
+
   // Security System
   securitySystem: 'Sistema de garantía de seguridad',
   securitySystemSubtitle: 'Garantía de seguridad de múltiples niveles para asegurar la seguridad de los fondos y datos',
@@ -77,7 +78,7 @@ export const esES = {
   multiSignatureDesc: 'Mecanismo de control de seguridad de fondos de múltiples niveles para prevenir transferencias de fondos no autorizadas',
   coldStorage: 'Almacenamiento en billetera fría',
   coldStorageDesc: 'El 95% de los fondos se almacenan en una cuenta de almacenamiento en frío y el 5% se almacenan en una cuenta de billetera caliente para garantizar la seguridad de los fondos.',
-  
+
   // Product Ecosystem
   productEcosystem: 'Ecosistema de productos',
   productEcosystemSubtitle: 'Soluciones de pago completas para satisfacer las necesidades de diferentes escenarios',
@@ -87,7 +88,7 @@ export const esES = {
   aiAgentPayment: 'Agente de pago inteligente AI',
   aiAgentPaymentSubtitle: 'Sistema de agente de pago inteligente basado en tecnología AI',
   aiAgentPaymentDesc: 'Ofrece enrutamiento inteligente, control de riesgos y servicio al cliente para mejorar la tasa de éxito de pago y la experiencia del usuario',
-  
+
   // Success Stories
   successStories: 'Casos de éxito',
   successStoriesSubtitle: 'Historias de éxito de clientes de diferentes industrias',
@@ -106,7 +107,7 @@ export const esES = {
   offlineStores: 'Tiendas físicas',
   offlineStoresDesc: 'Soluciones de pago con criptomonedas para tiendas físicas para expandir canales de pago',
   foreignCustomers: 'Clientes extranjeros',
-  
+
   // Stablecoin Advantages
   stablecoinAdvantages: 'Ventajas de pago con stablecoins',
   stablecoinAdvantagesSubtitle: 'En comparación con los métodos de pago tradicionales, los pagos con stablecoins tienen ventajas obvias',
@@ -131,14 +132,14 @@ export const esES = {
   dataInsights: 'Perspectivas de datos',
   dataInsightsDesc: 'Proporcionar datos y análisis de transacciones en tiempo real para ayudar a las empresas a tomar decisiones',
   realTimeDashboard: 'Panel de control en tiempo real',
-  
+
   // Merchant Stories
   merchantStories: 'Historias de comerciantes',
   famousMerchantStories: 'Historias de comerciantes famosos',
-  
+
   // Financial Partners
   financialPartners: 'Socios financieros',
-  
+
   // Cooperation Page
   getYourSolution: 'Obtén tu solución',
   responseTime: 'Respuesta en 2 horas',
@@ -170,7 +171,7 @@ export const esES = {
   formHint: 'Por favor complete sus datos reales, nos pondremos en contacto con usted lo antes posible después de recibir su solicitud',
   submitSuccessMessage: 'Ha enviado su información con éxito. Nos pondremos en contacto con usted en 3-5 días hábiles. Por favor revise su correo electrónico o teléfono.',
   ok: 'OK',
-  
+
   // About Page
   aboutUs: 'Sobre nosotros',
   whatIsTerragogo: '¿Qué es TerraziPay?',
@@ -179,14 +180,14 @@ export const esES = {
   blockchainNativeLawDesc: 'Hemos establecido un marco legal nativo de blockchain completo para garantizar que nuestros servicios cumplan con los requisitos legales y regulatorios de todo el mundo. Mantenemos una estrecha colaboración con organismos reguladores de múltiples países y regiones, participando activamente en la construcción y desarrollo de la industria blockchain.',
   tradingSaaS: 'Trading SaaS',
   tradingSaaSDesc: 'Ofrecemos soluciones SaaS de trading de una sola parada para ayudar a las empresas a construir y desplegar rápidamente sus propias plataformas de trading blockchain. Nuestras soluciones cubren funciones centrales como motor de trading, gestión de billeteras, control de riesgos y gestión de cumplimiento, admitiendo múltiples redes blockchain y activos digitales.',
-  
+
   // Stats Section
   highQualityTrading: 'Trading de alta calidad',
   community: 'Comunidad',
   activeUsers: 'Usuarios activos',
   countries: 'Países cubiertos',
   continents: 'Continentes',
-  
+
   // Core Advantages
   coreAdvantages: '「 Ventajas core 」',
   complianceSecurity: 'Cumplimiento y seguridad',
@@ -201,14 +202,14 @@ export const esES = {
   leadingTechnologyDesc: 'Contamos con un equipo técnico con amplia experiencia, innovación continua, liderando el desarrollo de la industria.',
   outstandingReputation: 'Excelente reputación',
   outstandingReputationDesc: 'Hemos establecido relaciones de colaboración con numerosas empresas reconocidas mundialmente, con buena reputación en la industria y alta confianza de los usuarios.',
-  
+
   // Mission Section
   ourMission: 'Nuestra misión',
   innovativeTechnology: 'Tecnología innovadora',
   innovativeTechnologyDesc: 'Explorar continuamente los límites de la tecnología blockchain y promover el desarrollo innovador de la industria.',
   highQualityService: 'Servicio de alta calidad',
   highQualityServiceDesc: 'Centrado en el usuario, proporcionando una experiencia de servicio profesional, eficiente y atenta.',
-  
+
   // Global Layout
   globalLayout: '「 Distribución global 」',
   hongKongHeadquarters: 'Sede central en Hong Kong',
@@ -219,11 +220,11 @@ export const esES = {
   malaysiaAddress: 'Petronas Twin Towers, Kuala Lumpur, Malasia',
   mexicoOffice: 'Sucursal en México',
   mexicoAddress: 'Torre Reforma, 156 Paseo de la Reforma, Ciudad de México',
-  
+
   // CTA Section
   buildOneStopSolution: 'Construye una solución de trading digital de una sola parada',
   ctaSubtitle: 'Proporcionamos servicios de trading blockchain seguros, eficientes y convenientes para clientes domésticos y extranjeros, ayudando a las empresas a lograr la transformación digital.',
-  
+
   // Values
   values: 'Valores core',
   innovation: 'Innovación',
@@ -231,13 +232,13 @@ export const esES = {
   professionalism: 'Profesionalismo',
   integrity: 'Integridad',
   enterprise: 'Empresa',
-  
+
   // Vision & Mission
   vision: 'Visión: ',
   visionDesc: 'Convertirnos en una solución de pago de monedas estables confiable y conveniente a nivel mundial.',
   mission: 'Misión: ',
   missionDesc: 'Mediante la tecnología blockchain, romper las barreras del pago transfronterizo, proporcionar a empresas y particulares servicios de pago y liquidación más rápidos, más baratos y más transparentes que los sistemas financieros tradicionales.',
-  
+
   // About Page
   blockchainNetworkSupport: 'Soporte para redes blockchain',
   blockchainNetworkSupportDesc: 'Puede elegir redes blockchain principales para recibir stablecoins según sus necesidades, actualmente admite ETH, TRON, BNB Chain (BSC), Solana, Polygon, Arbitrum, etc., y se agregarán más opciones de red en el futuro.',
@@ -247,8 +248,8 @@ export const esES = {
   costClarityDesc: 'Estructura de costos simple y transparente, sin costos ocultos.',
   flexibleSettlement: 'Liquidación flexible',
   flexibleSettlementDesc: 'Admite liquidación D0 (retirada en cualquier momento las 24 horas del día, los 7 días de la semana) y selección de múltiples cadenas.',
-  
-  
+
+
   // Stats
   dailyTransactionCount: '10.000.000+',
   dailyTransactions: 'Número de transacciones diarias',
@@ -258,12 +259,12 @@ export const esES = {
   serviceTeam: 'Equipo de servicio',
   statsGlobalCoverage: 'Cobertura global',
   branches: 'Sucursales',
-  
+
   // NotFound Page
   notFoundTitle: '404',
   notFoundSubtitle: 'Oops! Página no encontrada',
   returnToHome: 'Volver a Inicio',
-  
+
   // Footer Sections
   footerStep1: 'Experimenta la nueva generación de soluciones de pago con stablecoins',
   footerStep2: 'Proporcionar servicios de pago y cobro seguros, estables, convenientes y rápidos para los comerciantes afiliados',
@@ -339,6 +340,102 @@ export const esES = {
   interestedInAgenticPay: '¿Interesado en Agentic Pay?',
   joinWaitlistDescription: 'Únete a nuestra lista de espera para estar entre los primeros en acceder a TerraziPay cuando lancemos.',
 
+  // Cases Page
+  casesTitle: 'Casos de Éxito',
+  casesSubtitle: 'Explore cómo diferentes industrias logran avances empresariales e innovación a través de soluciones de pago con stablecoins de TerraziPay',
+  viewAllCases: 'Ver Todos los Casos',
+  caseStudy: 'Estudio de Caso',
+
+  // Case Study - E-commerce Platform
+  ecommerceCaseTitle: 'Plataforma de E-commerce Transfronterizo',
+  ecommerceCaseIndustry: 'Comercio Electrónico',
+  ecommerceCaseChallenge: 'Desafío',
+  ecommerceCaseChallengeDesc: 'El ciclo de liquidación de pagos transfronterizos tradicionales dura de 5 a 7 días, las tarifas de hasta 3-5% afectan gravemente la rentabilidad, y la tasa de éxito de pago es solo del 65%.',
+  ecommerceCaseSolution: 'Solución',
+  ecommerceCaseSolutionDesc: 'Integración del sistema de pago con stablecoins de TerraziPay, soporte para liquidación en tiempo real de USDT/USDC, tarifas reducidas al 0.5%, tasa de éxito de pago mejorada al 98%.',
+  ecommerceCaseResults: 'Resultados',
+  ecommerceCaseMetric1: 'Crecimiento de Pedidos',
+  ecommerceCaseMetric1Value: '+156%',
+  ecommerceCaseMetric2: 'Velocidad de Liquidación',
+  ecommerceCaseMetric2Value: 'T+0',
+  ecommerceCaseMetric3: 'Ahorro de Costos',
+  ecommerceCaseMetric3Value: '87%',
+  ecommerceCaseQuote: '"TerraziPay nos ayudó a romper las limitaciones de los pagos transfronterizos tradicionales, ahora podemos completar cobros globales en minutos."',
+  ecommerceCaseAuthor: 'Zhang Ming',
+  ecommerceCaseAuthorTitle: 'CEO, Plataforma Global de E-commerce',
+
+  // Case Study - Gaming Company
+  gamingCaseTitle: 'Plataforma de Juegos Online',
+  gamingCaseIndustry: 'Entretenimiento de Juegos',
+  gamingCaseChallenge: 'Desafío',
+  gamingCaseChallengeDesc: 'Los jugadores globales necesitan recargas con múltiples monedas y métodos de pago, los canales de pago tradicionales tienen tarifas altas y volatilidad de tipo de cambio, afectando la experiencia del usuario.',
+  gamingCaseSolution: 'Solución',
+  gamingCaseSolutionDesc: 'Implementación de sistema de recarga con stablecoins, los jugadores pueden recargar directamente con USDT, evitando pérdidas por tipo de cambio, logrando llegada instantánea 7*24 horas.',
+  gamingCaseResults: 'Resultados',
+  gamingCaseMetric1: 'Tasa de Conversión de Recarga',
+  gamingCaseMetric1Value: '+89%',
+  gamingCaseMetric2: 'Tasa de Retención de Usuarios',
+  gamingCaseMetric2Value: '+45%',
+  gamingCaseMetric3: 'Monto Promedio de Recarga',
+  gamingCaseMetric3Value: '+62%',
+  gamingCaseQuote: '"El pago con stablecoins permite a nuestros usuarios globales disfrutar de una experiencia de recarga consistente, la satisfacción del usuario ha mejorado significativamente."',
+  gamingCaseAuthor: 'Sarah Chen',
+  gamingCaseAuthorTitle: 'COO, Epic Games Studio',
+
+  // Case Study - Freelance Platform
+  freelanceCaseTitle: 'Plataforma de Freelancers',
+  freelanceCaseIndustry: 'Recursos Humanos',
+  freelanceCaseChallenge: 'Desafío',
+  freelanceCaseChallengeDesc: 'Pagar salarios a freelancers en más de 50 países, las transferencias bancarias tradicionales son costosas y llegan lentamente, comúnmente requieren de 7-14 días.',
+  freelanceCaseSolution: 'Solución',
+  freelanceCaseSolutionDesc: 'Adopción del sistema de pago de nómina masiva de TerraziPay, distribución automática de salarios en stablecoins a través de contratos inteligentes, logrando llegada en segundos.',
+  freelanceCaseResults: 'Resultados',
+  freelanceCaseMetric1: 'Velocidad de Pago de Nómina',
+  freelanceCaseMetric1Value: '< 1 minuto',
+  freelanceCaseMetric2: 'Ahorro de Tarifas',
+  freelanceCaseMetric2Value: '92%',
+  freelanceCaseMetric3: 'Satisfacción de Plataforma',
+  freelanceCaseMetric3Value: '4.9/5.0',
+  freelanceCaseQuote: '"Ahora podemos completar el pago de nómina global el mismo día, la satisfacción de los freelancers alcanzó un récord histórico."',
+  freelanceCaseAuthor: 'Michael Rodriguez',
+  freelanceCaseAuthorTitle: 'Fundador, GlobalTalent Hub',
+
+  // Case Study - MCN Agency
+  mcnCaseTitle: 'Agencia de Creación de Contenido MCN',
+  mcnCaseIndustry: 'Nuevos Medios',
+  mcnCaseChallengeDesc: 'Gestión de más de 2000 creadores globales, necesidad de procesar liquidaciones de comisiones pequeñas cada mes, el método tradicional es lento y costoso.',
+  mcnCaseSolutionDesc: 'Uso de la API de TerraziPay para construir un sistema de liquidación automatizado, cálculo en tiempo real y distribución de ingresos en stablecoins según el rendimiento del creador.',
+  mcnCaseMetric1: 'Eficiencia de Liquidación',
+  mcnCaseMetric1Value: '+300%',
+  mcnCaseMetric2: 'Ingresos del Creador',
+  mcnCaseMetric2Value: '+28%',
+  mcnCaseMetric3: 'Costos Operativos',
+  mcnCaseMetric3Value: '-75%',
+
+  // Case Study - SaaS Company
+  saasCaseTitle: 'Proveedor de Servicios SaaS',
+  saasCaseIndustry: 'Servicios Empresariales',
+  saasCaseChallengeDesc: 'Usuarios de suscripción global utilizan diferentes métodos de pago, la tasa de pérdida de clientes debido a fallas de pago alcanza el 15%.',
+  saasCaseSolutionDesc: 'Integración de TerraziPay como canal de pago de respaldo, los usuarios pueden elegir suscripción con stablecoins, reduciendo la tasa de fallas de pago.',
+  saasCaseMetric1: 'Tasa de Éxito de Pago',
+  saasCaseMetric1Value: '99.2%',
+  saasCaseMetric2: 'Tasa de Pérdida de Clientes',
+  saasCaseMetric2Value: '-68%',
+  saasCaseMetric3: 'Crecimiento MRR',
+  saasCaseMetric3Value: '+42%',
+
+  // Case Study - Luxury Retail
+  luxuryCaseTitle: 'Cadena de Venta de Artículos de Lujo',
+  luxuryCaseIndustry: 'Venta Minorista',
+  luxuryCaseChallengeDesc: 'Las transacciones de artículos de alto valor necesitan confirmación rápida, las tarjetas de crédito tradicionales tienen riesgo de contracargo, pérdidas de hasta el 2% de los ingresos anuales.',
+  luxuryCaseSolutionDesc: 'Implementación del sistema POS de TerraziPay en tiendas, aceptando pagos con stablecoins, transacciones irreversibles y confirmación instantánea.',
+  luxuryCaseMetric1: 'Pérdidas por Contracargo',
+  luxuryCaseMetric1Value: '-100%',
+  luxuryCaseMetric2: 'Clientes Extranjeros',
+  luxuryCaseMetric2Value: '+215%',
+  luxuryCaseMetric3: 'Ticket Promedio',
+  luxuryCaseMetric3Value: '+38%',
+
   // TDK (Title, Description, Keywords) for SEO
   tdk: {
     home: {
@@ -365,6 +462,11 @@ export const esES = {
       title: 'Agentic Pay - La Capa de Pago para la Economía de Agentes IA | TerraziPay',
       description: 'Agentic Pay proporciona infraestructura de pago diseñada específicamente para agentes IA y sistemas autónomos. Soportando liquidación instantánea de stablecoins, libros contables atómicos y trazabilidad de cadena completa, proporcionando una base de transacciones confiable para agentes IA globales.',
       keywords: 'Agentic Pay, pago agente IA, economía agente IA, pago stablecoin, pago blockchain, pago máquina a máquina, pago sistema autónomo, infraestructura pago IA'
+    },
+    cases: {
+      title: 'Casos de Éxito - TerraziPay | Casos de Clientes de Soluciones de Pago con Stablecoins',
+      description: 'Explore cómo diferentes industrias logran avances empresariales a través de soluciones de pago con stablecoins de TerraziPay. Incluye casos reales y datos de múltiples áreas como comercio electrónico, juegos, SaaS, MCN, etc.',
+      keywords: 'Casos TerraziPay, casos de pago stablecoin, casos de pago transfronterizo, casos de pago blockchain, historias de éxito de clientes, casos de pago USDT, pago de comercio electrónico, pago de juegos'
     }
   }
 };
