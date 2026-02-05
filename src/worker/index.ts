@@ -1,5 +1,7 @@
 import { Hono } from "hono";
 import { getSchemaForRoute } from "./schema";
+import { generateBlogArticleHTML } from "./blog";
+import { BLOG_ARTICLES, getArticleBySlug } from "../react-app/lib/blog/articles";
 
 /** Paths that have their own pre-rendered index.html for SEO */
 const ROUTES_WITH_HTML = ["/about", "/cooperation", "/agentic-pay", "/blogs"];
@@ -294,13 +296,25 @@ const app = new Hono<{ Bindings: Env }>();
 
 /** Site configuration for SEO */
 const SITE_URL = "https://terrazipay.com";
-const ALL_ROUTES = [
+
+// Static top-level routes
+const BASE_ROUTES = [
   { path: "/", priority: "1.0", changefreq: "weekly" },
   { path: "/about", priority: "0.8", changefreq: "monthly" },
   { path: "/cooperation", priority: "0.9", changefreq: "monthly" },
   { path: "/agentic-pay", priority: "0.9", changefreq: "weekly" },
   { path: "/blogs", priority: "0.8", changefreq: "daily" },
 ];
+
+// Blog detail routes: /blogs/:slug
+const BLOG_ROUTES = BLOG_ARTICLES.map((article) => ({
+  path: `/blogs/${article.slug}`,
+  priority: "0.7",
+  changefreq: "weekly",
+}));
+
+// All routes that should appear in sitemap.xml
+const ALL_ROUTES = [...BASE_ROUTES, ...BLOG_ROUTES];
 
 // API routes
 app.get("/api/", (c) => c.json({ name: "Cloudflare" }));
@@ -401,6 +415,66 @@ app.all("*", async (c) => {
       },
     });
   };
+
+  // Handle blog article detail pages (/blogs/:slug)
+  if (c.req.method === "GET" && pathname.startsWith("/blogs/") && pathname !== "/blogs") {
+    const slug = pathname.replace("/blogs/", "");
+    const article = getArticleBySlug(slug);
+    
+    if (article) {
+      // Get base HTML template from ASSETS (root index.html)
+      const rootRequest = new Request(new URL("/index.html", url.origin).toString());
+      const rootRes = await assets.fetch(rootRequest);
+      
+      if (rootRes.ok) {
+        let html = await rootRes.text();
+        
+        // Generate article HTML content
+        const articleHTML = generateBlogArticleHTML(article, 'en-US');
+        
+        // Replace #root content with article HTML
+        const rootStart = html.indexOf('<div id="root">');
+        const bodyEnd = html.indexOf('</body>');
+        if (rootStart !== -1 && bodyEnd !== -1) {
+          const beforeBody = html.substring(0, bodyEnd);
+          const lastDivClose = beforeBody.lastIndexOf('</div>');
+          if (lastDivClose > rootStart) {
+            html = html.substring(0, rootStart) + 
+                   `<div id="root">${articleHTML}</div>` + 
+                   html.substring(lastDivClose + 6);
+          }
+        }
+        
+        // Generate route-specific Schema.org data for blog article
+        const schemas = getSchemaForRoute(pathname, 'en-US', {
+          title: article.title,
+          description: article.description,
+          content: article.content,
+          author: article.author,
+          publishedAt: article.publishedAt,
+          updatedAt: article.updatedAt,
+          tags: article.tags,
+          coverImage: article.coverImage,
+          slug: article.slug,
+        });
+        const schemaScripts = schemas
+          .map((schema) => `<script type="application/ld+json">\n${JSON.stringify(schema, null, 2)}\n</script>`)
+          .join('\n    ');
+        
+        // Replace schema section
+        html = html.replace(
+          /<!-- Schema\.org structured data \(route: [^)]*\) -->[\s\S]*?(?=<script type="module")/,
+          `<!-- Schema.org structured data (route: ${pathname}) -->\n    ${schemaScripts}\n    `
+        );
+        
+        // Inject canonical URL
+        html = injectCanonical(html, pathname);
+        
+        return createNoCacheResponse(html, pathname, "blog-article");
+      }
+    }
+    // If article not found, fall through to SPA fallback
+  }
 
   // For known routes: generate HTML directly in Worker (bypasses ASSETS caching issues)
   if (c.req.method === "GET" && pathname !== "/" && ROUTES_WITH_HTML.includes(pathname)) {

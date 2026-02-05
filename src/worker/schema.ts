@@ -252,7 +252,67 @@ export function generateBlogPageSchema(language: string) {
   };
 }
 
-export function getSchemaForRoute(path: string, language: string = 'en-US'): object[] {
+/**
+ * Generate BlogPosting schema for individual blog articles
+ */
+export function generateBlogPostingSchema(article: {
+  title: string;
+  description: string;
+  content: string;
+  author: string;
+  publishedAt: string;
+  updatedAt?: string;
+  tags: string[];
+  coverImage?: string;
+  slug: string;
+}, language: string) {
+  // Convert markdown content to HTML for Schema (simplified)
+  const articleBody = article.content
+    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+    .replace(/^[-*]\s+(.*)$/gim, '<li>$1</li>')
+    .replace(/\n\n/g, '</p><p>')
+    .replace(/\n/g, '<br>');
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: article.title,
+    description: article.description,
+    articleBody: articleBody,
+    author: {
+      '@type': 'Organization',
+      name: article.author,
+    },
+    publisher: generateOrganizationSchema(language),
+    datePublished: article.publishedAt,
+    dateModified: article.updatedAt || article.publishedAt,
+    image: article.coverImage ? `${ORGANIZATION_DATA.url}${article.coverImage}` : ORGANIZATION_DATA.logo,
+    keywords: article.tags.join(', '),
+    url: `${ORGANIZATION_DATA.url}/blogs/${article.slug}`,
+    inLanguage: language,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${ORGANIZATION_DATA.url}/blogs/${article.slug}`,
+    },
+  };
+}
+
+export function getSchemaForRoute(path: string, language: string = 'en-US', article?: {
+  title: string;
+  description: string;
+  content: string;
+  author: string;
+  publishedAt: string;
+  updatedAt?: string;
+  tags: string[];
+  coverImage?: string;
+  slug: string;
+}): object[] {
   const schemas: object[] = [
     generateOrganizationSchema(language),
     generateWebSiteSchema(language),
@@ -268,7 +328,13 @@ export function getSchemaForRoute(path: string, language: string = 'en-US'): obj
   } else if (path.startsWith('/about')) {
     schemas.push(generateAboutPageSchema(language));
   } else if (path.startsWith('/blogs')) {
-    schemas.push(generateBlogPageSchema(language));
+    // Check if this is a blog article detail page
+    if (article) {
+      schemas.push(generateBlogPostingSchema(article, language));
+    } else {
+      // Blog list page
+      schemas.push(generateBlogPageSchema(language));
+    }
   }
 
   return schemas;

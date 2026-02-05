@@ -1,5 +1,6 @@
 import type { Plugin } from 'vite';
 import { getSchemaForRoute } from './src/worker/schema';
+import { BLOG_ARTICLES } from './src/react-app/lib/blog/articles';
 import { writeFileSync, mkdirSync, readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import { spawn } from 'child_process';
@@ -65,13 +66,18 @@ const STATIC_HTML_BY_ROUTE: Record<string, string> = {
   '/blogs': '<main class="min-h-screen bg-white"><section class="w-full max-w-[1200px] mx-auto px-4 py-16"><h1 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">TerraziPay Blog – Stablecoin Payments, Blockchain & Agentic Economy</h1><p class="text-base md:text-lg text-gray-700 mb-4">Discover in-depth articles about stablecoin payment technology, blockchain infrastructure, and the emerging AI agent economy. We share practical guides, product updates and industry insights to help enterprises understand and apply on-chain payments.</p><p class="text-base md:text-lg text-gray-700">Browse our latest blog articles below, or follow TerraziPay to stay updated on cross-border stablecoin payments and Agentic Pay product progress.</p></section></main>',
 };
 
-const routes = [
+const baseRoutes = [
   '/',
   '/agentic-pay',
   '/about',
   '/cooperation',
   '/blogs',
 ];
+
+// Blog article detail routes: /blogs/:slug
+const blogArticleRoutes = BLOG_ARTICLES.map((article) => `/blogs/${article.slug}`);
+
+const routes = [...baseRoutes, ...blogArticleRoutes];
 
 /** Routes that have their own index.html (excluding root) */
 const ROUTES_WITH_HTML = routes.filter((r) => r !== '/');

@@ -4,19 +4,25 @@
  */
 
 import { getSchemaForRoute } from '../src/worker/schema';
+import { BLOG_ARTICLES } from '../src/react-app/lib/blog/articles';
 import { writeFileSync, mkdirSync, readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import { pathToFileURL } from 'node:url';
 import { build } from 'vite';
 import react from '@vitejs/plugin-react';
 
-const routes = [
+const baseRoutes = [
   '/',
   '/agentic-pay',
   '/about',
   '/cooperation',
   '/blogs',
 ];
+
+// Blog article detail routes: /blogs/:slug
+const blogArticleRoutes = BLOG_ARTICLES.map((article) => `/blogs/${article.slug}`);
+
+const routes = [...baseRoutes, ...blogArticleRoutes];
 
 async function main() {
   console.log('🚀 Starting SSR rendering...');
@@ -96,7 +102,41 @@ async function main() {
       try {
         console.log(`🎨 Rendering route: ${route}`);
         const language = 'en-US';
-        const schemas = getSchemaForRoute(route, language);
+
+        // If this is a blog detail route, attach article info so we can generate BlogPosting schema
+        let articleForRoute:
+          | {
+              title: string;
+              description: string;
+              content: string;
+              author: string;
+              publishedAt: string;
+              updatedAt?: string;
+              tags: string[];
+              coverImage?: string;
+              slug: string;
+            }
+          | undefined;
+
+        if (route.startsWith('/blogs/')) {
+          const slug = route.replace('/blogs/', '');
+          const found = BLOG_ARTICLES.find((a) => a.slug === slug);
+          if (found) {
+            articleForRoute = {
+              title: found.title,
+              description: found.description,
+              content: found.content,
+              author: found.author,
+              publishedAt: found.publishedAt,
+              updatedAt: found.updatedAt,
+              tags: found.tags,
+              coverImage: found.coverImage,
+              slug: found.slug,
+            };
+          }
+        }
+
+        const schemas = getSchemaForRoute(route, language, articleForRoute);
 
         // Create JSON-LD script tags
         const schemaScripts = schemas
