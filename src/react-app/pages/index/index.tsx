@@ -3,7 +3,6 @@ import { useState, useEffect, useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Announcement from "@/components/Announcement";
-import FloatingActions from "@/components/FloatingActions";
 import { Banner1, IndexCalc, IndexGlobal, IndexSaler, IndexSecurity, IndexSpeed, FooterBg } from "@/assets/imgs";
 import { SecurityCard } from "@/components/SecurityCard";
 import { SecurityIcon, SpeedIcon, GlobeIcon, ProductCard, CaseStudyCard, AdvantageCard, StoryCard, PartnerLogo } from "./components";
@@ -13,12 +12,13 @@ import { Partner } from "./components/Partner";
 import { ClampedContentWithTooltip } from "@/components/ClampedContentWithTooltip";
 import { useSchemaMarkup } from "@/hooks/useSchemaMarkup";
 import { generateOrganizationSchema, generateWebSiteSchema, generateServiceSchema } from "@/lib/schema";
+import { useTDK } from "@/hooks/useTDK";
 
 export default function Index() {
   const [activeTab, setActiveTab] = useState("security");
   const [currentSlide, setCurrentSlide] = useState(0);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
-  const { t, currentLanguage } = useLanguage();
+  const { t, currentLanguage, translations } = useLanguage();
 
   // Add Schema markup for SEO
   const schemas = useMemo(() => [
@@ -32,6 +32,20 @@ export default function Index() {
   ], [currentLanguage]);
 
   useSchemaMarkup(schemas);
+
+  // Set page-specific TDK
+  const tdkConfig = useMemo(() => {
+    const tdk = (translations as any).tdk?.home;
+    return {
+      title: tdk?.title || 'TerraziPay - Global Cross-border Stablecoin Payment Service Provider',
+      description: tdk?.description || 'Fast, secure and compliant end-to-end payment platform based on stablecoins such as USDT and USDC, helping merchants upgrade their digital operations',
+      keywords: tdk?.keywords || 'TerraziPay, TerraZip, stablecoin, payment, USDT, USDC, cross-border, blockchain, cryptocurrency, fintech',
+      ogUrl: 'https://terrazipay.com/',
+      ogImage: 'https://terrazipay.com/logo.png',
+    };
+  }, [translations]);
+
+  useTDK(tdkConfig);
 
   // 监听窗口大小变化（仅在浏览器环境中）
   useEffect(() => {
@@ -142,7 +156,6 @@ export default function Index() {
     <div className="min-h-screen bg-white">
       <Header />
       <Announcement />
-      <FloatingActions />
 
       <main className="flex flex-col items-center gap-16 md:gap-24 lg:gap-[120px]">
         {/* Hero Banner */}

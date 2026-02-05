@@ -2,17 +2,17 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { Calendar, Clock, Tag, ArrowLeft } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import FloatingActions from '@/components/FloatingActions';
 import { BreadcrumbNav } from '@/components/BreadcrumbNav';
 import { useLanguage } from '@/locales/LanguageContext';
 import { getArticleBySlug, formatDate } from '@/lib/blog';
 import { useMemo } from 'react';
 import { useSchemaMarkup } from '@/hooks/useSchemaMarkup';
 import { generateOrganizationSchema, generateWebSiteSchema, generateBlogPostingSchema, type Schema } from '@/lib/schema';
+import { useTDK } from '@/hooks/useTDK';
 
 export default function BlogArticle() {
   const { slug } = useParams<{ slug: string }>();
-  const { t, currentLanguage } = useLanguage();
+  const { t, currentLanguage, translations } = useLanguage();
 
   const article = useMemo(() => {
     if (!slug) return undefined;
@@ -45,6 +45,47 @@ export default function BlogArticle() {
   }, [currentLanguage, article]);
 
   useSchemaMarkup(schemas);
+
+  // Set dynamic TDK based on article content
+  const tdkConfig = useMemo(() => {
+    if (!article) {
+      // Fallback TDK for blog list page
+      const tdk = (translations as any).tdk?.blogs;
+      return {
+        title: tdk?.title || 'Blog - TerraziPay',
+        description: tdk?.description || 'Stay informed with the latest trends in stablecoin payments, blockchain technology, and the AI agent economy.',
+        keywords: tdk?.keywords || 'TerraziPay blog, stablecoin payment, blockchain technology',
+        ogUrl: 'https://terrazipay.com/blogs',
+        ogImage: 'https://terrazipay.com/logo.png',
+      };
+    }
+
+    // Dynamic TDK based on article
+    const keywords = [
+      ...article.tags,
+      'TerraziPay',
+      '稳定币支付',
+      'stablecoin payment',
+      '区块链',
+      'blockchain',
+      article.category,
+    ].join(', ');
+
+    return {
+      title: `${article.title} | TerraziPay Blog`,
+      description: article.description,
+      keywords: keywords,
+      ogTitle: article.title,
+      ogDescription: article.description,
+      ogUrl: `https://terrazipay.com/blogs/${article.slug}`,
+      ogImage: article.coverImage ? `https://terrazipay.com${article.coverImage}` : 'https://terrazipay.com/logo.png',
+      twitterTitle: article.title,
+      twitterDescription: article.description,
+      twitterImage: article.coverImage ? `https://terrazipay.com${article.coverImage}` : 'https://terrazipay.com/logo.png',
+    };
+  }, [article, translations]);
+
+  useTDK(tdkConfig);
 
   if (!article) {
     return <Navigate to="/blogs" replace />;
@@ -122,7 +163,6 @@ export default function BlogArticle() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <FloatingActions />
 
       <main className="flex flex-col items-center">
         {/* Breadcrumb Navigation */}

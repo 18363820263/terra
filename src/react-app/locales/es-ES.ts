@@ -168,6 +168,8 @@ export const esES = {
   enterBusinessDescription: 'Por favor ingrese una descripción detallada del negocio',
   becomePartner: 'Convertirse en socio',
   formHint: 'Por favor complete sus datos reales, nos pondremos en contacto con usted lo antes posible después de recibir su solicitud',
+  submitSuccessMessage: 'Ha enviado su información con éxito. Nos pondremos en contacto con usted en 3-5 días hábiles. Por favor revise su correo electrónico o teléfono.',
+  ok: 'OK',
   
   // About Page
   aboutUs: 'Sobre nosotros',
@@ -328,10 +330,41 @@ export const esES = {
   blogTitle: 'Perspectivas y Actualizaciones',
   blogSubtitle: 'Mantente informado con las últimas tendencias en pagos con stablecoins, tecnología blockchain y la economía de agentes IA.',
   noArticlesYet: 'Aún no hay artículos disponibles. ¡Vuelve pronto!',
+  paginationPrevious: 'Anterior',
+  paginationNext: 'Siguiente',
   blogCTATitle: '¿Listo para Transformar tus Pagos?',
   blogCTADesc: 'Ponte en contacto con nuestro equipo para saber cómo TerraziPay puede ayudar a tu negocio.',
   readMore: 'Leer Más',
   backToBlogs: 'Volver al Blog',
   interestedInAgenticPay: '¿Interesado en Agentic Pay?',
-  joinWaitlistDescription: 'Únete a nuestra lista de espera para estar entre los primeros en acceder a TerraziPay cuando lancemos.'
+  joinWaitlistDescription: 'Únete a nuestra lista de espera para estar entre los primeros en acceder a TerraziPay cuando lancemos.',
+
+  // TDK (Title, Description, Keywords) for SEO
+  tdk: {
+    home: {
+      title: 'TerraziPay - Proveedor de Servicios de Pago Transfronterizo con Monedas Estables | Soluciones de Pago USDT USDC',
+      description: 'TerraziPay proporciona una plataforma de pago de extremo a extremo rápida, segura y regulada basada en stablecoins como USDT y USDC, ayudando a los comerciantes a actualizar sus operaciones digitales. Sirviendo a más de 50 países y regiones con servicio las 24 horas del día, los 7 días de la semana.',
+      keywords: 'TerraziPay, TerraZip, pago con stablecoins, pago USDT, pago USDC, pago transfronterizo, pago blockchain, pago criptomoneda, pago digital, fintech, liquidación transfronteriza, liquidación stablecoin'
+    },
+    about: {
+      title: 'Sobre Nosotros - TerraziPay | Empresa Fintech Nativa de Blockchain',
+      description: 'TerraziPay es una empresa fintech con sede en Hong Kong, enfocada en proporcionar soluciones de pago transfronterizo y pago de salarios de próxima generación basadas en stablecoins para comerciantes como comercio electrónico transfronterizo, comercio y proyectos Web3.',
+      keywords: 'TerraziPay, sobre nosotros, empresa fintech, pago blockchain, pago stablecoin, soluciones de pago transfronterizo, fintech Hong Kong, pago Web3'
+    },
+    cooperation: {
+      title: 'Cooperación - TerraziPay | Solicitud de Incorporación de Comerciantes',
+      description: 'Únete a TerraziPay y experimenta las soluciones de pago con stablecoins de nueva generación. Proporciona servicios de pago seguros, estables, convenientes y rápidos para comerciantes, ayudando a los comerciantes a actualizar sus operaciones digitales. Respuesta en 2 horas, soporte en línea 7*24 horas.',
+      keywords: 'TerraziPay, cooperación, incorporación de comerciantes, proveedor de servicios de pago, pago stablecoin, interfaz API, solicitud de comerciante, cooperación comercial, soluciones de pago'
+    },
+    blogs: {
+      title: 'Blog - TerraziPay | Perspectivas sobre Pagos con Stablecoins y Tecnología Blockchain',
+      description: 'Mantente informado con las últimas tendencias en pagos con stablecoins, tecnología blockchain y la economía de agentes IA. Obtén las últimas noticias, perspectivas de la industria y actualizaciones técnicas de TerraziPay.',
+      keywords: 'Blog TerraziPay, pago stablecoin, tecnología blockchain, economía agente IA, criptomoneda, pago digital, fintech, perspectivas de la industria'
+    },
+    agenticPay: {
+      title: 'Agentic Pay - La Capa de Pago para la Economía de Agentes IA | TerraziPay',
+      description: 'Agentic Pay proporciona infraestructura de pago diseñada específicamente para agentes IA y sistemas autónomos. Soportando liquidación instantánea de stablecoins, libros contables atómicos y trazabilidad de cadena completa, proporcionando una base de transacciones confiable para agentes IA globales.',
+      keywords: 'Agentic Pay, pago agente IA, economía agente IA, pago stablecoin, pago blockchain, pago máquina a máquina, pago sistema autónomo, infraestructura pago IA'
+    }
+  }
 };

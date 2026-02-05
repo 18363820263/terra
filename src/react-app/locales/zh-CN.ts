@@ -145,6 +145,8 @@ export const zhCN = {
   businessDescription: '详细业务描述',
   becomePartner: '成为服务商',
   formHint: '请填写您的真实情况，我们收到您的申请后，会第一时间与您联系',
+  submitSuccessMessage: '您已成功提交信息，我们会在3-5个工作日内尽快与您取得联系，请留意您的邮箱或手机。',
+  ok: 'OK',
   
   // About Page
   aboutUs: '关于我们',
@@ -333,10 +335,41 @@ export const zhCN = {
   blogTitle: '洞察与更新',
   blogSubtitle: '了解稳定币支付、区块链技术和 AI Agent 经济的最新趋势。',
   noArticlesYet: '暂无文章。敬请期待！',
+  paginationPrevious: '上一页',
+  paginationNext: '下一页',
   blogCTATitle: '准备好转型您的支付方式了吗？',
   blogCTADesc: '联系我们的团队，了解 TerraziPay 如何帮助您的业务。',
   readMore: '阅读更多',
   backToBlogs: '返回博客',
   interestedInAgenticPay: '对 Agentic Pay 感兴趣？',
-  joinWaitlistDescription: '加入我们的候补名单，成为首批访问 TerraziPay 的用户。'
+  joinWaitlistDescription: '加入我们的候补名单，成为首批访问 TerraziPay 的用户。',
+
+  // TDK (Title, Description, Keywords) for SEO
+  tdk: {
+    home: {
+      title: 'TerraziPay - 全球跨境稳定币支付服务商 | USDT USDC支付解决方案',
+      description: 'TerraziPay 提供基于USDT、USDC等稳定币的快速、安全且合规的端到端支付平台，助力商户数字化经营升级。支持50+国家和地区，提供7*24小时全天候服务。',
+      keywords: 'TerraziPay, TerraZip, 稳定币支付, USDT支付, USDC支付, 跨境支付, 区块链支付, 加密货币支付, 数字支付, 金融科技, 跨境结算, 稳定币结算'
+    },
+    about: {
+      title: '关于我们 - TerraziPay | 区块链原生金融科技公司',
+      description: 'TerraziPay 是一家总部位于香港的金融科技公司，专注于为出海跨境电商、贸易、Web3项目等商户提供基于稳定币的下一代跨境支付与薪资发放解决方案。',
+      keywords: 'TerraziPay, 关于我们, 金融科技公司, 区块链支付, 稳定币支付, 跨境支付解决方案, 香港金融科技, Web3支付'
+    },
+    cooperation: {
+      title: '合作共赢 - TerraziPay | 商户入网申请',
+      description: '加入 TerraziPay，体验新一代稳定币支付解决方案。为旗下商户提供安全、稳定、方便、快捷的收付款服务，助力商户数字化经营升级。2小时内响应，7*24小时在线支持。',
+      keywords: 'TerraziPay, 合作, 商户入网, 支付服务商, 稳定币支付, API接口, 商户申请, 商务合作, 支付解决方案'
+    },
+    blogs: {
+      title: '博客 - TerraziPay | 稳定币支付与区块链技术洞察',
+      description: '了解稳定币支付、区块链技术和 AI Agent 经济的最新趋势。获取 TerraziPay 的最新资讯、行业洞察和技术更新。',
+      keywords: 'TerraziPay博客, 稳定币支付, 区块链技术, AI Agent经济, 加密货币, 数字支付, 金融科技, 行业洞察'
+    },
+    agenticPay: {
+      title: 'Agentic Pay - AI Agent经济的支付层 | TerraziPay',
+      description: 'Agentic Pay 是专为 AI Agent 和自主系统设计的支付基础设施。支持即时稳定币结算、原子账本和全链可追溯性，为全球 AI Agent 提供可信的交易基础。',
+      keywords: 'Agentic Pay, AI Agent支付, AI Agent经济, 稳定币支付, 区块链支付, 机器对机器支付, 自主系统支付, AI支付基础设施'
+    }
+  }
 }

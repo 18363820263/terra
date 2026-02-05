@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FloatingActions from "@/components/FloatingActions";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Lightbulb, Sun, Gem, Heart, Star, MapPin } from "lucide-react";
 import { AboutCover, AboutFuture, AboutMap, Banner2 } from "@/assets/imgs";
@@ -8,9 +7,10 @@ import { useLanguage } from "@/locales/LanguageContext";
 import { useMemo } from "react";
 import { useSchemaMarkup } from "@/hooks/useSchemaMarkup";
 import { generateOrganizationSchema, generateWebSiteSchema } from "@/lib/schema";
+import { useTDK } from "@/hooks/useTDK";
 
 export default function About() {
-  const { t, currentLanguage } = useLanguage();
+  const { t, currentLanguage, translations } = useLanguage();
 
   // Add Schema markup for SEO
   const schemas = useMemo(() => [
@@ -20,10 +20,23 @@ export default function About() {
 
   useSchemaMarkup(schemas);
 
+  // Set page-specific TDK
+  const tdkConfig = useMemo(() => {
+    const tdk = (translations as any).tdk?.about;
+    return {
+      title: tdk?.title || 'About Us - TerraziPay',
+      description: tdk?.description || 'TerraziPay is a fintech company headquartered in Hong Kong, focusing on providing next-generation cross-border payment solutions.',
+      keywords: tdk?.keywords || 'TerraziPay, about us, fintech company, blockchain payment, stablecoin payment',
+      ogUrl: 'https://terrazipay.com/about',
+      ogImage: 'https://terrazipay.com/logo.png',
+    };
+  }, [translations]);
+
+  useTDK(tdkConfig);
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <FloatingActions />
 
       <main className="flex flex-col items-center">
         {/* Breadcrumb Navigation */}

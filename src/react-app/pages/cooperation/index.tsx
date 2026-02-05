@@ -1,7 +1,6 @@
 import { ChevronRight, Mail, Clock, Zap } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FloatingActions from "@/components/FloatingActions";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Banner2 } from "@/assets/imgs";
 import { FormField, Clock24 } from "./components";
@@ -9,9 +8,18 @@ import { useLanguage } from "@/locales/LanguageContext";
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { genSign } from "@/lib/utils";
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState } from "react";
 import { useSchemaMarkup } from "@/hooks/useSchemaMarkup";
 import { generateOrganizationSchema, generateWebSiteSchema, generateContactPageSchema } from "@/lib/schema";
+import { useTDK } from "@/hooks/useTDK";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
 
 // 定义表单数据类型
 interface FormData {
@@ -31,7 +39,8 @@ const SUBMIT_ENDPOINT = {
 };
 
 export default function Cooperation() {
-  const { t, currentLanguage } = useLanguage();
+  const { t, currentLanguage, translations } = useLanguage();
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   // Add Schema markup for SEO
   const schemas = useMemo(() => [
@@ -41,6 +50,20 @@ export default function Cooperation() {
   ], [currentLanguage]);
 
   useSchemaMarkup(schemas);
+
+  // Set page-specific TDK
+  const tdkConfig = useMemo(() => {
+    const tdk = (translations as any).tdk?.cooperation;
+    return {
+      title: tdk?.title || 'Cooperation - TerraziPay',
+      description: tdk?.description || 'Join TerraziPay and experience the new generation of stablecoin payment solutions.',
+      keywords: tdk?.keywords || 'TerraziPay, cooperation, merchant onboarding, payment service provider',
+      ogUrl: 'https://terrazipay.com/cooperation',
+      ogImage: 'https://terrazipay.com/logo.png',
+    };
+  }, [translations]);
+
+  useTDK(tdkConfig);
 
   // 初始化表单 - 使用默认值，在 SSR 时应该能正常工作
   // 如果 SSR 时仍有问题，表单字段会在客户端 hydration 时正常工作
@@ -104,8 +127,8 @@ export default function Cooperation() {
 
       // 检查响应状态
       if (result.StatusCode === 0 && result.code === 0) {
-        // 提交成功
-        toast.success(t('success'));
+        // 提交成功 - 显示弹窗
+        setIsDialogOpen(true);
         // 重置表单
         form.reset();
       } else {
@@ -122,7 +145,6 @@ export default function Cooperation() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <FloatingActions />
 
       <main className="flex flex-col items-center">
         {/* Breadcrumb Navigation */}
@@ -350,6 +372,28 @@ export default function Cooperation() {
       </main>
 
       <Footer />
+
+      {/* Success Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-[500px]">
+          <DialogHeader>
+            <DialogTitle className="text-gray-950 text-xl font-medium">
+              {t('success')}
+            </DialogTitle>
+            <DialogDescription className="text-gray-600 text-base font-normal leading-6 pt-4">
+              {t('submitSuccessMessage')}
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="pt-6">
+            <button
+              onClick={() => setIsDialogOpen(false)}
+              className="w-full h-12 flex items-center justify-center rounded-md bg-blue-600 hover:bg-blue-700 transition-colors text-white text-base font-normal leading-6"
+            >
+              {t('ok')}
+            </button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

@@ -1,16 +1,16 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FloatingActions from "@/components/FloatingActions";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Bot, Zap, Shield, Globe, TrendingUp, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/locales/LanguageContext";
 import { useMemo } from "react";
 import { useSchemaMarkup } from "@/hooks/useSchemaMarkup";
 import { generateOrganizationSchema, generateWebSiteSchema, generateProductSchema } from "@/lib/schema";
+import { useTDK } from "@/hooks/useTDK";
 import { Banner1 } from "@/assets/imgs";
 
 export default function AgenticPay() {
-  const { t, currentLanguage } = useLanguage();
+  const { t, currentLanguage, translations } = useLanguage();
 
   // Add Schema markup for SEO
   const schemas = useMemo(() => [
@@ -26,10 +26,23 @@ export default function AgenticPay() {
 
   useSchemaMarkup(schemas);
 
+  // Set page-specific TDK
+  const tdkConfig = useMemo(() => {
+    const tdk = (translations as any).tdk?.agenticPay;
+    return {
+      title: tdk?.title || 'Agentic Pay - The Payment Layer for the AI Agent Economy | TerraziPay',
+      description: tdk?.description || 'Agentic Pay provides payment infrastructure specifically designed for AI agents and autonomous systems.',
+      keywords: tdk?.keywords || 'Agentic Pay, AI agent payment, AI agent economy, stablecoin payment',
+      ogUrl: 'https://terrazipay.com/agentic-pay',
+      ogImage: 'https://terrazipay.com/logo.png',
+    };
+  }, [translations]);
+
+  useTDK(tdkConfig);
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <FloatingActions />
 
       <main className="flex flex-col items-center">
         {/* Breadcrumb Navigation */}

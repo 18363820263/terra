@@ -168,6 +168,8 @@ export const zhTW = {
   enterBusinessDescription: '請輸入詳細業務描述',
   becomePartner: '成為合作夥伴',
   formHint: '請填寫您的真實情況，我們收到您的申請後，會第一時間與您聯繫',
+  submitSuccessMessage: '您已成功提交信息，我們會在3-5個工作日內盡快與您取得聯繫，請留意您的郵箱或手機。',
+  ok: 'OK',
   
   // About Page
   aboutUs: '關於我們',
@@ -328,10 +330,41 @@ export const zhTW = {
   blogTitle: '洞察與更新',
   blogSubtitle: '了解穩定幣支付、區塊鏈技術和 AI Agent 經濟的最新趨勢。',
   noArticlesYet: '暫無文章。敬請期待！',
+  paginationPrevious: '上一頁',
+  paginationNext: '下一頁',
   blogCTATitle: '準備好轉型您的支付方式了嗎？',
   blogCTADesc: '聯繫我們的團隊，了解 TerraziPay 如何幫助您的業務。',
   readMore: '閱讀更多',
   backToBlogs: '返回部落格',
   interestedInAgenticPay: '對 Agentic Pay 感興趣？',
-  joinWaitlistDescription: '加入我們的候補名單，成為首批訪問 TerraziPay 的用戶。'
+  joinWaitlistDescription: '加入我們的候補名單，成為首批訪問 TerraziPay 的用戶。',
+
+  // TDK (Title, Description, Keywords) for SEO
+  tdk: {
+    home: {
+      title: 'TerraziPay - 全球跨境穩定幣支付服務商 | USDT USDC支付解決方案',
+      description: 'TerraziPay 提供基於USDT、USDC等穩定幣的快速、安全且合規的端到端支付平台，助力商戶數字化經營升級。支持50+國家和地區，提供7*24小時全天候服務。',
+      keywords: 'TerraziPay, TerraZip, 穩定幣支付, USDT支付, USDC支付, 跨境支付, 區塊鏈支付, 加密貨幣支付, 數字支付, 金融科技, 跨境結算, 穩定幣結算'
+    },
+    about: {
+      title: '關於我們 - TerraziPay | 區塊鏈原生金融科技公司',
+      description: 'TerraziPay 是一家總部位於香港的金融科技公司，專注於為出海跨境電商、貿易、Web3項目等商戶提供基於穩定幣的下一代跨境支付與薪資發放解決方案。',
+      keywords: 'TerraziPay, 關於我們, 金融科技公司, 區塊鏈支付, 穩定幣支付, 跨境支付解決方案, 香港金融科技, Web3支付'
+    },
+    cooperation: {
+      title: '合作共贏 - TerraziPay | 商戶入網申請',
+      description: '加入 TerraziPay，體驗新一代穩定幣支付解決方案。為旗下商戶提供安全、穩定、方便、快捷的收付款服務，助力商戶數字化經營升級。2小時內響應，7*24小時在線支持。',
+      keywords: 'TerraziPay, 合作, 商戶入網, 支付服務商, 穩定幣支付, API接口, 商戶申請, 商務合作, 支付解決方案'
+    },
+    blogs: {
+      title: '部落格 - TerraziPay | 穩定幣支付與區塊鏈技術洞察',
+      description: '了解穩定幣支付、區塊鏈技術和 AI Agent 經濟的最新趨勢。獲取 TerraziPay 的最新資訊、行業洞察和技術更新。',
+      keywords: 'TerraziPay部落格, 穩定幣支付, 區塊鏈技術, AI Agent經濟, 加密貨幣, 數字支付, 金融科技, 行業洞察'
+    },
+    agenticPay: {
+      title: 'Agentic Pay - AI Agent經濟的支付層 | TerraziPay',
+      description: 'Agentic Pay 是專為 AI Agent 和自主系統設計的支付基礎設施。支持即時穩定幣結算、原子賬本和全鏈可追溯性，為全球 AI Agent 提供可信的交易基礎。',
+      keywords: 'Agentic Pay, AI Agent支付, AI Agent經濟, 穩定幣支付, 區塊鏈支付, 機器對機器支付, 自主系統支付, AI支付基礎設施'
+    }
+  }
 };

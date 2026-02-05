@@ -145,6 +145,8 @@ export const enUS = {
   businessDescription: 'Detailed Business Description',
   becomePartner: 'Become a Service Provider',
   formHint: 'Please fill in your real situation, we will contact you as soon as possible after receiving your application',
+  submitSuccessMessage: 'You have successfully submitted your information. We will contact you within 3-5 business days. Please check your email or phone.',
+  ok: 'OK',
   
   // About Page
   aboutUs: 'About Us',
@@ -333,10 +335,41 @@ export const enUS = {
   blogTitle: 'Insights & Updates',
   blogSubtitle: 'Stay informed with the latest trends in stablecoin payments, blockchain technology, and the AI agent economy.',
   noArticlesYet: 'No articles available yet. Check back soon!',
+  paginationPrevious: 'Previous',
+  paginationNext: 'Next',
   blogCTATitle: 'Ready to Transform Your Payments?',
   blogCTADesc: 'Get in touch with our team to learn how TerraziPay can help your business.',
   readMore: 'Read More',
   backToBlogs: 'Back to Blog',
   interestedInAgenticPay: 'Interested in Agentic Pay?',
-  joinWaitlistDescription: 'Join our waitlist to be among the first to access TerraziPay when we launch.'
+  joinWaitlistDescription: 'Join our waitlist to be among the first to access TerraziPay when we launch.',
+
+  // TDK (Title, Description, Keywords) for SEO
+  tdk: {
+    home: {
+      title: 'TerraziPay - Global Cross-border Stablecoin Payment Service Provider | USDT USDC Payment Solutions',
+      description: 'TerraziPay provides a fast, secure and compliant end-to-end payment platform based on stablecoins such as USDT and USDC, helping merchants upgrade their digital operations. Serving 50+ countries and regions with 7*24 hours all-weather service.',
+      keywords: 'TerraziPay, TerraZip, stablecoin payment, USDT payment, USDC payment, cross-border payment, blockchain payment, cryptocurrency payment, digital payment, fintech, cross-border settlement, stablecoin settlement'
+    },
+    about: {
+      title: 'About Us - TerraziPay | Blockchain Native Fintech Company',
+      description: 'TerraziPay is a fintech company headquartered in Hong Kong, focusing on providing next-generation cross-border payment and salary payment solutions based on stablecoins for merchants such as overseas cross-border e-commerce, trade, and Web3 projects.',
+      keywords: 'TerraziPay, about us, fintech company, blockchain payment, stablecoin payment, cross-border payment solutions, Hong Kong fintech, Web3 payment'
+    },
+    cooperation: {
+      title: 'Cooperation - TerraziPay | Merchant Onboarding Application',
+      description: 'Join TerraziPay and experience the new generation of stablecoin payment solutions. Provide safe, stable, convenient and fast payment services for merchants, helping merchants upgrade their digital operations. Response within 2 hours, 7*24 hours online support.',
+      keywords: 'TerraziPay, cooperation, merchant onboarding, payment service provider, stablecoin payment, API interface, merchant application, business cooperation, payment solutions'
+    },
+    blogs: {
+      title: 'Blog - TerraziPay | Stablecoin Payment & Blockchain Technology Insights',
+      description: 'Stay informed with the latest trends in stablecoin payments, blockchain technology, and the AI agent economy. Get the latest news, industry insights and technical updates from TerraziPay.',
+      keywords: 'TerraziPay blog, stablecoin payment, blockchain technology, AI agent economy, cryptocurrency, digital payment, fintech, industry insights'
+    },
+    agenticPay: {
+      title: 'Agentic Pay - The Payment Layer for the AI Agent Economy | TerraziPay',
+      description: 'Agentic Pay provides payment infrastructure specifically designed for AI agents and autonomous systems. Supporting instant stablecoin settlement, atomic ledgers, and full-chain traceability, providing a trusted transaction foundation for global AI agents.',
+      keywords: 'Agentic Pay, AI agent payment, AI agent economy, stablecoin payment, blockchain payment, machine-to-machine payment, autonomous system payment, AI payment infrastructure'
+    }
+  }
 };

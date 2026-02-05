@@ -1,22 +1,63 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FloatingActions from "@/components/FloatingActions";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
 import { Calendar, Clock, Tag, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/locales/LanguageContext";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { BLOG_ARTICLES, formatDate, sortArticlesByDate } from "@/lib/blog";
 import { useMemo } from "react";
 import { useSchemaMarkup } from "@/hooks/useSchemaMarkup";
 import { generateOrganizationSchema, generateWebSiteSchema } from "@/lib/schema";
+import { useTDK } from "@/hooks/useTDK";
 import { Banner2 } from "@/assets/imgs";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+  PaginationEllipsis,
+} from "@/components/ui/pagination";
+
+/** Articles per page. Change to 20 for production. */
+const PAGE_SIZE = 20;
+
+function getPageNumbers(current: number, total: number): (number | "ellipsis")[] {
+  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+  const pages: (number | "ellipsis")[] = [];
+  if (current <= 4) {
+    for (let i = 1; i <= 5; i++) pages.push(i);
+    pages.push("ellipsis", total);
+  } else if (current >= total - 3) {
+    pages.push(1, "ellipsis");
+    for (let i = total - 4; i <= total; i++) pages.push(i);
+  } else {
+    pages.push(1, "ellipsis", current - 1, current, current + 1, "ellipsis", total);
+  }
+  return pages;
+}
 
 export default function Blogs() {
-  const { t, currentLanguage } = useLanguage();
+  const { t, currentLanguage, translations } = useLanguage();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentPage = Math.max(1, parseInt(searchParams.get("page") ?? "1", 10) || 1);
 
   const articles = useMemo(() => {
     return sortArticlesByDate(BLOG_ARTICLES);
   }, []);
+
+  const totalPages = Math.max(1, Math.ceil(articles.length / PAGE_SIZE));
+  const page = Math.min(currentPage, totalPages);
+  const paginatedArticles = useMemo(() => {
+    const start = (page - 1) * PAGE_SIZE;
+    return articles.slice(start, start + PAGE_SIZE);
+  }, [articles, page]);
+
+  const setPage = (p: number) => {
+    const next = Math.max(1, Math.min(p, totalPages));
+    setSearchParams(next === 1 ? {} : { page: String(next) });
+  };
 
   // Add Schema markup for SEO
   const schemas = useMemo(() => [
@@ -26,10 +67,23 @@ export default function Blogs() {
 
   useSchemaMarkup(schemas);
 
+  // Set page-specific TDK
+  const tdkConfig = useMemo(() => {
+    const tdk = (translations as any).tdk?.blogs;
+    return {
+      title: tdk?.title || 'Blog - TerraziPay',
+      description: tdk?.description || 'Stay informed with the latest trends in stablecoin payments, blockchain technology, and the AI agent economy.',
+      keywords: tdk?.keywords || 'TerraziPay blog, stablecoin payment, blockchain technology, AI agent economy',
+      ogUrl: 'https://terrazipay.com/blogs',
+      ogImage: 'https://terrazipay.com/logo.png',
+    };
+  }, [translations]);
+
+  useTDK(tdkConfig);
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <FloatingActions />
 
       <main className="flex flex-col items-center">
         {/* Breadcrumb Navigation */}
@@ -66,7 +120,7 @@ export default function Blogs() {
         {/* Articles Grid */}
         <section className="w-full max-w-[1200px] mx-auto px-4 md:px-8 lg:px-0 py-16 md:py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {articles.map((article) => (
+            {paginatedArticles.map((article) => (
               <ArticleCard key={article.id} article={article} />
             ))}
           </div>
@@ -75,6 +129,61 @@ export default function Blogs() {
             <div className="text-center py-16">
               <p className="text-gray-500 text-lg">{t('noArticlesYet')}</p>
             </div>
+          )}
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <Pagination className="mt-12">
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious
+                    href={page > 1 ? `/blogs?page=${page - 1}` : "#"}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (page > 1) setPage(page - 1);
+                    }}
+                    className={page <= 1 ? "pointer-events-none opacity-50" : "cursor-pointer"}
+                    aria-disabled={page <= 1}
+                  >
+                    {t("paginationPrevious")}
+                  </PaginationPrevious>
+                </PaginationItem>
+                {getPageNumbers(page, totalPages).map((p, i) =>
+                  p === "ellipsis" ? (
+                    <PaginationItem key={`ellipsis-${i}`}>
+                      <PaginationEllipsis />
+                    </PaginationItem>
+                  ) : (
+                    <PaginationItem key={p}>
+                      <PaginationLink
+                        href={p === 1 ? "/blogs" : `/blogs?page=${p}`}
+                        isActive={p === page}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setPage(p);
+                        }}
+                        className="cursor-pointer"
+                      >
+                        {p}
+                      </PaginationLink>
+                    </PaginationItem>
+                  )
+                )}
+                <PaginationItem>
+                  <PaginationNext
+                    href={page < totalPages ? `/blogs?page=${page + 1}` : "#"}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (page < totalPages) setPage(page + 1);
+                    }}
+                    className={page >= totalPages ? "pointer-events-none opacity-50" : "cursor-pointer"}
+                    aria-disabled={page >= totalPages}
+                  >
+                    {t("paginationNext")}
+                  </PaginationNext>
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
           )}
         </section>
 
