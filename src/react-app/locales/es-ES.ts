@@ -12,6 +12,7 @@ export const esES = {
   serviceHotline: 'Línea de servicio: ',
   businessLicense: 'Supervisión comercial',
   wechat: 'Wechat',
+  quickLinks: 'Enlaces Rápidos',
   loading: 'Cargando...',
   submit: 'Enviar',
   cancel: 'Cancelar',

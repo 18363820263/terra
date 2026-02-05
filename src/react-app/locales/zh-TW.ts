@@ -12,6 +12,7 @@ export const zhTW = {
   serviceHotline: '服務熱線：',
   businessLicense: '工商網監',
   wechat: 'Wechat',
+  quickLinks: '快速連結',
   loading: '加載中...',
   submit: '提交',
   cancel: '取消',

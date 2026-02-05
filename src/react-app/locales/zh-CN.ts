@@ -12,6 +12,7 @@ export const zhCN = {
   serviceHotline: '服务热线：',
   businessLicense: '工商网监',
   wechat: 'Wechat',
+  quickLinks: '快速链接',
   loading: '加载中...',
   submit: '提交',
   cancel: '取消',

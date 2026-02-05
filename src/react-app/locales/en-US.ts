@@ -12,6 +12,7 @@ export const enUS = {
   serviceHotline: 'Service Hotline:',
   businessLicense: 'Business License',
   wechat: 'Wechat',
+  quickLinks: 'Quick Links',
   loading: 'Loading...',
   submit: 'Submit',
   cancel: 'Cancel',
