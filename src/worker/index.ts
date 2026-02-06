@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { getSchemaForRoute } from "./schema";
-import { generateBlogArticleHTML } from "./blog";
+import { generateBlogArticleHTML, generateBlogListHTML } from "./blog";
 import { BLOG_ARTICLES, getArticleBySlug } from "../react-app/lib/blog/articles";
 
 /** Paths that have their own pre-rendered index.html for SEO */
@@ -247,49 +247,7 @@ const STATIC_HTML_BY_ROUTE: Record<string, string> = {
       </div>
     </section>
   </main>`,
-  '/blogs': `<main class="flex flex-col items-center">
-    <section class="relative w-full overflow-hidden bg-gray-900 py-20 pt-32">
-      <div class="max-w-[1200px] mx-auto px-4 md:px-8 lg:px-0 text-center">
-        <h1 class="text-white text-4xl md:text-5xl font-bold mb-6">Insights & Updates</h1>
-        <p class="text-white/70 text-lg md:text-xl max-w-3xl mx-auto">Stay informed with the latest trends in stablecoin payments, blockchain technology, and the AI agent economy.</p>
-      </div>
-    </section>
-    <section class="w-full max-w-[1200px] px-4 md:px-8 lg:px-0 py-16 md:py-20">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
-          <img src="/blog/AI_Pay_01_(Product_Intro)_1.png" alt="Agentic Pay Introduction" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <h2 class="text-gray-950 text-xl font-medium mb-3">Introducing Agentic Pay: Payment Infrastructure for AI Agents</h2>
-            <p class="text-gray-500 mb-4">Learn how Agentic Pay is revolutionizing payments for the AI agent economy with instant settlement and atomic ledgers.</p>
-            <a href="/blogs/agentic-pay-intro" class="text-blue-600 font-medium">Read More →</a>
-          </div>
-        </article>
-        <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
-          <img src="/blog/AI_Pay_02_(Tech_Blog)_1.png" alt="Technical Deep Dive" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <h2 class="text-gray-950 text-xl font-medium mb-3">Technical Deep Dive: Building Atomic Ledgers for AI Transactions</h2>
-            <p class="text-gray-500 mb-4">A technical exploration of how we built atomic transaction guarantees for complex multi-party AI settlements.</p>
-            <a href="/blogs/atomic-ledgers" class="text-blue-600 font-medium">Read More →</a>
-          </div>
-        </article>
-        <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
-          <img src="/blog/Stablecoin_Review_1.png" alt="Stablecoin Review" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <h2 class="text-gray-950 text-xl font-medium mb-3">Stablecoin Payments: A Complete Guide for Businesses</h2>
-            <p class="text-gray-500 mb-4">Everything you need to know about integrating stablecoin payments into your business operations.</p>
-            <a href="/blogs/stablecoin-guide" class="text-blue-600 font-medium">Read More →</a>
-          </div>
-        </article>
-      </div>
-    </section>
-    <section class="w-full bg-blue-600 py-16 md:py-20">
-      <div class="max-w-[1200px] mx-auto px-4 md:px-8 lg:px-0 text-center">
-        <h2 class="text-white text-3xl md:text-4xl font-medium mb-6">Ready to Transform Your Payments?</h2>
-        <p class="text-white/80 text-lg mb-8">Get in touch with our team to learn how TerraziPay can help your business.</p>
-        <a href="/cooperation" class="inline-block bg-white text-blue-600 font-medium py-3 px-8 rounded-full hover:bg-gray-100">Contact Us</a>
-      </div>
-    </section>
-  </main>`,
+  '/blogs': generateBlogListHTML(BLOG_ARTICLES, 'en-US'),
 };
 
 const app = new Hono<{ Bindings: Env }>();

@@ -132,6 +132,183 @@ export function formatDate(dateString: string, locale: string = 'en-US'): string
 }
 
 /**
+ * Sort articles by date (newest first)
+ */
+export function sortArticlesByDate(articles: BlogArticle[]): BlogArticle[] {
+  return [...articles].sort((a, b) => {
+    return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+  });
+}
+
+/**
+ * Generate HTML for blog list page
+ * Matches the structure of the React component in src/react-app/pages/blogs/index.tsx
+ */
+export function generateBlogListHTML(articles: BlogArticle[], locale: string = 'en-US'): string {
+  // Sort articles by date (newest first)
+  const sortedArticles = sortArticlesByDate(articles);
+
+  // Default text based on locale
+  const texts: Record<string, { title: string; subtitle: string; ctaTitle: string; ctaDesc: string; contact: string; blogs: string }> = {
+    'en-US': {
+      title: 'Insights & Updates',
+      subtitle: 'Stay informed with the latest trends in stablecoin payments, blockchain technology, and the AI agent economy.',
+      ctaTitle: 'Ready to Transform Your Payments?',
+      ctaDesc: 'Get in touch with our team to learn how TerraziPay can help your business.',
+      contact: 'Contact Us',
+      blogs: 'Blog',
+    },
+    'zh-CN': {
+      title: '洞察与更新',
+      subtitle: '了解稳定币支付、区块链技术和 AI Agent 经济的最新趋势。',
+      ctaTitle: '准备好转型您的支付方式了吗？',
+      ctaDesc: '联系我们的团队，了解 TerraziPay 如何帮助您的业务。',
+      contact: '联系我们',
+      blogs: '博客',
+    },
+    'zh-TW': {
+      title: '洞察與更新',
+      subtitle: '了解穩定幣支付、區塊鏈技術和 AI Agent 經濟的最新趨勢。',
+      ctaTitle: '準備好轉型您的支付方式了嗎？',
+      ctaDesc: '聯繫我們的團隊，了解 TerraziPay 如何幫助您的業務。',
+      contact: '聯繫我們',
+      blogs: '博客',
+    },
+    'es-ES': {
+      title: 'Perspectivas y Actualizaciones',
+      subtitle: 'Mantente informado con las últimas tendencias en pagos con stablecoins, tecnología blockchain y la economía de agentes IA.',
+      ctaTitle: '¿Listo para Transformar tus Pagos?',
+      ctaDesc: 'Ponte en contacto con nuestro equipo para saber cómo TerraziPay puede ayudar a tu negocio.',
+      contact: 'Contáctanos',
+      blogs: 'Blog',
+    },
+  };
+
+  const t = texts[locale] || texts['en-US'];
+
+  // Generate article cards HTML
+  const articleCardsHTML = sortedArticles.map((article) => {
+    const formattedDate = formatDate(article.publishedAt, locale);
+    const coverImageHTML = article.coverImage
+      ? `<a href="/blogs/${escapeHtml(article.slug)}" class="block w-full h-48 bg-gray-100 overflow-hidden">
+          <img
+            src="${escapeHtml(article.coverImage)}"
+            alt="${escapeHtml(article.title)}"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        </a>`
+      : '';
+
+    const tagsHTML = article.tags.slice(0, 2).map(tag =>
+      `<span class="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">
+        <span>#</span>
+        ${escapeHtml(tag)}
+      </span>`
+    ).join('\n            ');
+
+    return `<article class="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow group">
+      ${coverImageHTML}
+      <div class="p-6">
+        <div class="flex items-center gap-4 text-sm text-gray-500 mb-3">
+          <div class="flex items-center gap-1">
+            <span>📅</span>
+            <span>${escapeHtml(formattedDate)}</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span>⏱</span>
+            <span>${article.readingTime} min</span>
+          </div>
+        </div>
+
+        <a href="/blogs/${escapeHtml(article.slug)}">
+          <h3 class="text-xl font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors cursor-pointer">
+            ${escapeHtml(article.title)}
+          </h3>
+        </a>
+
+        <p class="text-gray-600 mb-4 line-clamp-3">${escapeHtml(article.description)}</p>
+
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2 flex-wrap">
+            ${tagsHTML}
+          </div>
+
+          <a
+            href="/blogs/${escapeHtml(article.slug)}"
+            class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium text-sm"
+          >
+            Read More
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </article>`;
+  }).join('\n          ');
+
+  // Banner2 image path - using the same as React component
+  const bannerImage = '/assets/banner-2-BTcnDaqs.jpg';
+
+  return `<main class="flex flex-col items-center">
+    <!-- Breadcrumb Navigation -->
+    <section class="w-full max-w-[1200px] mx-auto px-4 md:px-8 lg:px-0 pt-32 pb-4">
+      <nav class="flex items-center gap-2 text-sm text-gray-600">
+        <a href="/blogs" class="hover:text-blue-600">${escapeHtml(t.blogs)}</a>
+      </nav>
+    </section>
+
+    <!-- Hero Banner -->
+    <section class="relative w-full h-[320px]">
+      <img
+        src="${escapeHtml(bannerImage)}"
+        alt="Blog background"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-black/40 flex items-center justify-center px-4 md:px-8 lg:px-[120px]">
+        <div class="flex flex-col items-center gap-6 text-center max-w-[700px]">
+          <h1 class="text-white text-4xl md:text-5xl font-bold leading-tight">
+            ${escapeHtml(t.title)}
+          </h1>
+          <p class="text-white/90 text-lg md:text-xl leading-relaxed">
+            ${escapeHtml(t.subtitle)}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Articles Grid -->
+    <section class="w-full max-w-[1200px] mx-auto px-4 md:px-8 lg:px-0 py-16 md:py-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        ${articleCardsHTML}
+      </div>
+
+      ${sortedArticles.length === 0 ? `
+      <div class="text-center py-16">
+        <p class="text-gray-500 text-lg">No articles yet</p>
+      </div>
+      ` : ''}
+    </section>
+
+    <!-- CTA Section -->
+    <section class="w-full bg-gray-50 py-16 md:py-20">
+      <div class="w-full max-w-[1200px] mx-auto px-4 md:px-8 lg:px-0 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          ${escapeHtml(t.ctaTitle)}
+        </h2>
+        <p class="text-gray-600 text-lg mb-8 max-w-[600px] mx-auto">
+          ${escapeHtml(t.ctaDesc)}
+        </p>
+        <a
+          href="/cooperation"
+          class="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+        >
+          ${escapeHtml(t.contact)}
+        </a>
+      </div>
+    </section>
+  </main>`;
+}
+
+/**
  * Generate HTML for blog article page
  */
 export function generateBlogArticleHTML(article: BlogArticle, locale: string = 'en-US'): string {
