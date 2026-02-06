@@ -100,6 +100,28 @@
   }
 }
 
+@layer utilities {
+  .clamp-3,
+  .clamp-4,
+  .clamp-5 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .clamp-3 {
+    -webkit-line-clamp: 3;
+  }
+
+  .clamp-4 {
+    -webkit-line-clamp: 4;
+  }
+
+  .clamp-5 {
+    -webkit-line-clamp: 5;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;

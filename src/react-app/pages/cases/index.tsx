@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
+import { ClampedContentWithTooltip } from "@/components/ClampedContentWithTooltip";
 import { useLanguage } from "@/locales/LanguageContext";
 import { useMemo } from "react";
 import { useSchemaMarkup } from "@/hooks/useSchemaMarkup";
@@ -168,20 +169,20 @@ export default function Cases() {
                             return (
                                 <article
                                     key={index}
-                                    className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow p-8 flex flex-col h-full"
+                                    className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow p-8 flex flex-col"
                                 >
-                                    {/* Industry Badge */}
-                                    <div className="flex items-start gap-4 mb-6">
-                                        <div className="p-3 rounded-xl bg-blue-50 flex-shrink-0">
+                                    {/* Industry Badge (avatar + industry + title) */}
+                                    <div className="flex items-start gap-4 mb-6 min-h-[80px]">
+                                        <div className="rounded-2xl bg-blue-50 flex-shrink-0 overflow-hidden">
                                             <img
                                                 src={caseItem.avatar}
                                                 alt={`${caseItem.industry} avatar`}
-                                                className="w-6 h-6 rounded-full object-cover"
+                                                className="w-12 h-12 object-cover"
                                             />
                                         </div>
-                                        <div>
-                                            <span className="text-sm text-gray-500">{caseItem.industry}</span>
-                                            <h3 className="text-xl md:text-2xl font-medium text-gray-950">
+                                        <div className="flex flex-col justify-center">
+                                            <span className="text-sm text-gray-500 mb-1">{caseItem.industry}</span>
+                                            <h3 className="text-xl md:text-2xl font-medium text-gray-950 leading-snug">
                                                 {caseItem.title}
                                             </h3>
                                         </div>
@@ -189,36 +190,42 @@ export default function Cases() {
 
                                     {/* Challenge & Solution */}
                                     <div className="space-y-4 mb-6 flex-1">
-                                        <div>
+                                        <div className="h-[164px]">
                                             <h4 className="text-sm font-semibold text-red-600 mb-2">
                                                 {t('ecommerceCaseChallenge')}
                                             </h4>
-                                            <p className="text-gray-600 text-sm font-light leading-6">
-                                                {caseItem.challengeDesc}
-                                            </p>
+                                            <ClampedContentWithTooltip
+                                                content={caseItem.challengeDesc}
+                                                rows={4}
+                                                className="text-gray-600 text-sm font-light leading-6"
+                                            />
                                         </div>
-                                        <div>
+                                        <div className="h-[164px]">
                                             <h4 className="text-sm font-semibold text-green-600 mb-2">
                                                 {t('ecommerceCaseSolution')}
                                             </h4>
-                                            <p className="text-gray-600 text-sm font-light leading-6">
-                                                {caseItem.solutionDesc}
-                                            </p>
+                                            <ClampedContentWithTooltip
+                                                content={caseItem.solutionDesc}
+                                                rows={4}
+                                                className="text-gray-600 text-sm font-light leading-6"
+                                            />
                                         </div>
                                     </div>
 
                                     {/* Quote */}
-                                    {caseItem.quote && (
-                                        <div className="border-l-4 border-gray-200 pl-4 py-2 mb-6">
-                                            <p className="text-gray-600 italic text-sm mb-2 font-light">
-                                                {caseItem.quote}
-                                            </p>
-                                            <div className="text-xs text-gray-500">
-                                                <div className="font-semibold text-gray-950">{caseItem.author}</div>
-                                                <div className="font-light">{caseItem.authorTitle}</div>
+                                    <div className="mb-6">
+                                        {caseItem.quote ? (
+                                            <div className="border-l-4 border-gray-200 pl-4 py-2 h-full">
+                                                <p className="text-gray-600 italic text-sm mb-2 font-light">
+                                                    {caseItem.quote}
+                                                </p>
+                                                <div className="text-xs text-gray-500">
+                                                    <div className="font-semibold text-gray-950">{caseItem.author}</div>
+                                                    <div className="font-light">{caseItem.authorTitle}</div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    )}
+                                        ) : null}
+                                    </div>
 
                                     {/* Metrics */}
                                     <div className="grid grid-cols-3 gap-4 mt-auto">

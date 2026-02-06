@@ -262,6 +262,7 @@ const BASE_ROUTES = [
   { path: "/cooperation", priority: "0.9", changefreq: "monthly" },
   { path: "/agentic-pay", priority: "0.9", changefreq: "weekly" },
   { path: "/blogs", priority: "0.8", changefreq: "daily" },
+  { path: "/cases", priority: "0.8", changefreq: "monthly" },
 ];
 
 // Blog detail routes: /blogs/:slug

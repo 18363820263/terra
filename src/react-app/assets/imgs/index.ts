@@ -15,13 +15,13 @@ import FooterBg from "./footer-bg.png";
 import AboutCover from "./about-cover.jpg";
 import AboutMap from "./about-map.png";
 
-// Local avatar icons for case studies
-import CaseAvatar1 from "./case-avatar-1.svg";
-import CaseAvatar2 from "./case-avatar-2.svg";
-import CaseAvatar3 from "./case-avatar-3.svg";
-import CaseAvatar4 from "./case-avatar-4.svg";
-import CaseAvatar5 from "./case-avatar-5.svg";
-import CaseAvatar6 from "./case-avatar-6.svg";
+// Local avatar icons for case studies (real-person business avatars)
+import CaseAvatar1 from "./shangwu1.png";
+import CaseAvatar2 from "./shangwu2.png";
+import CaseAvatar3 from "./shangwu3.png";
+import CaseAvatar4 from "./shangwu4.png";
+import CaseAvatar5 from "./shangwu5.png";
+import CaseAvatar6 from "./shangwu6.png";
 
 export {
   Banner1,
