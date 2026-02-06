@@ -1,13 +1,20 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { BreadcrumbNav } from "@/components/BreadcrumbNav";
-import { ShoppingCart, Gamepad2, Users, Video, Cloud, Store } from "lucide-react";
 import { useLanguage } from "@/locales/LanguageContext";
 import { useMemo } from "react";
 import { useSchemaMarkup } from "@/hooks/useSchemaMarkup";
 import { generateOrganizationSchema, generateWebSiteSchema } from "@/lib/schema";
 import { useTDK } from "@/hooks/useTDK";
-import { Banner2 } from "@/assets/imgs";
+import {
+    Banner2,
+    CaseAvatar1,
+    CaseAvatar2,
+    CaseAvatar3,
+    CaseAvatar4,
+    CaseAvatar5,
+    CaseAvatar6,
+} from "@/assets/imgs";
 
 export default function Cases() {
     const { t, currentLanguage, translations } = useLanguage();
@@ -36,7 +43,7 @@ export default function Cases() {
 
     const cases = [
         {
-            icon: ShoppingCart,
+            avatar: CaseAvatar1,
             title: t('ecommerceCaseTitle'),
             industry: t('ecommerceCaseIndustry'),
             challengeDesc: t('ecommerceCaseChallengeDesc'),
@@ -51,7 +58,7 @@ export default function Cases() {
             authorTitle: t('ecommerceCaseAuthorTitle'),
         },
         {
-            icon: Gamepad2,
+            avatar: CaseAvatar2,
             title: t('gamingCaseTitle'),
             industry: t('gamingCaseIndustry'),
             challengeDesc: t('gamingCaseChallengeDesc'),
@@ -66,7 +73,7 @@ export default function Cases() {
             authorTitle: t('gamingCaseAuthorTitle'),
         },
         {
-            icon: Users,
+            avatar: CaseAvatar3,
             title: t('freelanceCaseTitle'),
             industry: t('freelanceCaseIndustry'),
             challengeDesc: t('freelanceCaseChallengeDesc'),
@@ -81,7 +88,7 @@ export default function Cases() {
             authorTitle: t('freelanceCaseAuthorTitle'),
         },
         {
-            icon: Video,
+            avatar: CaseAvatar4,
             title: t('mcnCaseTitle'),
             industry: t('mcnCaseIndustry'),
             challengeDesc: t('mcnCaseChallengeDesc'),
@@ -93,7 +100,7 @@ export default function Cases() {
             ],
         },
         {
-            icon: Cloud,
+            avatar: CaseAvatar5,
             title: t('saasCaseTitle'),
             industry: t('saasCaseIndustry'),
             challengeDesc: t('saasCaseChallengeDesc'),
@@ -105,7 +112,7 @@ export default function Cases() {
             ],
         },
         {
-            icon: Store,
+            avatar: CaseAvatar6,
             title: t('luxuryCaseTitle'),
             industry: t('luxuryCaseIndustry'),
             challengeDesc: t('luxuryCaseChallengeDesc'),
@@ -158,16 +165,19 @@ export default function Cases() {
                 <section className="w-full max-w-[1200px] px-4 md:px-8 lg:px-0 py-16 md:py-20">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {cases.map((caseItem, index) => {
-                            const Icon = caseItem.icon;
                             return (
                                 <article
                                     key={index}
-                                    className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow p-8"
+                                    className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow p-8 flex flex-col h-full"
                                 >
                                     {/* Industry Badge */}
                                     <div className="flex items-start gap-4 mb-6">
-                                        <div className="p-3 rounded-xl bg-blue-50">
-                                            <Icon className="w-6 h-6 text-blue-600" />
+                                        <div className="p-3 rounded-xl bg-blue-50 flex-shrink-0">
+                                            <img
+                                                src={caseItem.avatar}
+                                                alt={`${caseItem.industry} avatar`}
+                                                className="w-6 h-6 rounded-full object-cover"
+                                            />
                                         </div>
                                         <div>
                                             <span className="text-sm text-gray-500">{caseItem.industry}</span>
@@ -178,7 +188,7 @@ export default function Cases() {
                                     </div>
 
                                     {/* Challenge & Solution */}
-                                    <div className="space-y-4 mb-6">
+                                    <div className="space-y-4 mb-6 flex-1">
                                         <div>
                                             <h4 className="text-sm font-semibold text-red-600 mb-2">
                                                 {t('ecommerceCaseChallenge')}
@@ -197,8 +207,21 @@ export default function Cases() {
                                         </div>
                                     </div>
 
+                                    {/* Quote */}
+                                    {caseItem.quote && (
+                                        <div className="border-l-4 border-gray-200 pl-4 py-2 mb-6">
+                                            <p className="text-gray-600 italic text-sm mb-2 font-light">
+                                                {caseItem.quote}
+                                            </p>
+                                            <div className="text-xs text-gray-500">
+                                                <div className="font-semibold text-gray-950">{caseItem.author}</div>
+                                                <div className="font-light">{caseItem.authorTitle}</div>
+                                            </div>
+                                        </div>
+                                    )}
+
                                     {/* Metrics */}
-                                    <div className="grid grid-cols-3 gap-4 mb-6">
+                                    <div className="grid grid-cols-3 gap-4 mt-auto">
                                         {caseItem.metrics.map((metric, idx) => (
                                             <div
                                                 key={idx}
@@ -211,19 +234,6 @@ export default function Cases() {
                                             </div>
                                         ))}
                                     </div>
-
-                                    {/* Quote */}
-                                    {caseItem.quote && (
-                                        <div className="border-l-4 border-gray-200 pl-4 py-2">
-                                            <p className="text-gray-600 italic text-sm mb-2 font-light">
-                                                {caseItem.quote}
-                                            </p>
-                                            <div className="text-xs text-gray-500">
-                                                <div className="font-semibold text-gray-950">{caseItem.author}</div>
-                                                <div className="font-light">{caseItem.authorTitle}</div>
-                                            </div>
-                                        </div>
-                                    )}
                                 </article>
                             );
                         })}

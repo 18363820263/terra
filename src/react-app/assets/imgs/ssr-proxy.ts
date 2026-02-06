@@ -17,3 +17,11 @@ export const AboutFuture = '/assets/about-future.png';
 export const FooterBg = '/assets/footer-bg.png';
 export const AboutCover = '/assets/about-cover.jpg';
 export const AboutMap = '/assets/about-map.png';
+
+// Case page avatar icons
+export const CaseAvatar1 = '/assets/case-avatar-1.svg';
+export const CaseAvatar2 = '/assets/case-avatar-2.svg';
+export const CaseAvatar3 = '/assets/case-avatar-3.svg';
+export const CaseAvatar4 = '/assets/case-avatar-4.svg';
+export const CaseAvatar5 = '/assets/case-avatar-5.svg';
+export const CaseAvatar6 = '/assets/case-avatar-6.svg';
