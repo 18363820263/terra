@@ -2,6 +2,7 @@ export const esES = {
   // Common
   home: 'Inicio',
   cooperation: 'Cooperación Ganar-Ganar',
+  connect: 'Conectar',
   about: 'Sobre Nosotros',
   agenticPay: 'Agentic Pay',
   blogs: 'Blog',

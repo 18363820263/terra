@@ -2,6 +2,7 @@ export const enUS = {
   // Common
   home: 'Home',
   cooperation: 'Cooperation',
+  connect: 'Connect',
   about: 'About Us',
   agenticPay: 'Agentic Pay',
   blogs: 'Blog',

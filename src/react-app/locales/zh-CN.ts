@@ -2,6 +2,7 @@ export const zhCN = {
   // Common
   home: '首页',
   cooperation: '合作共赢',
+  connect: '连接',
   about: '关于我们',
   agenticPay: 'Agentic Pay',
   blogs: '博客',

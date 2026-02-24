@@ -2,6 +2,7 @@ export const zhTW = {
   // Common
   home: '首頁',
   cooperation: '合作共贏',
+  connect: '連接',
   about: '關於我們',
   agenticPay: 'Agentic Pay',
   blogs: '博客',
